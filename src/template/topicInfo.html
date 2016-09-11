@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主题详情</title>
+    <link rel="stylesheet" type="text/css" href="../style/core.css">
+</head>
+<body>
+<!-- nav导航 -->
+<div class="navbar">
+    <div class="container">
+        <!-- logo -->
+        <a href="#" class="link">
+            <img src="../img/cnodejs_light.svg">
+        </a>
+        <!-- 导航链接 -->
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">未读消息</a></li>
+            <li><a href="#">退出</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 内容 -->
+<div class="content">
+    <!-- 左边内容区 -->
+    <div>
+        <!-- 导航区: 如主页/问答 -->
+        <div></div>
+        <!-- 主题区 -->
+        <div>
+            <!-- 标题区 -->
+            <div></div>
+            <!-- 内容区 -->
+            <div id="content"></div>
+        </div>
+        <!-- 回复区 -->
+        <div></div>
+        <!-- 新建回复区 -->
+        <div></div>
+    </div>
+    <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
+    <div></div>
+</div>
+<!-- TODO : 添加底部信息 -->
+
+<script type="text/javascript" src="../lib/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/utils.js"></script>
+<script type="text/javascript" src="../lib/template.js"></script>
+<script type="text/javascript" src="../lib/template.helper.js"></script>
+<script type="text/javascript">
+$(function() {
+    var str = "<div class=\"markdown-text\"><p>最近接手了一个项目，发现项目中调用函数全是这种形式\nfunction importData(){\nvar _self=this;\n\t\t //…\n\t\t fun1.bind(_self)(a);<br>\n\t\t fun2.bind(_selft)(b);\n}\n感觉这样是可以避免关键字this带来的问题，但是真的需要每次调用都需要这样吗？</p>\n</div>";
+    // str = UTILS.replaceAll(str, '\n', '<br/>');
+    // str = UTILS.replaceAll(str, '\t', '&nbsp;&nbsp;&nbsp;&nbsp;');
+    $("#content").html(str);
+});
+</script>
+</body>
+</html>

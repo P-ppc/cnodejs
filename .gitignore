@@ -1,0 +1,4 @@
+.DS_Store
+*.sh
+*.css
+bower_components
