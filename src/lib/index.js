@@ -69,3 +69,6 @@ var INDEX = (function () {
         }
     }
 })();
+
+var fs = require('fs');
+console.log(fs);
