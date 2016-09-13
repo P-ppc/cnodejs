@@ -9,9 +9,9 @@
 <body>
 <!-- nav导航 -->
 <div class="navbar">
-    <div class="container">
+    <div class="nav-container">
         <!-- logo -->
-        <a href="#" class="link">
+        <a href="#" class="logo">
             <img src="../img/cnodejs_light.svg">
         </a>
         <!-- 导航链接 -->
@@ -24,18 +24,49 @@
 </div>
 
 <!-- 内容 -->
-<div class="content">
+<!-- TODO 使用模板进行渲染 -->
+<div class="main">
     <!-- 左边内容区 -->
-    <div id="content">
+    <div class="content">
         <!-- 导航区: 如主页/问答 -->
-        <div></div>
+        <div class="header">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">主页</a>
+                    <span class="divider">/</span>
+                </li>
+                <li class="active">
+                    API
+                </li>
+            </ul>
+        </div>
         <!-- 主题区 -->
         <div>
-            <!-- 标题区 -->
-            <div></div>
+            <!-- 主题相关信息 -->
+            <div class="topic-info">
+                <div class="title">
+                    <span class="title-tab">置顶</span>
+                    <span class="title-text">初识 mocha in NodeJS</span>
+                    <input type="submit" name="" value="收藏">
+                </div>
+                <!-- 相关信息 -->
+                <div class="sub-info">
+                    <!-- 
+                        1. 发布时间
+                        2. 作者名 
+                        3. 浏览次数
+                        4. 上次编辑时间
+                        5. 模块 -> 放导航区 
+                     -->
+                    <span>发布时间：<em>3 年前</em></span>
+                    <span>作者：<em>lhfcws</em></span>
+                    <span>浏览量：<em>35800</em></span>
+                    <span>上一次修改: <em>19 小时前</em></span>
+                </div>
+            </div>
             <!-- 内容区 -->
             <div class="inner topic">
-                <div class="topic_content" style="width: 702px;">
+                <div class="topic_content" style="width: 500px;">
                 </div>
             </div>
         </div>
@@ -45,9 +76,12 @@
         <div></div>
     </div>
     <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
-    <div></div>
+    <div class="sidebar"></div>
 </div>
+
 <!-- TODO : 添加底部信息 -->
+
+<!-- template -->
 
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
 <script type="text/javascript" src="../lib/utils.js"></script>

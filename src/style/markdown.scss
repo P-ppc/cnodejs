@@ -1,7 +1,92 @@
-#content {
-    background-color: #fff;
+.main {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    .content {
+        background-color: #fff;
+        border-radius: 3px;
+        .header {
+            padding: 10px;
+            background-color: #f6f6f6;
+            border-radius: 3px 3px 0 0;
+            .breadcrumb {
+                list-style: none;
+                box-shadow: none;
+                border-radius: 4px;
+                padding: 0;
+                margin: 0;
+                border: none;
+                background: 0 0;
+                > li {
+                    margin: 0;
+                    line-height: 20px;
+                    display: inline-block;
+                    text-shadow: none;
+                    a {
+                        text-decoration: none;
+                        color: #80bd01;
+                    }
+                    .divider {
+                        padding: 0 5px;
+                        color: #ccc;
+                    }
+                    &.active {
+                        color: #999;
+                    }
+                }
+            }
+        }
+        .topic-info {
+            height: 60px;
+            .title {
+                height: 40px;
+                line-height: 40px;
+                padding-left: 15px;
+                * {
+                    vertical-align: middle;
+                }
+                .title-tab {
+                    font-size: 12px;
+                    padding: 3px;
+                    border-radius: 2px;
+                    background-color: #80bd01;
+                    color: #fff;
+                }
+                .title-text {
+                    font-size: 22px;
+                    font-weight: 700;
+                    margin-left: 5px;
+                }
+                input {
+                    float: right;
+                    border: none;
+                    display: inline-block;
+                    margin-right: 20px;
+                    margin-top: 10px;
+                    border-radius: 3px;
+                    background-color: #80bd01;
+                    color: #fff;
+                }
+            }
+            .sub-info {
+                height: 20px;
+                padding-left: 20px;
+                font-size: 12px;
+                color: #838383;
+                span {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
 }
 
+
+
+
+/* ----以下的CSS待整理---- */
 h1, h2, h3, h4, h5, h6 {
     margin: 10px 0;
     font-family: inherit;

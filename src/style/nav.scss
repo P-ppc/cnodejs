@@ -7,12 +7,12 @@ body {
     width: 100%;
     background-color: #444;
     font-size: 14px;
-    .container {
+    .nav-container {
         height: 100%;
         width: 100%;
         max-width: 980px;
         margin: 0 auto;
-        > a {
+        > a.logo {
             margin-left: 20px;
             display: block;
             float: left;
