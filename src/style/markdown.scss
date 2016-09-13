@@ -102,6 +102,15 @@ h1, h2, h3 {
     line-height: 40px;
 }
 
+img {
+    width: auto\9;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
 .inner.topic {
     padding: 10px;
     border-top: 1px solid #e5e5e5;
@@ -116,6 +125,10 @@ h1, h2, h3 {
 .markdown-text a:hover {
     text-decoration: underline;
     color: #08c;
+}
+
+.markdown-text img {
+    cursor: pointer;
 }
 
 .topic_content {
