@@ -71,7 +71,8 @@
             <!-- </div> -->
         </div>
         <!-- 回复区 -->
-        <div></div>
+        <div id="replyContent">
+        </div>
         <!-- 新建回复区 -->
         <div></div>
     </div>
@@ -82,9 +83,8 @@
 <!-- TODO : 添加底部信息 -->
 
 <!-- template -->
-<!-- TODO 补充回复模板 -->
+<!-- 主题模板 -->
 <script type="text/html" id="topicTemplate">
-<!-- 主题相关信息 -->
 <div class="topic-info">
     <div class="title">
         <span class="title-tab">置顶</span>
@@ -107,6 +107,33 @@
 </div>
 </script>
 
+<!-- 回复模板 -->
+<script type="text/html" id="replyTemplate">
+<div class="header">
+    <span>{{data.reply_count}} 回复</span>
+</div>
+<div class="reply-list">
+{{each data.replies as value i}}
+    <div class="reply">
+        <!-- 头像 -->
+        <div class="author-avator">
+            <img src="{{value.author.avatar_url}}">
+        </div>
+        <div>
+            <div class="reply-info">
+                <span>{{value.author.loginname}}</span>
+                <span>{{i + 1}} 楼</span>
+                <span>{{value.create_at | timeSep}}</span>
+            </div>
+            <div>
+                {{#value.content}}
+            </div>
+        </div>
+    </div>        
+{{/each}}
+</div>
+</script>
+
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
 <script type="text/javascript" src="../lib/utils.js"></script>
 <script type="text/javascript" src="../lib/template.js"></script>
@@ -118,7 +145,7 @@
 $(function() {
     var str = "<div class=\"markdown-text\"><p><em>囧，cnodejs不能上传图。有图版请见 <a href=\"http://blog.csdn.net/lhfcws/article/details/8783553\">无图无真相！</a></em></p>\n<p>NodeJS里最常用的测试框架估计就是mocha了。它支持多种node的assert libs， 同时支持异步和同步的测试，同时支持多种方式导出结果，也支持直接在browser上跑Javascript代码测试。</p>\n<p>本文示例大多源于官网示例，部分示例结合需要或自己的感想有所改动。更多介绍请看 官方网址：<a href=\"http://visionmedia.github.io/mocha/\">Mocha on Github</a></p>\n<h2>Installation：</h2>\n<p>当你成功安装nodejs v0.10 和 npm后执行下面这条命令。</p>\n<pre class=\"prettyprint\"><code># npm install -g mocha\n</code></pre><p>p.s. Ubuntu的注意apt源里的nodejs版本会比较旧，某些module会不支持，请从nodejs官网进行源码安装。</p>\n<h2>First step to Mocha：</h2>\n<p>以下为最简单的一个mocha示例：</p>\n<pre class=\"prettyprint\"><code>var assert = require(&quot;assert&quot;);\ndescribe(&#x27;Array&#x27;, function(){\n\tdescribe(&#x27;#indexOf()&#x27;, function(){\n  \t\tit(&#x27;should return -1 when the value is not present&#x27;, function(){\n        \tassert.equal(-1, [1,2,3].indexOf(5));\n\t\t    assert.equal(-1, [1,2,3].indexOf(0));\n\t\t})\n\t})\n});\n</code></pre><ul>\n<li><strong>describe (moduleName, testDetails)</strong> \t\t\n由上述代码可看出，describe是可以嵌套的，比如上述代码嵌套的两个describe就可以理解成测试人员希望测试Array模块下的#indexOf() 子模块。module_name 是可以随便取的，关键是要让人读明白就好。</li>\n<li><strong>it (info, function)</strong> \t\t\n具体的测试语句会放在it的回调函数里，一般来说info字符串会写期望的正确输出的简要一句话文字说明。当该it block内的test failed的时候控制台就会把详细信息打印出来。一般是从最外层的describe的module_name开始输出（可以理解成沿着路径或者递归链或者回调链），最后输出info，表示该期望的info内容没有被满足。<strong>一个it对应一个实际的test case</strong></li>\n<li><strong>assert.equal (exp1, exp2)</strong> \t\t\n断言判断exp1结果是否等于exp2, 这里采取的等于判断是== 而并非 === 。即 assert.equal(1, ‘1’) 认为是True。这只是nodejs里的assert.js的一种断言形式，下文会提到同样比较常用的should.js。</li>\n</ul>\n<p>如果exp1和exp2均为字符串，字符串比较出错时则控制台会用颜色把相异的部分标出来。</p>\n<h2>Asynchronous</h2>\n<p>Frist step 中的代码显然是个 Synchronous 的代码，那么对于异步代码应该怎么做呢？很简单，在你最深处的回调函数中加done()表示结束。</p>\n<pre class=\"prettyprint\"><code>fs = require(&#x27;fs&#x27;);\ndescribe(&#x27;File&#x27;, function(){\n\tdescribe(&#x27;#readFile()&#x27;, function(){\n    \tit(&#x27;should read test.ls without error&#x27;, function(done){\n\t    \tfs.readFile(&#x27;test.ls&#x27;, function(err){\n\t\t\t\tif (err) throw err;\n\t\t\t\tdone();\n\t\t\t});\n\t\t})\n\t})\n})\n</code></pre><ul>\n<li><strong>done ()</strong><br>\n按照瀑布流编程习惯，取名done是表示你回调的最深处，也就是结束写嵌套回调函数。但对于回调链来说done实际上意味着告诉mocha从此处开始测试，一层层回调回去。</li>\n</ul>\n<p>上例代码是test pass的，<a href=\"http://xn--test-965fu21e0qjz1ai23y.xn--lstest-xp7is53dw1inprigi777c.as\">我们尝试把test.ls改成不存在的test.as</a>。便会返回具体的错误位置。</p>\n<p>这里可能会有个疑问，假如我有两个异步函数（两条分叉的回调链），那我应该在哪里加done()呢？实际上这个时候就不应该在一个it里面存在两个要测试的函数，事实上<strong>一个it里面只能调用一次done</strong>，当你调用多次done的话mocha会抛出错误。所以应该类似这样：</p>\n<pre class=\"prettyprint\"><code>fs = require(&#x27;fs&#x27;);\ndescribe(&#x27;File&#x27;, function(){\n\tdescribe(&#x27;#readFile()&#x27;, function(){\n    \tit(&#x27;should read test.ls without error&#x27;, function(done){\n\t    \tfs.readFile(&#x27;test.ls&#x27;, function(err){\n\t\t\t\tif (err) throw err;\n\t\t\t\tdone();\n\t\t\t});\n\t\t})\n    \tit(&#x27;should read test.js without error&#x27;, function(done){\n\t    \tfs.readFile(&#x27;test.js&#x27;, function(err){\n\t\t\t\tif (err) throw err;\n\t\t\t\tdone();\n\t\t\t});\n\t\t})\n\t})\n})\n</code></pre><h2>Pending</h2>\n<p>即省去测试细节只保留函数体。一般适用情况比如负责测试框架的写好框架让组员去实现细节，或者测试细节尚未完全正确实现先注释以免影响全局测试情况。这种时候mocha会默认该测试pass。\n作用有点像Python的pass。</p>\n<pre class=\"prettyprint\"><code>describe(&#x27;Array&#x27;, function(){\n\tdescribe(&#x27;#indexOf()&#x27;, function(){\n  \t\tit(&#x27;should return -1 when the value is not present&#x27;, function(){\n\t\t})\n\t})\n});\n</code></pre><h2>Exclusive &amp;&amp; Inclusive</h2>\n<p>其实很好理解，分别对应only和skip函数。</p>\n<pre class=\"prettyprint\"><code>fs = require(&#x27;fs&#x27;);\ndescribe(&#x27;File&#x27;, function(){\n\tdescribe(&#x27;#readFile()&#x27;, function(){\n    \tit.skip(&#x27;should read test.ls without error&#x27;, function(done){\n\t    \tfs.readFile(&#x27;test.ls&#x27;, function(err){\n\t\t\t\tif (err) throw err;\n\t\t\t\tdone();\n\t\t\t});\n\t\t})\n    \tit(&#x27;should read test.js without error&#x27;, function(done){\n\t\t})\n\t})\n})\n</code></pre><p>上面的代码只会有一个test complete， 只有only的会被执行，另一个会被忽略掉。<strong>每个函数里只能有一个only</strong>。如果是it.skip ，那么该case就会被忽略。</p>\n<p>only和skip共用没有什么实际意义，因为only的作用会把skip屏蔽掉。</p>\n<pre class=\"prettyprint\"><code>fs = require(&#x27;fs&#x27;);\ndescribe(&#x27;File&#x27;, function(){\n\tdescribe(&#x27;#readFile()&#x27;, function(){\n    \tit.skip(&#x27;should read test.ls without error&#x27;, function(done){\n\t    \tfs.readFile(&#x27;test.as&#x27;, function(err){\n\t\t\t\tif (err) throw err;\n\t\t\t\tdone();\n\t\t\t});\n\t\t})\n    \tit(&#x27;should read test.js without error&#x27;, function(done){\n\t\t})\n\t})\n})\n</code></pre><p>上面的代码尽管test.as不存在，但是由于skip，依然会显示test complete。</p>\n<h2>Before &amp;&amp; After</h2>\n<p>单元测试里经常会用到before和after。mocha同时还提供了beforeEach()和afterEach()。\n这里为方便阅读用livescript表示，!-&gt;可理解成function(){}。细节无需细读，只需通过框架了解这几个函数如何使用便可。</p>\n<pre class=\"prettyprint\"><code>require! assert\nrequire! fs\ncan = it\n\n\ndescribe &#x27;Array&#x27;, !-&gt;\n\tbeforeEach !-&gt;\n\t\tconsole.log &#x27;beforeEach Array&#x27;\n\n\tbefore !-&gt;\n\t\tconsole.log &#x27;before Array&#x27;\n\t\n\tbefore !-&gt;\n\t\tconsole.log &#x27;before Array second time&#x27;\n\n\tafter !-&gt;\n\t\tconsole.log &#x27;after Array&#x27;\n\n\tdescribe &#x27;#indexOf()&#x27;, !-&gt;\n\t\tcan &#x27;should return -1 when the value is not present&#x27;, !-&gt;\n\t\t\tassert.equal -1, [1,2,3].indexOf 0\n\t\tcan &#x27;should return 1 when the value is not present&#x27;, !-&gt;\n\n\tdescribe &#x27;File&#x27;, !-&gt;\n\n\t\tbeforeEach !-&gt;\n\t\t\tconsole.log &#x27;beforeEach file test!&#x27;\n\n\t\tafterEach !-&gt;\n\t\t\tconsole.log &#x27;afterEach File test!&#x27;\n\n\t\tdescribe &#x27;#readFile()&#x27;, !-&gt;\n\t\t\tcan &#x27;should read test.ls without error&#x27;, !(done)-&gt;\n\t\t\t\tfs.readFile &#x27;test.ls&#x27;, !(err)-&gt;\n\t\t\t\t\tif err\n\t\t\t\t\t\tthrow err\n\t\t\t\t\tdone!\n\t\t\tcan &#x27;should read test.js without error&#x27;, !(done)-&gt;\n\t\t\t\tfs.readFile &#x27;test.js&#x27;, !(err)-&gt;\n\t\t\t\t\tif err\n\t\t\t\t\t\tthrow err\n\t\t\t\t\tdone!\n</code></pre><p>由结果可知(after的使用与before同理)，</p>\n<ul>\n<li>beforeEach会对当前describe下的所有子case生效。</li>\n<li>before和after的代码没有特殊顺序要求。</li>\n<li>同一个describe下可以有多个before，执行顺序与代码顺序相同。</li>\n<li>同一个describe下的执行顺序为before, beforeEach, afterEach, after</li>\n<li>当一个it有多个before的时候，执行顺序从最外围的describe的before开始，其余同理。</li>\n</ul>\n<h2>Test Driven Develop (TDD)</h2>\n<p>mocha默认的模式是Behavior Driven Develop (BDD)，要想执行TDD的test的时候需要加上参数，如</p>\n<pre class=\"prettyprint\"><code>mocha -u tdd test.js\n</code></pre><p>前文所讲的describe, it, before, after等都属于BDD的范畴，对于TDD，我们用suite, test, setup, teardown。样例代码如下:</p>\n<pre class=\"prettyprint\"><code>suite &#x27;Array&#x27;, !-&gt;\n\tsetup !-&gt;\n\t\tconsole.log &#x27;setup&#x27;\n\n\tteardown !-&gt;\n\t\tconsole.log &#x27;teardown&#x27;\n\n\tsuite &#x27;#indexOf()&#x27;, !-&gt;\n\t\ttest &#x27;should return -1 when not present&#x27;, !-&gt;\n\t\t\tassert.equal -1, [1,2,3].indexOf 4\n</code></pre><hr>\n### TDD的一些相关资料：\n1. **What is TDD** :\n<p><a href=\"http://stackoverflow.com/questions/2327119/what-is-test-driven-development-does-it-require-to-have-initial-designs\">http://stackoverflow.com/questions/2327119/what-is-test-driven-development-does-it-require-to-have-initial-designs</a></p>\n<ol>\n<li><strong>Difference between TDD &amp;&amp; BDD</strong> :</li>\n</ol>\n<p><a href=\"http://stackoverflow.com/questions/4395469/tdd-and-bdd-differences\">http://stackoverflow.com/questions/4395469/tdd-and-bdd-differences</a></p>\n</div>";
     // $(".topic_content").html(str);
-    TOPICINFO.initPage('57d7b5d503e01d2f6b17ac9e');
+    TOPICINFO.initPage('57d8a789b11d78e3659db4e5');
     prettyPrint();
 });
 </script>

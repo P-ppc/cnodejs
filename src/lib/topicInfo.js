@@ -10,6 +10,8 @@ var TOPICINFO = (function () {
                 if (respData && respData.success === true) {
                     topicHtml = template('topicTemplate', respData);
                     $("#topicContent").html(topicHtml);
+                    replyHtml = template('replyTemplate', respData);
+                    $("#replyContent").html(replyHtml);
                 }
             }
         })
