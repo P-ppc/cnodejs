@@ -9,6 +9,7 @@ var TOPICINFO = (function () {
             success: function(respData) {
                 if (respData && respData.success === true) {
                     topicHtml = template('topicTemplate', respData);
+                    topicHtml = UTILS.fixImgSrc(topicHtml);
                     $("#topicContent").html(topicHtml);
                     replyHtml = template('replyTemplate', respData);
                     $("#replyContent").html(replyHtml);

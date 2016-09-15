@@ -5,6 +5,7 @@ template.helper('avatar', function(urlString) {
     }
     return urlString;
 });
+
 // FIX 时间间隔
 template.helper('timeSep', function(replyTime) {
     // 年 -> 月 -> 天 -> 小时 -> 分钟 -> 秒

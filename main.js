@@ -13,8 +13,8 @@ function createWindow() {
   win = new BrowserWindow({width: 1040, height: 750});
 
   // 并且装载应用的index.html页面
-  // win.loadURL(`file://${__dirname}/src/template/index.html`);
-  win.loadURL(`file://${__dirname}/src/template/topicInfo.html`);
+  win.loadURL(`file://${__dirname}/src/template/index.html`);
+  // win.loadURL(`file://${__dirname}/src/template/topicInfo.html`);
   // 打开开发工具页面
   // win.webContents.openDevTools();
 
