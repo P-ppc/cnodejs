@@ -50,8 +50,9 @@
                         height: 40px;
                         line-height: 40px;
                         padding-left: 15px;
+                        
                         * {
-                            vertical-align: middle;
+                            vertical-align: top;
                         }
                         .title-tab {
                             font-size: 12px;
@@ -64,6 +65,11 @@
                             font-size: 22px;
                             font-weight: 700;
                             margin-left: 5px;
+                            display: inline-block;
+                            width: 550px;
+                            overflow:hidden;
+                            text-overflow:ellipsis;
+                            white-space:nowrap;
                         }
                         input {
                             float: right;
