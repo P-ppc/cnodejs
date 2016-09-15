@@ -91,7 +91,7 @@
 {{each data.replies as value i}}
     <div class="reply">
         <div class="reply-info">
-            <img src="{{value.author.avatar_url}}">
+            <img src="{{value.author.avatar_url | avatar}}">
             <a href="#">{{value.author.loginname}}</a>
             <span>{{i + 1}}楼</span>
             <span>{{value.create_at | timeSep}}</span>
@@ -113,7 +113,7 @@
 <script type="text/javascript" src="../lib/topicInfo.js"></script>
 <script type="text/javascript">
 $(function() {
-    TOPICINFO.initPage('57d8a789b11d78e3659db4e5');
+    TOPICINFO.initPage();
     prettyPrint();
 });
 </script>

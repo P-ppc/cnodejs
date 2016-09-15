@@ -54,6 +54,13 @@ var INDEX = (function () {
         });
     };
 
+    var initTopicClick = function() {
+        $("#list").on('click', '.topic-title', function () {
+            var id = $(this).attr("data-id");
+            window.location = 'topicInfo.html?topicId=' + id;
+        });
+    }
+
     var getPage = function(pageNum) {
         var options = {
             tab: $(this).attr("data-tab"),
@@ -66,9 +73,7 @@ var INDEX = (function () {
         initPage: function() {
             initPageList();
             initTopicTab();
+            initTopicClick();
         }
     }
 })();
-
-var fs = require('fs');
-console.log(fs);

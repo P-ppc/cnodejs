@@ -18,8 +18,9 @@ var TOPICINFO = (function () {
     };
 
     return {
-        initPage: function(topicId, accessToken) {
-            initPage(topicId, accessToken);
+        initPage: function() {
+            var topicId = UTILS.getQueryString('topicId');
+            initPage(topicId);
         }
     }
 })();
