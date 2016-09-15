@@ -27,22 +27,24 @@
 <!-- TODO 使用模板进行渲染 -->
 <div class="main">
     <!-- 左边内容区 -->
-    <div class="content">
-        <!-- 导航区: 如主页/问答 -->
-        <div class="header">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="#">主页</a>
-                    <span class="divider">/</span>
-                </li>
-                <li class="active">
-                    API
-                </li>
-            </ul>
-        </div>
-        <!-- 主题区 -->
-        <div id="topicContent">
-        </div>
+    <div class="left-wrap">
+        <div class="topic">
+            <!-- 导航区: 如主页/问答 -->
+            <div class="header">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">主页</a>
+                        <span class="divider">/</span>
+                    </li>
+                    <li class="active">
+                        API
+                    </li>
+                </ul>
+            </div>
+            <!-- 主题区 -->
+            <div id="topicContent">
+            </div>
+        </div> 
         <!-- 回复区 -->
         <div id="replyContent">
         </div>
@@ -50,7 +52,7 @@
         <div></div>
     </div>
     <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
-    <div class="sidebar"></div>
+    <div class="right-wrap"></div>
 </div>
 
 <!-- TODO : 添加底部信息 -->
