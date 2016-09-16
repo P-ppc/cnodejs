@@ -5,6 +5,7 @@
     <title>主题详情</title>
     <link rel="stylesheet" type="text/css" href="../style/core.css">
     <link rel="stylesheet" type="text/css" href="../lib/code-prettify/prettify.css">
+    <link rel="stylesheet" type="text/css" href="../lib/editor/editor.css">
 </head>
 <body>
 <!-- nav导航 -->
@@ -49,7 +50,17 @@
         <div id="replyContent">
         </div>
         <!-- 新建回复区 -->
-        <div></div>
+        <div id="reply">
+            <div class="header">
+                <span>添加回复</span>
+            </div>
+            <div class="reply-form">
+                <textarea id="replyArea"></textarea>
+                <div class="reply-btns">
+                    <input type="submit" name="">
+                </div>
+            </div>
+        </div>
     </div>
     <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
     <div class="right-wrap"></div>
@@ -109,6 +120,8 @@
 <script type="text/javascript" src="../lib/template.js"></script>
 <script type="text/javascript" src="../lib/template.helper.js"></script>
 <script type="text/javascript" src="../lib/code-prettify/prettify.js"></script>
+<script type="text/javascript" src="../lib/editor/editor.js"></script>
+<script type="text/javascript" src="../lib/editor/marked.js"></script>
 
 <script type="text/javascript" src="../lib/topicInfo.js"></script>
 <script type="text/javascript">

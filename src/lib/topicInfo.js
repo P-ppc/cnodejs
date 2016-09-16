@@ -22,6 +22,27 @@ var TOPICINFO = (function () {
         initPage: function() {
             var topicId = UTILS.getQueryString('topicId');
             initPage(topicId);
+            var area = document.getElementById('replyArea');
+            var editor = new Editor({
+                element: area,
+                toolbar: [
+                    {name: 'bold', action: Editor.toggleBold},
+                    {name: 'italic', action: Editor.toggleItalic},
+                    '|',
+
+                    {name: 'quote', action: Editor.toggleBlockquote},
+                    {name: 'unordered-list', action: Editor.toggleUnOrderedList},
+                    {name: 'ordered-list', action: Editor.toggleOrderedList},
+                    '|',
+
+                    {name: 'link', action: Editor.drawLink},
+                    {name: 'image', action: Editor.drawImage},
+                    '|',
+
+                    {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
+                    {name: 'preview', action: Editor.togglePreview}
+                ]
+            });
         }
     }
 })();

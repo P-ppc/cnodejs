@@ -95,6 +95,7 @@
             }
         }
         #replyContent {
+            margin-bottom: 15px;
             .header {
                 padding: 10px;
                 background-color: #f6f6f6;
@@ -130,6 +131,32 @@
             .reply-content {
                 padding-left: 50px;
                 padding-right: 10px;
+            }
+        }
+        #reply {
+            margin-bottom: 15px;
+            .header {
+                padding: 10px;
+                background-color: #f6f6f6;
+                border-radius: 3px 3px 0 0;
+            }
+            .reply-form {
+                padding: 10px;
+                border-top: 1px solid #e5e5e5;
+                background-color: #fff;
+                .CodeMirror{
+                    height: 160px;
+                }
+                .reply-btns {
+                    input {
+                        border: none;
+                        display: inline-block;
+                        border-radius: 3px;
+                        background-color: #08c;
+                        color: #fff;
+                        padding:5px 10px;
+                    }
+                }
             }
         }
     }
