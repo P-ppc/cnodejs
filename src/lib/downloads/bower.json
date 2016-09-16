@@ -18,6 +18,7 @@
     "jquery": "^3.1.0",
     "jQuery-old": "jQuery#1.9.1",
     "art-template": "^3.0.1",
-    "code-prettify": "*"
+    "code-prettify": "*",
+    "editor": "lepture/editor#^0.1.0"
   }
 }
