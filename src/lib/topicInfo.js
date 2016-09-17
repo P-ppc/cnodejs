@@ -13,10 +13,27 @@ var TOPICINFO = (function () {
                     $("#topicContent").html(topicHtml);
                     replyHtml = template('replyTemplate', respData);
                     $("#replyContent").html(replyHtml);
+                    var authorName = respData.data.author.loginname;
+                    _initAutorInfo(authorName);
                 }
             }
         })
     };
+
+    var _initAutorInfo = function(authorName) {
+        var urlString = 'https://cnodejs.org/api/v1/user/' + authorName;
+        $.ajax({
+            url: urlString,
+            type: 'GET',
+            dataType: 'json',
+            success: function(respData) {
+                if (respData && respData.success === true) {
+                    authorHtml = template('authorTemplate', respData);
+                    $('#author').html(authorHtml);
+                }
+            }
+        });
+    }
 
     return {
         initPage: function() {

@@ -64,99 +64,8 @@
     </div>
     <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
     <div class="right-wrap">
-        <div class="wrap">
-            <!-- 作者 -->
-            <div class="author">
-                <div class="header">
-                    <span>作者</span>
-                </div>
-                <div class="author-info">
-                    <div class="line">
-                        <!-- 头像 -->
-                        <a href="#">
-                            <img src="https://avatars.githubusercontent.com/u/7941669?v=3&s=120">
-                        </a>
-                        <!-- 用户名 -->
-                        <a href="#"><span>hisune</span></a>
-                    </div>
-                    <!-- 积分 -->
-                    <div class="line">
-                        <span>积分：</span><em>170</em>
-                    </div>
-                </div>
-            </div>
-            <!-- 最近发布的话题 -->
-            <div class="last-topic">
-                <div class="header">
-                    <span>作者其他话题</span>
-                </div>
-                <div class="title-list">
-                    <ul>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPTjjjjjjj</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- 最近回复的话题 -->
-            <div class="last-reply">
-                <div class="header">
-                    <span>作者最近回复话题</span>
-                </div>
-                <div class="title-list">
-                    <ul>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPT</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#">做了一个好玩的东西，socket.io版的PPTjjjjjjj</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="wrap" id="author">
         </div>
-
     </div>
 </div>
 
@@ -206,6 +115,61 @@
         </div>
     </div>        
 {{/each}}
+</div>
+</script>
+
+<!-- 作者信息模板 -->
+<script type="text/html" id="authorTemplate">
+<div class="author">
+    <div class="header">
+        <span>作者</span>
+    </div>
+    <div class="author-info">
+        <div class="line">
+            <!-- 头像 -->
+            <a href="#">
+                <img src="{{data.avatar_url}}">
+            </a>
+            <!-- 用户名 -->
+            <a href="#"><span>{{data.loginname}}</span></a>
+        </div>
+        <!-- 积分 -->
+        <div class="line">
+            <span>积分：</span><em>{{data.score}}</em>
+        </div>
+    </div>
+</div>
+<div class="last-topic">
+    <div class="header">
+        <span>作者其他话题</span>
+    </div>
+    <div class="title-list">
+        <ul>
+            {{each data.recent_topics as value i}}
+            <li>
+                <div>
+                    <a href="#">{{value.title}}</a>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+<div class="last-reply">
+    <div class="header">
+        <span>作者最近回复话题</span>
+    </div>
+    <div class="title-list">
+        <ul>
+            {{each data.recent_replies as value i}}
+            <li>
+                <div>
+                    <a href="#">{{value.title}}</a>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
 </div>
 </script>
 
