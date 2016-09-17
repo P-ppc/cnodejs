@@ -167,6 +167,86 @@
             }
         }
     }
+    .right-wrap {
+        float: right;
+        width: 30%;
+        > div.wrap {
+            padding-left: 10px;
+            .author {
+                margin-bottom: 20px;
+                .header {
+                    padding: 10px;
+                    background-color: #f6f6f6;
+                    border-radius: 3px 3px 0 0;
+                    font-size: 14px; 
+                }
+                .author-info {
+                    background-color: #fff;
+                    > div.line {
+                        padding: 10px 10px 5px;
+                        * {
+                            vertical-align: middle;
+                        }
+                        a {
+                            text-decoration: none;
+                            color: #778087;
+                            padding-right: 5px;
+                            img {
+                                border-radius: 3px;
+                                width: 48px;
+                                height: 48px;
+                            }
+                            span {
+                                font-size: 16px;
+                            }
+                        }
+                        span, em {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .last-topic, .last-reply {
+                margin-bottom: 20px;
+                .header {
+                    padding: 10px;
+                    background-color: #f6f6f6;
+                    border-radius: 3px 3px 0 0;
+                    font-size: 14px;
+                }
+                .title-list {
+                    background-color: #fff;
+                    padding: 10px;
+                    ul {
+                        list-style: none;
+                        margin: 0 0 10px 25px;
+                        margin-left: 0;
+                        padding: 0;
+                        li {
+                            margin-left: 0;
+                            line-height: 2em;
+                            div {
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                a {
+                                    width: 100%;
+                                    text-decoration: none;
+                                    color: #778087;
+                                    vertical-align: middle;
+                                    font-size: 14px;
+                                    line-height: 28px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .last-reply {
+
+            }
+        }
+    }
 }
 
 
