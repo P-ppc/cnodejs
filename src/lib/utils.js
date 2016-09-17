@@ -17,10 +17,12 @@ var UTILS = (function() {
         var imgReg = new RegExp('<img.*>', 'gm');
         var srcReg = new RegExp('src=[\"\']//', 'gm');
         var imgs = html.match(imgReg);
-        for (var i = 0; i < imgs.length; i++) {
-            var img = imgs[i];
-            replaceImg = img.replace(srcReg, 'src=\"https://');
-            html = html.replace(img, replaceImg);
+        if (imgs) {
+            for (var i = 0; i < imgs.length; i++) {
+                var img = imgs[i];
+                replaceImg = img.replace(srcReg, 'src=\"https://');
+                html = html.replace(img, replaceImg);
+            }
         }
         return html;
     }
