@@ -30,6 +30,7 @@ var TOPICINFO = (function () {
                 if (respData && respData.success === true) {
                     authorHtml = template('authorTemplate', respData);
                     $('#author').html(authorHtml);
+                    prettyPrint();
                 }
             }
         });
