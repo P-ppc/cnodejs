@@ -1,0 +1,13 @@
+html,body{
+    height:100%
+}
+
+.login-form {
+    width: 400px;
+    height: 150px;
+    margin: 300px auto;
+    .row {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
