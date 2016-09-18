@@ -1,8 +1,7 @@
 var LOGIN = (function() {
-    var storage = window.localStorage;
     var initPage = function() {
         // 如果保存有用户信息, 则跳过登录
-        if (storage.getItem('USERINFO')) {
+        if (STORAGE.getJSON('USERINFO')) {
             window.location = 'index.html';
         }
         _initLoginBtn();
@@ -29,7 +28,7 @@ var LOGIN = (function() {
                             avatarUrl: respData.avatar_url,
                             loginName: respData.loginname
                         };
-                        storage.setItem('USERINFO', userInfo);
+                        STORAGE.setJSON('USERINFO', userInfo);
                         window.location = 'index.html';
                     }
                 }
