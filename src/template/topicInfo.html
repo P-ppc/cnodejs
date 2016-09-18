@@ -104,7 +104,12 @@
     <div class="title">
         <span class="title-tab">置顶</span>
         <span class="title-text">{{data.title}}</span>
-        <input type="submit" name="" value="收藏">
+        {{if data.is_collect}}
+            <input type="submit" name="" value="取消收藏" id="collect" class="collect collect-cancel" data-collectFlag="1">
+        {{else}}
+            <input type="submit" name="" value="收藏" id="collect" class="collect"
+             data-collectFlag="0">
+        {{/if}}
     </div>
     <!-- 相关信息 -->
     <div class="sub-info">
@@ -207,6 +212,7 @@
 <script type="text/javascript" src="../lib/editor/editor.js"></script>
 <script type="text/javascript" src="../lib/editor/marked.js"></script>
 
+<script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/topicInfo.js"></script>
 <script type="text/javascript">
 $(function() {

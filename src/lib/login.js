@@ -26,7 +26,8 @@ var LOGIN = (function() {
                         var userInfo = {
                             id: respData.id,
                             avatarUrl: respData.avatar_url,
-                            loginName: respData.loginname
+                            loginName: respData.loginname,
+                            accessToken: accessToken 
                         };
                         STORAGE.setJSON('USERINFO', userInfo);
                         window.location = 'index.html';
