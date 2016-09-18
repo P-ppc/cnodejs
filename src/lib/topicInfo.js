@@ -1,4 +1,5 @@
 var TOPICINFO = (function () {
+    var editor;
     var initPage = function(topicId, accessToken) {
         var urlString = 'https://cnodejs.org/api/v1/topic/' + topicId;
         urlString = accessToken == '' ? urlString : urlString + '?accesstoken=' + accessToken;
@@ -37,30 +38,6 @@ var TOPICINFO = (function () {
         });
     }
 
-    var initEditor = function() {
-        var area = document.getElementById('replyArea');
-        var editor = new Editor({
-            element: area,
-            toolbar: [
-                {name: 'bold', action: Editor.toggleBold},
-                {name: 'italic', action: Editor.toggleItalic},
-                '|',
-
-                {name: 'quote', action: Editor.toggleBlockquote},
-                {name: 'unordered-list', action: Editor.toggleUnOrderedList},
-                {name: 'ordered-list', action: Editor.toggleOrderedList},
-                '|',
-
-                {name: 'link', action: Editor.drawLink},
-                {name: 'image', action: Editor.drawImage},
-                '|',
-
-                {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
-                {name: 'preview', action: Editor.togglePreview}
-            ]
-        });
-    };
-
     // 初始化收藏按钮
     var _initCollectBtn = function() {
         var accessToken = STORAGE.getJSON('USERINFO').accessToken;
@@ -95,6 +72,56 @@ var TOPICINFO = (function () {
         });
     };
 
+    var initEditor = function() {
+        var area = document.getElementById('replyArea');
+        editor = new Editor({
+            element: area,
+            toolbar: [
+                {name: 'bold', action: Editor.toggleBold},
+                {name: 'italic', action: Editor.toggleItalic},
+                '|',
+
+                {name: 'quote', action: Editor.toggleBlockquote},
+                {name: 'unordered-list', action: Editor.toggleUnOrderedList},
+                {name: 'ordered-list', action: Editor.toggleOrderedList},
+                '|',
+
+                {name: 'link', action: Editor.drawLink},
+                {name: 'image', action: Editor.drawImage},
+                '|',
+
+                {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
+                {name: 'preview', action: Editor.togglePreview}
+            ]
+        });
+    };
+
+    // 初始化回复提交按钮
+    var initReplyBtn = function() {
+        var accessToken = STORAGE.getJSON('USERINFO').accessToken;
+        var topicId = UTILS.getQueryString('topicId');
+        $("#replyBtn").click(function () {
+            var replyContent = editor.codemirror.getValue();
+            urlString = "https://cnodejs.org/api/v1/topic/" + topicId + "/replies";
+            $.ajax({
+                url: urlString,
+                type: 'POST',
+                dataType: 'json',
+                data: $.param({
+                    accesstoken: accessToken,
+                    content: replyContent
+                }),
+                success: function(respData) {
+                    if (respData && respData.success === true) {
+                        // 刷新页面
+                        initPage(topicId, accessToken);
+                        // 自己为空
+                        editor.codemirror.setValue('');
+                    }
+                }
+            });
+        });
+    };
 
     return {
         initPage: function() {
@@ -102,6 +129,7 @@ var TOPICINFO = (function () {
             var accessToken = STORAGE.getJSON('USERINFO').accessToken;
             initPage(topicId, accessToken);
             initEditor();
+            initReplyBtn();
         }
     }
 })();
