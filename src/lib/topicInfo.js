@@ -32,6 +32,7 @@ var TOPICINFO = (function () {
             success: function(respData) {
                 if (respData && respData.success === true) {
                     authorHtml = template('authorTemplate', respData);
+                    authorHtml = UTILS.fixImgSrc(authorHtml);
                     $('#author').html(authorHtml);
                     prettyPrint();
                 }
