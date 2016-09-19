@@ -41,19 +41,19 @@
             <div class="editor-container">
                 <div class="select">
                     <span>选择版块：</span>
-                    <select>
+                    <select id="tab">
                         <option selected>请选择</option>
-                        <option>分享</option>
-                        <option>问答</option>
-                        <option>招聘</option>  
+                        <option value="share">分享</option>
+                        <option value="ask">问答</option>
+                        <option value="job">招聘</option>  
                     </select>
                 </div>
                 <div class="title">
-                    <textarea placeholder="标题字数 10 字以上"></textarea>
+                    <textarea placeholder="标题字数 10 字以上" id="title"></textarea>
                 </div>
                 <textarea id="editorArea"></textarea>
                 <div class="editor-btns">
-                    <input type="submit" name="">
+                    <input type="submit" name="" id="submit">
                 </div>
             </div>
         </div>
@@ -127,28 +127,11 @@
 <script type="text/javascript" src="../lib/editor/editor.js"></script>
 <script type="text/javascript" src="../lib/editor/marked.js"></script>
 
+<script type="text/javascript" src="../lib/storage.js"></script>
+<script type="text/javascript" src="../lib/createTopic.js"></script>
+
 <script type="text/javascript">
-var area = document.getElementById('editorArea');
-var editor = new Editor({
-    element: area,
-    toolbar: [
-        {name: 'bold', action: Editor.toggleBold},
-        {name: 'italic', action: Editor.toggleItalic},
-        '|',
-
-        {name: 'quote', action: Editor.toggleBlockquote},
-        {name: 'unordered-list', action: Editor.toggleUnOrderedList},
-        {name: 'ordered-list', action: Editor.toggleOrderedList},
-        '|',
-
-        {name: 'link', action: Editor.drawLink},
-        {name: 'image', action: Editor.drawImage},
-        '|',
-
-        {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
-        {name: 'preview', action: Editor.togglePreview}
-    ]
-});
+    CREATETOPIC.initPage();
 </script>
 </body>
 </html>

@@ -1,5 +1,9 @@
 // 自定义存储
 var STORAGE = (function() {
+    // TODO  list
+    // 支持暂时存储: sessionStorage
+    // 提供pop, 即取值时同时删除数据
+    // JSON.parse()不能转换普通的字符串, 所以要提供普通的string版
     var _storage = window.localStorage;
 
     _getJSON = function(key) {
