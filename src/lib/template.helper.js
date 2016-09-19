@@ -1,4 +1,4 @@
-// FIX 一些头像无法显示
+// FIX一些头像无法显示
 template.helper('avatar', function(urlString) {
     if (!urlString.startsWith('https:')) {
         urlString = 'https://' + urlString;
@@ -6,7 +6,7 @@ template.helper('avatar', function(urlString) {
     return urlString;
 });
 
-// FIX 时间间隔
+// FIX时间间隔
 template.helper('timeSep', function(replyTime) {
     // 年 -> 月 -> 天 -> 小时 -> 分钟 -> 秒
     start = new Date(replyTime);

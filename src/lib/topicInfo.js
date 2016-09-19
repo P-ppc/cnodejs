@@ -13,6 +13,7 @@ var TOPICINFO = (function () {
                     topicHtml = UTILS.fixImgSrc(topicHtml);
                     $("#topicContent").html(topicHtml);
                     replyHtml = template('replyTemplate', respData);
+                    replyHtml = UTILS.fixImgSrc(replyHtml);
                     $("#replyContent").html(replyHtml);
                     var authorName = respData.data.author.loginname;
                     _initCollectBtn();
