@@ -6,13 +6,30 @@
     <link rel="stylesheet" type="text/css" href="../style/core.css">
 </head>
 <body>
-<div class="login-form">
-    <div class="row">
-        <input type="text" name="" placeholder="请输入您的AccessToken" id="accessToken">
+<div class="page-login">
+    <div class="page-logo">
+        <a href="#" class="brand">
+            <img src="../img/cnodejs.svg">
+        </a>
     </div>
-    <div class="row">
-        <input type="submit" name="" id="loginSubmit">
-        <input type="reset" name="">
+    <div class="page-body">
+        <div class="login-head">
+            Login
+        </div>
+        <div class="login-body">
+            <form class="login-form">
+                <h4>Access Token</h4>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Access Token" id="accessToken">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success" id="loginSubmit">LOGIN</button>
+                </div>
+            </form>
+        </div>
+        <div class="login-bottom">
+            <a href="#">怎么获取Access Token?</a>
+        </div>
     </div>
 </div>
 
