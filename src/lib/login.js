@@ -34,6 +34,7 @@ var LOGIN = (function() {
                     }
                 }
             })
+        return false;
         });
     }
 
