@@ -49,7 +49,7 @@
 <!-- TODO 实现backToTop -->
 <!-- 底部信息 -->
 <!-- 如果页面内容过短，则将footer通过fixed固定, 否则position:relative-->
-<div class="footer">
+<div class="footer" id="footer">
     <div class="footer-main">
         <div class="links">
             <a href="#" class="dark">RSS</a>
@@ -110,6 +110,9 @@
 
 <!-- 此处采用了1.9.1版本的jQuery, 高版本要做相应的修改 -->
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
+<!-- 固定footer至页面底部 -->
+<script type="text/javascript" src="../lib/fixedFooter.js"></script>
+
 <script type="text/javascript" src="../lib/pager.js"></script>
 <script type="text/javascript" src="../lib/template.js"></script>
 <script type="text/javascript" src="../lib/template.helper.js"></script>
@@ -118,6 +121,7 @@
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
 <script type="text/javascript" src="../lib/index.js"></script>
+
 <script type="text/javascript">
 $(function() {
     INDEX.initPage();
