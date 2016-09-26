@@ -142,8 +142,9 @@
 {{each data.replies as value i}}
     <div class="reply">
         <div class="reply-info">
+            <a class="anchor" id={{value.id}}></a>
             <img src="{{value.author.avatar_url | avatar}}">
-            <a href="#">{{value.author.loginname}}</a>
+            <a href="#{{value.id}}">{{value.author.loginname}}</a>
             <span>{{i + 1}}楼</span>
             <span>{{value.create_at | timeSep}}</span>
         </div>

@@ -1,6 +1,6 @@
 var TOPICINFO = (function () {
     var editor;
-    var initPage = function(topicId, accessToken) {
+    var initPage = function(topicId, accessToken, anchor) {
         var urlString = 'https://cnodejs.org/api/v1/topic/' + topicId;
         urlString = accessToken == '' ? urlString : urlString + '?accesstoken=' + accessToken;
         $.ajax({
@@ -15,6 +15,10 @@ var TOPICINFO = (function () {
                     replyHtml = template('replyTemplate', respData);
                     replyHtml = UTILS.fixImgSrc(replyHtml);
                     $("#replyContent").html(replyHtml);
+                    if (anchor && anchor != "") {
+                        // 跳转到锚点
+                        window.location.hash = "#" + anchor;
+                    }
                     var authorName = respData.data.author.loginname;
                     _initCollectBtn();
                     _initAutorInfo(authorName);
@@ -128,8 +132,9 @@ var TOPICINFO = (function () {
     return {
         initPage: function() {
             var topicId = UTILS.getQueryString('topicId');
+            var anchor = UTILS.getQueryString('anchor');
             var accessToken = STORAGE.getJSON('USERINFO').accessToken;
-            initPage(topicId, accessToken);
+            initPage(topicId, accessToken, anchor);
             initEditor();
             initReplyBtn();
         }

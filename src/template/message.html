@@ -84,7 +84,7 @@
             <span>
                 <a href="#">{{value.author.loginname}}</a>
                 在话题
-                <a href="#">{{value.topic.title}}</a>
+                <a href="#" data-id="{{value.topic.id}}" class="topic-link">{{value.topic.title}}</a>
                 中@了你
             </span>
         </div>
@@ -98,7 +98,7 @@
             <span>
                 <a href="#">{{value.author.loginname}}</a>
                 在话题
-                <a href="#">{{value.topic.title}}</a>
+                <a href="#" data-id="{{value.topic.id}}" data-anchor="{{value.reply.id}}" class="topic-link">{{value.topic.title}}</a>
                 中@了你
             </span>
         </div>
@@ -116,7 +116,9 @@
 <script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
+<script type="text/javascript" src="../lib/linkHref.js"></script>
 <script type="text/javascript" src="../lib/message.js"></script>
+
 <script type="text/javascript">
 $(function () {
     MESSAGE.initPage();

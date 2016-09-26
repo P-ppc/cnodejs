@@ -2,6 +2,7 @@
 $(function() {
     $(document).on('click', '.topic-link', function() {
         var topicId = $(this).attr("data-id");
-        window.location = 'topicInfo.html?topicId=' + topicId;
+        var anchor = $(this).attr("data-anchor");
+        window.location = 'topicInfo.html?topicId=' + topicId + "&anchor=" + anchor;
     });
 });
