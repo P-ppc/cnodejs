@@ -9,6 +9,11 @@ var messageRemind = function() {
         success: function(respData) {
             if (respData && respData.success === true) {
                 console.log('you have ' + respData.data + ' messages');
+                if (respData.data != '0') {
+                    $(".js-unReadMessage").html(respData.data).show();
+                } else {
+                    $(".js-unReadMessage").hide();
+                }
             }
         }
     })

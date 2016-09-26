@@ -69,5 +69,15 @@ body {
     }
 }
 
+.unread-message {
+    position: relative;
+    top: -2px;
+    left: 2px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    background-color: #e02e21;
+    color: #fff;
+    display: none;
+}
 
 
