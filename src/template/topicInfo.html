@@ -185,7 +185,7 @@
             {{each data.recent_topics as value i}}
             <li>
                 <div>
-                    <a href="#">{{value.title}}</a>
+                    <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
                 </div>
             </li>
             {{/each}}
@@ -201,7 +201,7 @@
             {{each data.recent_replies as value i}}
             <li>
                 <div>
-                    <a href="#">{{value.title}}</a>
+                    <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
                 </div>
             </li>
             {{/each}}
@@ -224,7 +224,9 @@
 <script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
+<script type="text/javascript" src="../lib/linkHref.js"></script>
 <script type="text/javascript" src="../lib/topicInfo.js"></script>
+
 <script type="text/javascript">
 $(function() {
     TOPICINFO.initPage();
