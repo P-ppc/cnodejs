@@ -17,10 +17,29 @@ var MESSAGE = (function() {
                     if (readMessageHtml != "") {
                         $("#readMessage").html(readMessageHtml);
                     }
+                    // 设置所有信息已读
+                    _markAllMessage();
                 }
             }
         });
     };
+
+    var _markAllMessage = function() {
+        var _urlString = "https://cnodejs.org/api/v1/message/mark_all";
+        $.ajax({
+            url: _urlString,
+            type: 'POST',
+            dataType: 'json',
+            data: $.param({
+                accesstoken: accessToken
+            }),
+            success: function(respData) {
+                if (respData && respData.success === true) {
+                    console.log(respData);
+                }
+            }
+        })
+    }
 
     return  {
         initPage: function() {
