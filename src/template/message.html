@@ -14,7 +14,7 @@
         </a>
         <ul>
             <li><a href="#">首页</a></li>
-            <li><a href="#">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
+            <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
             <li><a href="#" id="logout">退出</a></li>
         </ul>
     </div>
@@ -33,7 +33,7 @@
                 </li>
             </ul>
         </div>
-        <div class="message-list">
+        <div class="message-list" id="unReadMessage">
             <p class="no-message">无消息</p>
         </div>
     </div>
@@ -42,31 +42,8 @@
         <div class="header">
             <span>过往信息</span>
         </div>
-        <div class="message-list">
-            <div class="cell">
-                <span>
-                    <a href="#" target="_blank">sxyizhiren</a>
-                    在话题
-                    <a href="#" target="_blank">中秋期间，如何让群发看起来不像群发</a>
-                    中@了你
-                </span>
-            </div>
-            <div class="cell">
-                <span>
-                    <a href="#" target="_blank">sxyizhiren</a>
-                    在话题
-                    <a href="#" target="_blank">中秋期间，如何让群发看起来不像群发</a>
-                    中@了你
-                </span>
-            </div>
-            <div class="cell">
-                <span>
-                    <a href="#" target="_blank">sxyizhiren</a>
-                    在话题
-                    <a href="#" target="_blank">中秋期间，如何让群发看起来不像群发</a>
-                    中@了你
-                </span>
-            </div>
+        <div class="message-list" id="readMessage">
+            <p class="no-message">无消息</p>
         </div>
     </div>
 </div>
@@ -99,8 +76,51 @@
     </div>
 </div>
 
+<!-- template -->
+<script type="text/html" id="unReadMessageTemplate">
+{{each hasnot_read_messages as value i}}
+    {{if value.type == "at"}}
+        <div class="cell">
+            <span>
+                <a href="#">{{value.author.loginname}}</a>
+                在话题
+                <a href="#">{{value.topic.title}}</a>
+                中@了你
+            </span>
+        </div>
+    {{/if}}
+{{/each}}
+</script>
+<script type="text/html" id="readMessageTemplate">
+{{each has_read_messages as value i}}
+    {{if value.type == "at"}}
+        <div class="cell">
+            <span>
+                <a href="#">{{value.author.loginname}}</a>
+                在话题
+                <a href="#">{{value.topic.title}}</a>
+                中@了你
+            </span>
+        </div>
+    {{/if}}
+{{/each}}
+</script>
+
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
 <!-- 固定footer至页面底部 -->
 <script type="text/javascript" src="../lib/fixedFooter.js"></script>
+
+<script type="text/javascript" src="../lib/template.js"></script>
+<script type="text/javascript" src="../lib/template.helper.js"></script>
+
+<script type="text/javascript" src="../lib/storage.js"></script>
+<script type="text/javascript" src="../lib/logout.js"></script>
+<script type="text/javascript" src="../lib/messageRemind.js"></script>
+<script type="text/javascript" src="../lib/message.js"></script>
+<script type="text/javascript">
+$(function () {
+    MESSAGE.initPage();
+});
+</script>
 </body>
 </html>
