@@ -58,8 +58,12 @@
                             font-size: 12px;
                             padding: 3px;
                             border-radius: 2px;
-                            background-color: #80bd01;
-                            color: #fff;
+                            background-color: #e5e5e5;
+                            color: #999;;
+                            &.spe {
+                                background-color: #80bd01;
+                                color: #fff;
+                            }
                         }
                         .title-text {
                             font-size: 22px;

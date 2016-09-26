@@ -102,7 +102,13 @@
 <script type="text/html" id="topicTemplate">
 <div class="topic-info">
     <div class="title">
-        <span class="title-tab">置顶</span>
+        {{if data.top}}
+            <span class="title-tab spe">置顶</span>
+        {{else if data.good}}
+            <span class="title-tab spe">精华</span>
+        {{else}}
+            <span class="title-tab">{{data.tab | tabMap}}</span>
+        {{/if}}
         <span class="title-text">{{data.title}}</span>
         {{if data.is_collect}}
             <input type="submit" name="" value="取消收藏" id="collect" class="collect collect-cancel" data-collectFlag="1">
