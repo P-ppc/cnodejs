@@ -147,6 +147,7 @@
             <a href="#{{value.id}}">{{value.author.loginname}}</a>
             <span>{{i + 1}}楼</span>
             <span>{{value.create_at | timeSep}}</span>
+            <span class="reply-at js-replyAt" data-author="{{value.author.loginname}}" data-replyId="{{value.id}}">回复</span>
         </div>
         <div class="reply-content">
             {{#value.content}}

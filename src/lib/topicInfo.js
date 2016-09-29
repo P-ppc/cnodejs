@@ -102,6 +102,21 @@ var TOPICINFO = (function () {
         });
     };
 
+    // 初始化回复at按钮
+    var initReplyAt = function() {
+        $(document).on('click', '.js-replyAt', function() {
+            // 获取用户名, 回复id
+            var authorName = $(this).attr("data-author");
+            var replyId = $(this).attr("data-replyId");
+            // 添加参数
+            // editor设置值
+            var value = '@' + authorName + ' ';
+            editor.codemirror.setValue(value);
+            editor.codemirror.setCursor({line:0, ch: value.length});
+            editor.codemirror.focus();
+        });
+    };
+
     // 初始化回复提交按钮
     var initReplyBtn = function() {
         var accessToken = STORAGE.getJSON('USERINFO').accessToken;
@@ -136,6 +151,7 @@ var TOPICINFO = (function () {
             var accessToken = STORAGE.getJSON('USERINFO').accessToken;
             initPage(topicId, accessToken, anchor);
             initEditor();
+            initReplyAt();
             initReplyBtn();
         }
     }
