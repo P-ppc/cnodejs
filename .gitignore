@@ -2,3 +2,4 @@
 *.sh
 src/style/*.css
 bower_components
+TODOS.md
