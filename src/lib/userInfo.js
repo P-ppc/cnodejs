@@ -1,5 +1,5 @@
 var USERINFO = (function() {
-    var loginName = STORAGE.getJSON('USERINFO').loginName;
+    var loginName = UTILS.getQueryString('loginName') || STORAGE.getJSON('USERINFO').loginName;
     var initPage = function() {
         var urlString = "https://cnodejs.org/api/v1/user/" + loginName;
         $.ajax({
