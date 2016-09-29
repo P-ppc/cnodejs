@@ -1,5 +1,8 @@
 var TOPICINFO = (function () {
     var editor;
+    var editorReplyId;  // 要回复的回复Id
+    var editorReplyAt;  // 要回复的at的用户名
+
     var initPage = function(topicId, accessToken, anchor) {
         var urlString = 'https://cnodejs.org/api/v1/topic/' + topicId;
         urlString = accessToken == '' ? urlString : urlString + '?accesstoken=' + accessToken;
@@ -107,12 +110,12 @@ var TOPICINFO = (function () {
         $(document).on('click', '.js-replyAt', function() {
             // 获取用户名, 回复id
             var authorName = $(this).attr("data-author");
-            var replyId = $(this).attr("data-replyId");
+            editorReplyId = $(this).attr("data-replyId");
             // 添加参数
             // editor设置值
-            var value = '@' + authorName + ' ';
-            editor.codemirror.setValue(value);
-            editor.codemirror.setCursor({line:0, ch: value.length});
+            editorReplyAt = '@' + authorName;
+            editor.codemirror.setValue(editorReplyAt + ' ');
+            editor.codemirror.setCursor({line:0, ch: editorReplyAt.length + 1});
             editor.codemirror.focus();
         });
     };
@@ -123,15 +126,19 @@ var TOPICINFO = (function () {
         var topicId = UTILS.getQueryString('topicId');
         $("#replyBtn").click(function () {
             var replyContent = editor.codemirror.getValue();
+            var postData = {
+                accesstoken: accessToken,
+                content: replyContent
+            };
+            if (editorReplyId && replyContent.startsWith(editorReplyAt)) {
+                postData.reply_id = editorReplyId;
+            }
             urlString = "https://cnodejs.org/api/v1/topic/" + topicId + "/replies";
             $.ajax({
                 url: urlString,
                 type: 'POST',
                 dataType: 'json',
-                data: $.param({
-                    accesstoken: accessToken,
-                    content: replyContent
-                }),
+                data: $.param(postData),
                 success: function(respData) {
                     if (respData && respData.success === true) {
                         // 刷新页面
