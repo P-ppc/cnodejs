@@ -30,4 +30,11 @@ $(function() {
         shell.openExternal(href);
         event.preventDefault();
     });
+
+    // @用户名连接点击跳转到用户信息
+    $(document).on('click', '.markdown-text a[href^=\\/user\\/]', function() {
+        var loginName = $(this).attr("href").replace("/user/", '');
+        event.preventDefault();
+        window.location = 'userInfo.html?loginName=' + loginName;
+    });
 });
