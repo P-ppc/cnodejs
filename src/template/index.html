@@ -78,7 +78,7 @@
 <script type="text/html" id="listCell">
 {{each data as value i}}
 <div class="cell">
-    <a href="#" class="user-avatar">
+    <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
         <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
     </a>
     <span class="reply-count">
@@ -117,6 +117,7 @@
 <script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
+<script type="text/javascript" src="../lib/linkHref.js"></script>
 <script type="text/javascript" src="../lib/index.js"></script>
 
 <script type="text/javascript">

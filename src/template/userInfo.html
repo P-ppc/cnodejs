@@ -84,7 +84,7 @@
 </div>
 
 <script type="text/html" id="userInfoTemplate">
-<div class="avatar">
+<div class="avatar js-userInfoLink" data-loginName="{{loginname}}">
     <img src="{{avatar_url}}">
 </div>
 <div class="info">
@@ -97,7 +97,7 @@
 <script type="text/html" id="createTopicTemplate">
 {{each recent_topics as value i}}
 <div class="cell">
-    <a href="#" class="user-avatar">
+    <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
         <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
     </a>
     <span class="last-time">
@@ -115,7 +115,7 @@
 <script type="text/html" id="replyTopicTemplate">
 {{each recent_replies as value i}}
 <div class="cell">
-    <a href="#" class="user-avatar">
+    <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
         <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
     </a>
     <span class="last-time">

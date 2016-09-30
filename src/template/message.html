@@ -84,7 +84,7 @@
     {{if value.type == "at"}}
         <div class="cell">
             <span>
-                <a href="#">{{value.author.loginname}}</a>
+                <a href="#" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
                 在话题
                 <a href="#" data-id="{{value.topic.id}}" class="topic-link">{{value.topic.title}}</a>
                 中@了你
@@ -98,7 +98,7 @@
     {{if value.type == "at"}}
         <div class="cell">
             <span>
-                <a href="#">{{value.author.loginname}}</a>
+                <a href="#" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
                 在话题
                 <a href="#" data-id="{{value.topic.id}}" data-anchor="{{value.reply.id}}" class="topic-link">{{value.topic.title}}</a>
                 中@了你

@@ -67,7 +67,7 @@
 <script type="text/html" id="listCell">
 {{each data as value i}}
 <div class="cell">
-    <a href="#" class="user-avatar">
+    <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
         <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
     </a>
     <span class="reply-count">
@@ -86,7 +86,7 @@
         {{else}}
             <span class="topiclist-tab">{{value.tab | tabMap}}</span>
         {{/if}}
-        <a class="topic-title" href="#" title="{{value.title}}" data-id="{{value.id}}">
+        <a class="topic-title topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
             {{value.title}}
         </a>
     </div>
@@ -103,6 +103,7 @@
 <script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
+<script type="text/javascript" src="../lib/linkHref.js"></script>
 <script type="text/javascript" src="../lib/collection.js"></script>
 
 <script type="text/javascript">

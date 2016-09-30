@@ -145,8 +145,8 @@
     <div class="reply">
         <div class="reply-info">
             <a class="anchor" id={{value.id}}></a>
-            <img src="{{value.author.avatar_url | avatar}}">
-            <a href="#{{value.id}}">{{value.author.loginname}}</a>
+            <img src="{{value.author.avatar_url | avatar}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">
+            <a href="#{{value.id}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
             <span>{{i + 1}}楼</span>
             <span>{{value.create_at | timeSep}}</span>
             <span class="reply-at js-replyAt" data-author="{{value.author.loginname}}" data-replyId="{{value.id}}">回复</span>
@@ -168,11 +168,11 @@
     <div class="author-info">
         <div class="line">
             <!-- 头像 -->
-            <a href="#">
+            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}">
                 <img src="{{data.avatar_url}}">
             </a>
             <!-- 用户名 -->
-            <a href="#"><span>{{data.loginname}}</span></a>
+            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}"><span>{{data.loginname}}</span></a>
         </div>
         <!-- 积分 -->
         <div class="line">
