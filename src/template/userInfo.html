@@ -96,6 +96,7 @@
 </div>
 </script>
 
+<!-- 创建的话题 -->
 <script type="text/html" id="createTopicTemplate">
 {{each recent_topics as value i}}
 <div class="cell">
@@ -106,7 +107,7 @@
         <span class="last-active-time">{{value.last_reply_at | timeSep}}</span>
     </span>
     <div class="topic-title-wrapper">
-        <a class="topic-title left-15" href="#" title="{{value.title}}" data-id="{{value.id}}">
+        <a class="topic-title left-15 topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
             {{value.title}}
         </a>
     </div>
@@ -114,6 +115,7 @@
 {{/each}}
 </script>
 
+<!-- 回复的话题 -->
 <script type="text/html" id="replyTopicTemplate">
 {{each recent_replies as value i}}
 <div class="cell">
@@ -124,7 +126,7 @@
         <span class="last-active-time">{{value.last_reply_at | timeSep}}</span>
     </span>
     <div class="topic-title-wrapper">
-        <a class="topic-title left-15" href="#" title="{{value.title}}" data-id="{{value.id}}">
+        <a class="topic-title left-15 topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
             {{value.title}}
         </a>
     </div>
