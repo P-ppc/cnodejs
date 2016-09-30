@@ -9,15 +9,37 @@ body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
+
+    position: relative; // .loading的容器
 }
 
 .main {
-    padding-bottom: 190px;
+    padding-bottom: 210px; // footer高度 + 20px
+    margin-bottom: 0 !important; // 取消margin-bottom 防止页面超出高度100vh
 }
 
 .footer {
     position: relative;
-    margin-top: -190px;/*等于footer的高度*/
+    margin-top: -190px; //等于footer的高度
     height: 190px;
     clear:both;
+
+    z-index: -1;
+}
+
+.loading {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+
+    .loading-header {
+        height: 50px;
+    }
+    .loading-container {
+        background: #000;
+        height: 100%;
+    }
 }
