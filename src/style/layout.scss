@@ -1,0 +1,23 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+.main {
+    padding-bottom: 190px;
+}
+
+.footer {
+    position: relative;
+    margin-top: -190px;/*等于footer的高度*/
+    height: 190px;
+    clear:both;
+}

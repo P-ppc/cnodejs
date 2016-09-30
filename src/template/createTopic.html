@@ -8,87 +8,89 @@
     <link rel="stylesheet" type="text/css" href="../lib/editor/editor.css">
 </head>
 <body>
-<!-- nav导航 -->
-<div class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <img src="../img/cnodejs_light.svg">
-        </a>
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
-            <li><a href="userInfo.html">我的信息</a></li>
-            <li><a href="collection.html">收藏夹</a></li>
-            <li><a href="createTopic.html">创建话题</a></li>
-            <li><a href="#" id="logout">退出</a></li>
-        </ul>
+<div class="page-container">
+    <!-- nav导航 -->
+    <div class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../img/cnodejs_light.svg">
+            </a>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
+                <li><a href="userInfo.html">我的信息</a></li>
+                <li><a href="collection.html">收藏夹</a></li>
+                <li><a href="createTopic.html">创建话题</a></li>
+                <li><a href="#" id="logout">退出</a></li>
+            </ul>
+        </div>
     </div>
-</div>
 
-<!-- 内容 -->
-<div class="main clearfix">
-    <!-- 左边内容区 -->
-    <div class="left-wrap">
-        <div class="editor-zone">
-            <div class="header">
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="index.html">主页</a>
-                        <span class="divider">/</span>
-                    </li>
-                    <li class="active">
-                        发布主题
-                    </li>
-                </ul>
-            </div>
-            <div class="editor-container">
-                <div class="select">
-                    <span>选择版块：</span>
-                    <select id="tab">
-                        <option selected>请选择</option>
-                        <option value="share">分享</option>
-                        <option value="ask">问答</option>
-                        <option value="job">招聘</option>  
-                    </select>
+    <!-- 内容 -->
+    <div class="main clearfix">
+        <!-- 左边内容区 -->
+        <div class="left-wrap">
+            <div class="editor-zone">
+                <div class="header">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="index.html">主页</a>
+                            <span class="divider">/</span>
+                        </li>
+                        <li class="active">
+                            发布主题
+                        </li>
+                    </ul>
                 </div>
-                <div class="title">
-                    <textarea placeholder="标题字数 10 字以上" id="title"></textarea>
-                </div>
-                <textarea id="editorArea"></textarea>
-                <div class="editor-btns">
-                    <input type="submit" name="" id="submit">
+                <div class="editor-container">
+                    <div class="select">
+                        <span>选择版块：</span>
+                        <select id="tab">
+                            <option selected>请选择</option>
+                            <option value="share">分享</option>
+                            <option value="ask">问答</option>
+                            <option value="job">招聘</option>  
+                        </select>
+                    </div>
+                    <div class="title">
+                        <textarea placeholder="标题字数 10 字以上" id="title"></textarea>
+                    </div>
+                    <textarea id="editorArea"></textarea>
+                    <div class="editor-btns">
+                        <input type="submit" name="" id="submit">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 右边信息区 -->
-    <div class="right-wrap">
-        <div class="wrap">
-            <div class="markdown-guide">
-                <div class="header">
-                    <span>Markdown 语法参考</span>
+        <!-- 右边信息区 -->
+        <div class="right-wrap">
+            <div class="wrap">
+                <div class="markdown-guide">
+                    <div class="header">
+                        <span>Markdown 语法参考</span>
+                    </div>
+                    <div class="list">
+                        <ol>
+                            <li><tt>### 单行的标题</tt></li>
+                            <li><tt>**粗体**</tt></li>
+                            <li><tt>`console.log('行内代码')`</tt></li>
+                            <li><tt>```js\n code \n```</tt> 标记代码块</li>
+                            <li><tt>[内容](链接)</tt></li>
+                            <li><tt>![文字说明](图片链接)</tt></li>
+                        </ol>
+                        <span><a href="https://segmentfault.com/markdown" target="_blank">Markdown 文档</a></span>
+                    </div>
                 </div>
-                <div class="list">
-                    <ol>
-                        <li><tt>### 单行的标题</tt></li>
-                        <li><tt>**粗体**</tt></li>
-                        <li><tt>`console.log('行内代码')`</tt></li>
-                        <li><tt>```js\n code \n```</tt> 标记代码块</li>
-                        <li><tt>[内容](链接)</tt></li>
-                        <li><tt>![文字说明](图片链接)</tt></li>
-                    </ol>
-                    <span><a href="https://segmentfault.com/markdown" target="_blank">Markdown 文档</a></span>
-                </div>
-            </div>
-            <div class="topic-guide">
-                <div class="header">
-                    <span>话题发布指南</span>
-                </div>
-                <div class="list">
-                    <ol>
-                        <li>尽量把话题要点浓缩到标题里</li>
-                        <li>代码含义和报错可在 <a href="http://segmentfault.com/t/node.js">SegmentFault</a> 提问</li>
-                    </ol> 
+                <div class="topic-guide">
+                    <div class="header">
+                        <span>话题发布指南</span>
+                    </div>
+                    <div class="list">
+                        <ol>
+                            <li>尽量把话题要点浓缩到标题里</li>
+                            <li>代码含义和报错可在 <a href="http://segmentfault.com/t/node.js">SegmentFault</a> 提问</li>
+                        </ol> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,8 +127,6 @@
 </div>
 
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
-<!-- 固定footer至页面底部 -->
-<script type="text/javascript" src="../lib/fixedFooter.js"></script>
 
 <script type="text/javascript" src="../lib/utils.js"></script>
 <script type="text/javascript" src="../lib/code-prettify/prettify.js"></script>

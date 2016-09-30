@@ -8,65 +8,67 @@
     <link rel="stylesheet" type="text/css" href="../lib/editor/editor.css">
 </head>
 <body>
-<!-- nav导航 -->
-<div class="navbar">
-    <div class="nav-container">
-        <!-- logo -->
-        <a href="index.html" class="logo">
-            <img src="../img/cnodejs_light.svg">
-        </a>
-        <!-- 导航链接 -->
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
-            <li><a href="userInfo.html">我的信息</a></li>
-            <li><a href="collection.html">收藏夹</a></li>
-            <li><a href="createTopic.html">创建话题</a></li>
-            <li><a href="#" id="logout">退出</a></li>
-        </ul>
-    </div>
-</div>
-
-<!-- 内容 -->
-<div class="main clearfix">
-    <!-- 左边内容区 -->
-    <div class="left-wrap">
-        <div class="topic">
-            <!-- 导航区: 如主页/问答 -->
-            <div class="header">
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="index.html">主页</a>
-                        <span class="divider">/</span>
-                    </li>
-                    <li class="active">
-                        主题详情
-                    </li>
-                </ul>
-            </div>
-            <!-- 主题区 -->
-            <div id="topicContent">
-            </div>
-        </div> 
-        <!-- 回复区 -->
-        <div id="replyContent">
+<div class="page-container">
+    <!-- nav导航 -->
+    <div class="navbar">
+        <div class="nav-container">
+            <!-- logo -->
+            <a href="index.html" class="logo">
+                <img src="../img/cnodejs_light.svg">
+            </a>
+            <!-- 导航链接 -->
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
+                <li><a href="userInfo.html">我的信息</a></li>
+                <li><a href="collection.html">收藏夹</a></li>
+                <li><a href="createTopic.html">创建话题</a></li>
+                <li><a href="#" id="logout">退出</a></li>
+            </ul>
         </div>
-        <!-- 新建回复区 -->
-        <div id="reply">
-            <div class="header">
-                <span>添加回复</span>
+    </div>
+
+    <!-- 内容 -->
+    <div class="main clearfix">
+        <!-- 左边内容区 -->
+        <div class="left-wrap">
+            <div class="topic">
+                <!-- 导航区: 如主页/问答 -->
+                <div class="header">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="index.html">主页</a>
+                            <span class="divider">/</span>
+                        </li>
+                        <li class="active">
+                            主题详情
+                        </li>
+                    </ul>
+                </div>
+                <!-- 主题区 -->
+                <div id="topicContent">
+                </div>
+            </div> 
+            <!-- 回复区 -->
+            <div id="replyContent">
             </div>
-            <div class="reply-form">
-                <textarea id="replyArea"></textarea>
-                <div class="reply-btns">
-                    <input type="submit" name="" id="replyBtn">
+            <!-- 新建回复区 -->
+            <div id="reply">
+                <div class="header">
+                    <span>添加回复</span>
+                </div>
+                <div class="reply-form">
+                    <textarea id="replyArea"></textarea>
+                    <div class="reply-btns">
+                        <input type="submit" name="" id="replyBtn">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
-    <div class="right-wrap">
-        <div class="wrap" id="author">
+        <!-- 右边信息区: 作者的信息, 包含最近创建的主题, 最近回复的主题 -->
+        <div class="right-wrap">
+            <div class="wrap" id="author">
+            </div>
         </div>
     </div>
 </div>
@@ -216,8 +218,6 @@
 </script>
 
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
-<!-- 固定footer至页面底部 -->
-<script type="text/javascript" src="../lib/fixedFooter.js"></script>
 
 <script type="text/javascript" src="../lib/utils.js"></script>
 <script type="text/javascript" src="../lib/template.js"></script>

@@ -6,48 +6,50 @@
     <link rel="stylesheet" type="text/css" href="../style/core.css">
 </head>
 <body>
-<!-- nav导航 -->
-<div class="navbar">
-    <div class="nav-container">
-        <!-- logo -->
-        <a href="index.html" class="logo">
-            <img src="../img/cnodejs_light.svg">
-        </a>
-        <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
-            <li><a href="userInfo.html">我的信息</a></li>
-            <li><a href="collection.html">收藏夹</a></li>
-            <li><a href="createTopic.html">创建话题</a></li>
-            <li><a href="#" id="logout">退出</a></li>
-        </ul>
-    </div>
-</div>
-
-<!-- 内容 -->
-<div class="content">
-    <!-- 分类 -->
-    <div class="category">
-        <a href="#" class="topic-tab current-tab" data-tab="all">全部</a>
-        <a href="#" class="topic-tab" data-tab="good">精华</a>
-        <a href="#" class="topic-tab" data-tab="share">分享</a>
-        <a href="#" class="topic-tab" data-tab="ask">问答</a>
-        <a href="#" class="topic-tab" data-tab="job">招聘</a>
-    </div>
-
-    <div class="container">
-        <!-- 列表 -->
-        <div class="list" id="list">
-        </div>
-        <!-- 分页 -->
-        <div id="pager" class="clearfix">
+<div class="page-container">
+    <!-- nav导航 -->
+    <div class="navbar">
+        <div class="nav-container">
+            <!-- logo -->
+            <a href="index.html" class="logo">
+                <img src="../img/cnodejs_light.svg">
+            </a>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="message.html">未读消息<span class="unread-message js-unReadMessage">0</span></a></li>
+                <li><a href="userInfo.html">我的信息</a></li>
+                <li><a href="collection.html">收藏夹</a></li>
+                <li><a href="createTopic.html">创建话题</a></li>
+                <li><a href="#" id="logout">退出</a></li>
+            </ul>
         </div>
     </div>
+
+    <!-- 内容 -->
+    <div class="main">
+        <!-- 分类 -->
+        <div class="category">
+            <a href="#" class="topic-tab current-tab" data-tab="all">全部</a>
+            <a href="#" class="topic-tab" data-tab="good">精华</a>
+            <a href="#" class="topic-tab" data-tab="share">分享</a>
+            <a href="#" class="topic-tab" data-tab="ask">问答</a>
+            <a href="#" class="topic-tab" data-tab="job">招聘</a>
+        </div>
+
+        <div class="container">
+            <!-- 列表 -->
+            <div class="list" id="list">
+            </div>
+            <!-- 分页 -->
+            <div id="pager" class="clearfix">
+            </div>
+        </div>
+    </div>  
 </div>
-<!-- TODO 实现backToTop -->
+
 <!-- 底部信息 -->
 <!-- 如果页面内容过短，则将footer通过fixed固定, 否则position:relative-->
-<div class="footer" id="footer">
+<div class="footer">
     <div class="footer-main">
         <div class="links">
             <a href="#" class="dark">RSS</a>
@@ -108,8 +110,6 @@
 
 <!-- 此处采用了1.9.1版本的jQuery, 高版本要做相应的修改 -->
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
-<!-- 固定footer至页面底部 -->
-<script type="text/javascript" src="../lib/fixedFooter.js"></script>
 
 <script type="text/javascript" src="../lib/pager.js"></script>
 <script type="text/javascript" src="../lib/template.js"></script>
