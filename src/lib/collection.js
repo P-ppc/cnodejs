@@ -10,6 +10,7 @@ var COLLECTION = (function() {
                 if (respData && respData.success === true) {
                     listHtml = template('listCell', respData);
                     $('.collection-list').html(listHtml);
+                    LOADING.stopLoading();
                 }
             }
         });

@@ -30,16 +30,52 @@ body {
 .loading {
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 50px;
     left: 0;
     height: 100%;
     overflow: hidden;
 
-    .loading-header {
-        height: 50px;
-    }
     .loading-container {
-        background: #000;
+        background: #fff;
         height: 100%;
+        
+        .global-loading-text {
+            display: inline-block;
+            height: 30px;
+            font-size: 30px;
+            line-height: 30px;
+            color: #177198;
+
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: 20px;
+            margin-left: -60px;
+
+        }
+
+        .global-loading {
+            font-size: 60px;
+            color: #5fc1ec;
+
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -30px;
+            margin-left: -30px;
+
+            -webkit-animation: rotating 1s linear infinite;
+            animation: rotating 1s linear infinite;
+            @keyframes rotating {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                100% {
+                    -webkit-transform: rotate(1turn);
+                    transform: rotate(1turn);
+                }
+            }
+        }
     }
 }

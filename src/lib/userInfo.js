@@ -8,7 +8,6 @@ var USERINFO = (function() {
             dataType: 'json',
             success: function(respData) {
                 if (respData && respData.success === true) {
-                    console.log(respData);
                     // 用户信息
                     userInfoHtml = template('userInfoTemplate', respData.data);
                     $(".user-panel").html(userInfoHtml);
@@ -22,6 +21,7 @@ var USERINFO = (function() {
                     if (replyTopicHtml != '') {
                         $("#replyTopic").html(replyTopicHtml);
                     }
+                    LOADING.stopLoading();
                 }
             }
         })

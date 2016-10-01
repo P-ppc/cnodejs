@@ -24,6 +24,8 @@ var CREATETOPIC = (function() {
                 {name: 'preview', action: Editor.togglePreview}
             ]
         });
+
+        LOADING.stopLoading();
     };
 
     var initSubmitBtn = function() {

@@ -17,6 +17,7 @@ var MESSAGE = (function() {
                     if (readMessageHtml != "") {
                         $("#readMessage").html(readMessageHtml);
                     }
+                    LOADING.stopLoading();
                     // 设置所有信息已读
                     _markAllMessage();
                 }

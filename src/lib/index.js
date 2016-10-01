@@ -33,6 +33,8 @@ var INDEX = (function () {
                             initPageList(_options);
                         }
                     });
+                    // 停止loading
+                    LOADING.stopLoading();
                 }
             }
         });

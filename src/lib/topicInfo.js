@@ -42,6 +42,8 @@ var TOPICINFO = (function () {
                     authorHtml = UTILS.fixImgSrc(authorHtml);
                     $('#author').html(authorHtml);
                     prettyPrint();
+                    // 停止Loading
+                    LOADING.stopLoading();
                 }
             }
         });
