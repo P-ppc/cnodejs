@@ -152,21 +152,25 @@
     <span>{{data.reply_count}} 回复</span>
 </div>
 <div class="reply-list">
-{{each data.replies as value i}}
-    <div class="reply">
-        <div class="reply-info">
-            <a class="anchor" id={{value.id}}></a>
-            <img src="{{value.author.avatar_url | avatar}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">
-            <a href="#{{value.id}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
-            <span>{{i + 1}}楼</span>
-            <span>{{value.create_at | timeSep}}</span>
-            <span class="reply-at js-replyAt" data-author="{{value.author.loginname}}" data-replyId="{{value.id}}">回复</span>
-        </div>
-        <div class="reply-content">
-            {{#value.content}}
-        </div>
-    </div>        
-{{/each}}
+{{if data.replies.length > 0}}
+    {{each data.replies as value i}}
+        <div class="reply">
+            <div class="reply-info">
+                <a class="anchor" id={{value.id}}></a>
+                <img src="{{value.author.avatar_url | avatar}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">
+                <a href="#{{value.id}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
+                <span>{{i + 1}}楼</span>
+                <span>{{value.create_at | timeSep}}</span>
+                <span class="reply-at js-replyAt" data-author="{{value.author.loginname}}" data-replyId="{{value.id}}">回复</span>
+            </div>
+            <div class="reply-content">
+                {{#value.content}}
+            </div>
+        </div>        
+    {{/each}}
+{{else}}
+    <p class="no-content">没有回复</p>
+{{/if}}
 </div>
 </script>
 
@@ -196,15 +200,19 @@
         <span>作者其他话题</span>
     </div>
     <div class="title-list">
-        <ul>
-            {{each data.recent_topics as value i}}
-            <li>
-                <div>
-                    <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
-                </div>
-            </li>
-            {{/each}}
-        </ul>
+        {{if data.recent_topics.length > 0}}
+            <ul>
+                {{each data.recent_topics as value i}}
+                <li>
+                    <div>
+                        <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="no-content">没有话题</p>
+        {{/if}}
     </div>
 </div>
 <div class="last-reply">
@@ -212,15 +220,19 @@
         <span>作者最近回复话题</span>
     </div>
     <div class="title-list">
-        <ul>
-            {{each data.recent_replies as value i}}
-            <li>
-                <div>
-                    <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
-                </div>
-            </li>
-            {{/each}}
-        </ul>
+        {{if data.recent_replies.length > 0}}
+            <ul>
+                {{each data.recent_replies as value i}}
+                <li>
+                    <div>
+                        <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p class="no-content">没有话题</p>
+        {{/if}}
     </div>
 </div>
 </script>

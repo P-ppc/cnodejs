@@ -77,33 +77,37 @@
 
 
 <script type="text/html" id="listCell">
-{{each data as value i}}
-<div class="cell">
-    <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
-        <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
-    </a>
-    <span class="reply-count">
-        <span class="count-of-reply">{{value.reply_count}}</span>
-        <span class="count-seperator">/</span>
-        <span class="count-of-visit">{{value.visit_count}}</span>
-    </span>
-    <span class="last-time">
-        <span class="last-active-time">{{value.last_reply_at | timeSep}}</span>
-    </span>
-    <div class="topic-title-wrapper">
-        {{if value.top == true}}
-            <span class="topiclist-tab put-top">置顶</span>
-        {{else if value.good == true}}
-            <span class="topiclist-tab put-good">精华</span>
-        {{else}}
-            <span class="topiclist-tab">{{value.tab | tabMap}}</span>
-        {{/if}}
-        <a class="topic-title topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
-            {{value.title}}
+{{if data.length > 0}}
+    {{each data as value i}}
+    <div class="cell">
+        <a href="#" class="user-avatar js-userInfoLink" data-loginName="{{value.author.loginname}}">
+            <img src="{{value.author.avatar_url | avatar }}" title="{{value.author.loginname}}">
         </a>
+        <span class="reply-count">
+            <span class="count-of-reply">{{value.reply_count}}</span>
+            <span class="count-seperator">/</span>
+            <span class="count-of-visit">{{value.visit_count}}</span>
+        </span>
+        <span class="last-time">
+            <span class="last-active-time">{{value.last_reply_at | timeSep}}</span>
+        </span>
+        <div class="topic-title-wrapper">
+            {{if value.top == true}}
+                <span class="topiclist-tab put-top">置顶</span>
+            {{else if value.good == true}}
+                <span class="topiclist-tab put-good">精华</span>
+            {{else}}
+                <span class="topiclist-tab">{{value.tab | tabMap}}</span>
+            {{/if}}
+            <a class="topic-title topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
+                {{value.title}}
+            </a>
+        </div>
     </div>
-</div>
-{{/each}}
+    {{/each}}
+{{else}}
+<p class="no-content">没有话题</p>
+{{/if}}
 </script>
 
 <script type="text/javascript" src="../lib/jquery.min.js"></script>
