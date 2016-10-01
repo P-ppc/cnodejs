@@ -71,11 +71,11 @@ var TOPICINFO = (function () {
                         if (collectFlag) {
                             $el.attr("data-collectFlag", "1");
                             $el.val('取消收藏');
-                            $el.addClass('collect-cancel');
+                            $el.removeClass('btn-collection').addClass('btn-collection-cancel');
                         } else {
                             $el.attr("data-collectFlag", "0");
                             $el.val('收藏');
-                            $el.removeClass('collect-cancel');
+                            $el.removeClass('btn-collection-cancel').addClass('btn-collection');
                         }
                     }
                 } 

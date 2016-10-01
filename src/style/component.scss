@@ -1,0 +1,42 @@
+.btn {
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 10px;
+    transition: all .2s ease-in-out;
+}
+
+.btn-submit {
+    background-color: #08c;
+
+    &:hover {
+        background-color: #3d9ccc;
+    }
+}
+
+.btn-collection {
+    padding: 3px 6px;
+    background-color: #80bd01;
+
+    &:hover {
+        background-color: #6ba44e;
+    }
+}
+
+.btn-collection-cancel {
+    padding: 3px 6px;
+    background-color: #e5e5e5;
+    color: #000;
+
+    &:hover {
+        background-color: #838383;
+        color: #fff;
+    }
+}
+
+.btn-loading {
+    pointer-events: none;
+    opacity: .8;
+}

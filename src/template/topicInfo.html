@@ -61,7 +61,7 @@
                 <div class="reply-form">
                     <textarea id="replyArea"></textarea>
                     <div class="reply-btns">
-                        <input type="submit" name="" id="replyBtn">
+                        <input type="submit" name="" id="replyBtn" class="btn btn-submit">
                     </div>
                 </div>
             </div>
@@ -124,10 +124,9 @@
         {{/if}}
         <span class="title-text">{{data.title}}</span>
         {{if data.is_collect}}
-            <input type="submit" name="" value="取消收藏" id="collect" class="collect collect-cancel" data-collectFlag="1">
+            <input type="submit" name="" value="取消收藏" id="collect" class="btn btn-collection-cancel" data-collectFlag="1">
         {{else}}
-            <input type="submit" name="" value="收藏" id="collect" class="collect"
-             data-collectFlag="0">
+            <input type="submit" name="" value="收藏" id="collect" class="btn btn-collection" data-collectFlag="0">
         {{/if}}
     </div>
     <!-- 相关信息 -->
@@ -248,6 +247,7 @@
 
 <script type="text/javascript" src="../lib/storage.js"></script>
 <script type="text/javascript" src="../lib/loading.js"></script>
+<script type="text/javascript" src="../lib/component.js"></script>
 <script type="text/javascript" src="../lib/logout.js"></script>
 <script type="text/javascript" src="../lib/messageRemind.js"></script>
 <script type="text/javascript" src="../lib/linkHref.js"></script>

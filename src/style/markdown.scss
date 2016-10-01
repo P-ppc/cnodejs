@@ -81,22 +81,7 @@
                             display: inline-block;
                             margin-right: 20px;
                             margin-top: 10px;
-                            border-radius: 3px;
-                            color: #fff;
-                            &.collect {
-                                background-color: #80bd01;
-                                &:hover {
-                                    background-color: #6ba44e;
-                                }
-                            }
-                            &.collect-cancel {
-                                background-color: #e5e5e5;
-                                color: #000;
-                                &:hover {
-                                    background-color: #838383;
-                                    color: #fff;
-                                }
-                            }
+                            
                         }
                     }
                     .sub-info {
@@ -149,6 +134,9 @@
                         margin-right: 20px;
                         margin-top: 5px;
                         cursor: pointer;
+                        &:hover {
+                            color: #716565;
+                        }
                     }
                 }
             }
@@ -172,14 +160,6 @@
                     height: 160px;
                 }
                 .reply-btns {
-                    input {
-                        border: none;
-                        display: inline-block;
-                        border-radius: 3px;
-                        background-color: #08c;
-                        color: #fff;
-                        padding:5px 10px;
-                    }
                 }
             }
             .editor-preview > p {
