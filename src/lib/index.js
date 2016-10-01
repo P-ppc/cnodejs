@@ -59,6 +59,7 @@ var INDEX = (function () {
     var initTopicClick = function() {
         $("#list").on('click', '.topic-title', function () {
             var id = $(this).attr("data-id");
+            event.preventDefault();
             window.location = 'topicInfo.html?topicId=' + id;
         });
     }

@@ -8,12 +8,14 @@ $(function() {
         var topicId = $(this).attr("data-id");
         // 锚点
         var anchor = $(this).attr("data-anchor");
+        event.preventDefault();
         window.location = 'topicInfo.html?topicId=' + topicId + "&anchor=" + anchor;
     });
 
     // 点击用户头像和用户名跳转到用户信息页面
     $(document).on('click', '.js-userInfoLink', function() {
         var loginName = $(this).attr("data-loginName");
+        event.preventDefault();
         window.location = 'userInfo.html?loginName=' + loginName;
     });
 
