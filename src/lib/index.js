@@ -31,6 +31,7 @@ var INDEX = (function () {
                             var _options = options;
                             _options.page = page;
                             initPageList(_options);
+                            document.getElementById("category").scrollIntoView();
                         }
                     });
                     // 停止loading
