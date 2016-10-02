@@ -119,8 +119,10 @@
             <span class="title-tab spe">置顶</span>
         {{else if data.good}}
             <span class="title-tab spe">精华</span>
-        {{else}}
+        {{else if data.tab && data.tab != ""}}
             <span class="title-tab">{{data.tab | tabMap}}</span>
+        {{else}}
+            <!-- 无tab -->
         {{/if}}
         <span class="title-text">{{data.title}}</span>
         {{if data.is_collect}}

@@ -96,8 +96,10 @@
                 <span class="topiclist-tab put-top">置顶</span>
             {{else if value.good == true}}
                 <span class="topiclist-tab put-good">精华</span>
-            {{else}}
+            {{else if value.tab && value.tab != ""}}
                 <span class="topiclist-tab">{{value.tab | tabMap}}</span>
+            {{else}}
+                <!-- 无内容 -->
             {{/if}}
             <a class="topic-title topic-link" href="#" title="{{value.title}}" data-id="{{value.id}}">
                 {{value.title}}
