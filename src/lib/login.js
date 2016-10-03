@@ -9,7 +9,7 @@ var LOGIN = (function() {
 
     var _initLoginBtn = function() {
         // 跳过输入验证等
-        $("#loginSubmit").click(function () {
+        $(document).on('click', '#loginSubmit', function() {
             var accessToken = $("#accessToken").val();
             var urlString = "https://cnodejs.org/api/v1/accesstoken";
             $.ajax({
@@ -34,7 +34,7 @@ var LOGIN = (function() {
                     }
                 }
             })
-        return false;
+            return false;
         });
     }
 

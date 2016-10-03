@@ -131,6 +131,10 @@
                         padding: 10px;
 
                         border-radius: 0;
+
+                        &:hover {
+                            background-color: #a54651 !important;
+                        }
                     }
                 }
             }

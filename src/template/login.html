@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <title>登录</title>
     <link rel="stylesheet" type="text/css" href="../style/core.css">
+<!-- js代码放在前面，避免了进入login页面时页面闪烁 -->
+<script type="text/javascript" src="../lib/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/storage.js"></script>
+<script type="text/javascript" src="../lib/login.js"></script>
+<script type="text/javascript">
+    LOGIN.initPage();
+</script>
 </head>
 <body>
 <div class="page-login">
@@ -28,17 +35,10 @@
             </form>
         </div>
         <div class="login-bottom">
-            <a href="#">怎么获取Access Token?</a>
+            <a class="js-externalLink" href="https://cnodejs.org/api" target="_blank">怎么获取Access Token?</a>
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="../lib/jquery.min.js"></script>
-<script type="text/javascript" src="../lib/storage.js"></script>
-<script type="text/javascript" src="../lib/login.js"></script>
-
-<script type="text/javascript">
-    LOGIN.initPage();
-</script>
+<script type="text/javascript" src="../lib/linkHref.js"></script>
 </body>
 </html>
