@@ -27,6 +27,11 @@ body {
     z-index: -1;
 }
 
+p.no-content {
+    padding: 15px;
+    font-size: 14px;
+}
+
 .loading {
     width: 100%;
     position: absolute;
@@ -80,7 +85,38 @@ body {
     }
 }
 
-p.no-content {
-    padding: 15px;
-    font-size: 14px;
+.toast {
+    height: 80px;
+    width: 200px;
+    background: #000;
+    border-radius: 5px;
+    opacity: .5;
+    color: #b9b1b1;
+
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -40px;
+    
+    .icon-area,
+    .message-area {
+        float: left;
+        height: 80px;
+        line-height: 80px;
+    }
+
+    .icon-area {
+        width: 30%;
+        text-align: center;
+    }
+
+    .message-area {
+        width: 70%;
+        font-size: 25px;
+    }
+
+    .global-toast {
+        font-size: 50px;
+    }
 }
