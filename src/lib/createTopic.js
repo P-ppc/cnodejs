@@ -48,6 +48,13 @@ var CREATETOPIC = (function() {
                 });
                 return false;
             }
+            if (title.length <= 10) {
+                TOAST.show({
+                    icon: "icon-error",
+                    message: "标题需10字以上!"
+                });
+                return false;
+            }
             if (!content) {
                 TOAST.show({
                     icon: "icon-error",
