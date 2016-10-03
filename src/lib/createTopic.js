@@ -31,15 +31,30 @@ var CREATETOPIC = (function() {
     var initSubmitBtn = function() {
         $("#submit").click(function() {
             var title = $("#title").val();
-            var tab = $("#tab").val();
+            var tab = $("#tab option:selected").val();
             var content = editor.codemirror.getValue();
             var urlString = "https://cnodejs.org/api/vi/topics";
-            console.log({
-                accessToken: accessToken,
-                title: title,
-                tab: tab,
-                content: content
-            });
+            if (!tab) {
+                TOAST.show({
+                    icon: "icon-error",
+                    message: "请选择主题类型!"
+                });
+                return false;
+            }
+            if (!title) {
+                TOAST.show({
+                    icon: "icon-error",
+                    message: "请输入标题!"
+                });
+                return false;
+            }
+            if (!content) {
+                TOAST.show({
+                    icon: "icon-error",
+                    message: "请输入主题内容!"
+                });
+                return false;
+            }
             $.ajax({
                 url: urlString,
                 type: 'POST',

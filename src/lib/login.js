@@ -1,9 +1,5 @@
 var LOGIN = (function() {
     var initPage = function() {
-        // 如果保存有用户信息, 则跳过登录
-        if (STORAGE.getJSON('USERINFO')) {
-            window.location = 'index.html';
-        }
         _initLoginBtn();
     };
 
@@ -12,6 +8,14 @@ var LOGIN = (function() {
         $(document).on('click', '#loginSubmit', function() {
             var accessToken = $("#accessToken").val();
             var urlString = "https://cnodejs.org/api/v1/accesstoken";
+            if (!accessToken) {
+                TOAST.show({
+                    container: "body",
+                    icon: "icon-error",
+                    message: "请输入Token!"
+                });
+                return false;
+            }
             $.ajax({
                 url: urlString,
                 type: 'POST',
@@ -21,7 +25,7 @@ var LOGIN = (function() {
                 }),
                 success: function(respData) {
                     console.log(respData);
-                    if (respData && respData.success === true) {
+                    if (respData.success === true) {
                         // 保存
                         var userInfo = {
                             id: respData.id,
@@ -32,6 +36,14 @@ var LOGIN = (function() {
                         STORAGE.setJSON('USERINFO', userInfo);
                         window.location = 'index.html';
                     }
+                },
+                error: function() {
+                    TOAST.show({
+                        container: "body",
+                        icon: "icon-error",
+                        message: "登录失败!"
+                    });
+                    return false;
                 }
             })
             return false;

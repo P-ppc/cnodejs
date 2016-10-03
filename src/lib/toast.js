@@ -16,7 +16,7 @@ var TOAST = (function() {
 
     var show = function(options) {
         var toastHtml = template("toastTemplate", options);
-        $(".page-container").append(toastHtml);
+        $(options.container || ".page-container").append(toastHtml);
         $("#toast").fadeIn(300).delay(3000).fadeOut(300, function() {
             $(this).remove();
         }); 

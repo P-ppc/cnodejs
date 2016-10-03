@@ -128,6 +128,13 @@ var TOPICINFO = (function () {
         var topicId = UTILS.getQueryString('topicId');
         $("#replyBtn").click(function () {
             var replyContent = editor.codemirror.getValue();
+            if (!replyContent) {
+                TOAST.show({
+                    icon: "icon-error",
+                    message: "请输入回复内容!"
+                });
+                return false;
+            }
             var postData = {
                 accesstoken: accessToken,
                 content: replyContent
