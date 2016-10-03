@@ -98,6 +98,8 @@ p.no-content {
     left: 50%;
     margin-left: -100px;
     margin-top: -40px;
+
+    display: none; // 初始化为不见
     
     .icon-area,
     .message-area {
