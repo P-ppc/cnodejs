@@ -124,7 +124,7 @@
         {{else}}
             <!-- 无tab -->
         {{/if}}
-        <span class="title-text">{{data.title}}</span>
+        <span class="title-text" title="{{data.title}}">{{data.title}}</span>
         {{if data.is_collect}}
             <input type="submit" name="" value="取消收藏" id="collect" class="btn btn-collection-cancel" data-collectFlag="1">
         {{else}}
@@ -158,8 +158,8 @@
         <div class="reply">
             <div class="reply-info">
                 <a class="anchor" id={{value.id}}></a>
-                <img src="{{value.author.avatar_url | avatar}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">
-                <a href="#{{value.id}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}">{{value.author.loginname}}</a>
+                <img src="{{value.author.avatar_url | avatar}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}" title="{{value.author.loginname}}">
+                <a href="#{{value.id}}" class="js-userInfoLink" data-loginName="{{value.author.loginname}}" title="{{value.author.loginname}}">{{value.author.loginname}}</a>
                 <span>{{i + 1}}楼</span>
                 <span>{{value.create_at | timeSep}}</span>
                 <span class="reply-at js-replyAt" data-author="{{value.author.loginname}}" data-replyId="{{value.id}}">回复</span>
@@ -184,11 +184,11 @@
     <div class="author-info">
         <div class="line">
             <!-- 头像 -->
-            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}">
+            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}" title="{{data.loginname}}">
                 <img src="{{data.avatar_url}}">
             </a>
             <!-- 用户名 -->
-            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}"><span>{{data.loginname}}</span></a>
+            <a href="#" class="js-userInfoLink" data-loginName="{{data.loginname}}" title="{{data.loginname}}"><span>{{data.loginname}}</span></a>
         </div>
         <!-- 积分 -->
         <div class="line">
@@ -206,7 +206,7 @@
                 {{each data.recent_topics as value i}}
                 <li>
                     <div>
-                        <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
+                        <a href="#" data-id="{{value.id}}" class="topic-link" title="{{value.title}}">{{value.title}}</a>
                     </div>
                 </li>
                 {{/each}}
@@ -226,7 +226,7 @@
                 {{each data.recent_replies as value i}}
                 <li>
                     <div>
-                        <a href="#" data-id="{{value.id}}" class="topic-link">{{value.title}}</a>
+                        <a href="#" data-id="{{value.id}}" class="topic-link" title="{{value.title}}">{{value.title}}</a>
                     </div>
                 </li>
                 {{/each}}
