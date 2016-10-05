@@ -23,8 +23,6 @@ body {
     margin-top: -190px; //等于footer的高度
     height: 190px;
     clear:both;
-
-    z-index: -1;
 }
 
 p.no-content {
@@ -33,6 +31,7 @@ p.no-content {
 }
 
 .loading {
+    z-index: 1000;
     width: 100%;
     position: absolute;
     top: 0;
