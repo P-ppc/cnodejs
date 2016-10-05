@@ -122,3 +122,166 @@ p.no-content {
         font-size: 50px;
     }
 }
+
+.header {
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-radius: 3px 3px 0 0;
+    font-size: 14px;
+    .breadcrumb {
+        list-style: none;
+        box-shadow: none;
+        border-radius: 4px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: 0 0;
+        > li {
+            margin: 0;
+            line-height: 20px;
+            display: inline-block;
+            text-shadow: none;
+            a {
+                text-decoration: none;
+                color: #80bd01;
+            }
+            .divider {
+                padding: 0 5px;
+                color: #ccc;
+            }
+            &.active {
+                color: #999;
+            }
+        }
+    }
+}
+
+.topic-list {
+    // 首页, 我的信息, 收藏夹
+    background-color: #fff;
+    line-height: 2em;
+    p {
+        margin-left: 10px;
+        padding: 10px;
+        line-height: 2em;
+        font-size: 16px;
+    }
+    .cell {
+        position: relative;
+        padding: 10px;
+        font-size: 14px;
+        background-color: #fff;
+        height: 30px;
+        border-top: 1px solid #f0f0f0;
+        &:nth-child(1) {
+            border-top: none;
+        }
+        &:hover {
+            background-color: #f5f5f5;
+        }
+        .user-avatar {
+            float: left;
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 3px;
+            }
+        }
+        .reply-count {
+            float: left;
+            width: 70px;
+            display: inline-block;
+            text-align: center;
+            .count-of-reply {
+                color: #9e78c0;
+            }
+            .count-seperator {
+                margin:0 -3px;
+                font-size: 10px;
+            }
+            .count-of-visit {
+                font-size: 10px;
+                color: #b4b4b4;
+            }
+        }
+        .last-time {
+            float: right;
+            font-size: 11px;
+            display: inline-block;
+            margin-left: 20px;
+            color: #777;
+            .user-small-avatar {
+                height: 18px;
+                width: 18px;
+                vertical-align: middle;
+                margin-right: .5em;
+                border-radius: 3px;
+            }
+            .last-active-time {
+                text-align: right;
+                min-width: 50px;
+                display: inline-block;
+                white-space: nowrap;
+            }
+        }
+        .topic-title-wrapper {
+            white-space: nowrap;
+            span {
+                background-color: #e5e5e5;
+                color: #999;
+                padding: 2px 4px;
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                -o-border-radius: 3px;
+                font-size: 12px;
+                &.put-top {
+                    background-color: #80bd01;
+                    color: #fff;
+                }
+                &.put-good {
+                    background-color: #80bd01;
+                    color: #fff;
+                }
+            }
+            a {
+                text-decoration: none;
+                max-width: 70%;
+                // 太长的标题将被裁剪
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 16px;
+                line-height: 30px;
+                color: #333;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &:visited {
+                    color: #888;
+                }
+            }
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.left-wrap {
+    float: left;
+    width: 70%;
+}
+
+.right-wrap {
+    float: right;
+    width: 30%;
+}

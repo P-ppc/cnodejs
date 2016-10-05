@@ -9,7 +9,7 @@ var COLLECTION = (function() {
             success: function(respData) {
                 if (respData && respData.success === true) {
                     listHtml = template('listCell', respData);
-                    $('.collection-list').html(listHtml);
+                    $('#collectionList').html(listHtml);
                     LOADING.stopLoading();
                 }
             }
