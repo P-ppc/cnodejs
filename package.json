@@ -1,5 +1,15 @@
 {
     "name": "cnodejs",
-    "version": "0.1.0",
-    "main": "main.js"
+    "version": "1.0.0",
+    "description": "基于electron的cnodejs社区桌面客户端",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron main.js",
+        "build": "electron-packager ./ cnodejs --platform=darwin --arch=x64  --overwrite --out ./dist/$npm_package_version --version=0.37.8 --ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|dist)'"
+    },
+    "devDependencies": {
+        "electron-packager": "^7.0.3",   
+        "electron-prebuilt": "^0.37.0",
+        "rimraf": "^2.5.2"
+    }
 }
