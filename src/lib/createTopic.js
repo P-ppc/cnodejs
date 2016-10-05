@@ -33,7 +33,7 @@ var CREATETOPIC = (function() {
             var title = $("#title").val();
             var tab = $("#tab option:selected").val();
             var content = editor.codemirror.getValue();
-            var urlString = "https://cnodejs.org/api/vi/topics";
+            var urlString = "https://cnodejs.org/api/v1/topics";
             if (!tab) {
                 TOAST.show({
                     icon: "icon-error",
