@@ -10,15 +10,15 @@ let win;
 
 function createWindow() {
   // 创建一个新的浏览器窗口
-  win = new BrowserWindow({width: 1040, height: 750});
+  win = new BrowserWindow({
+        width: 1040, 
+        height: 750,
+        resizable: false,
+        title: 'cnodejs'
+  });
 
   // 并且装载应用的index.html页面
-  // win.loadURL(`file://${__dirname}/src/template/index.html`);
-  // win.loadURL(`file://${__dirname}/src/template/topicInfo.html`);
   win.loadURL(`file://${__dirname}/src/template/login.html`);
-
-  // 打开开发工具页面
-  // win.webContents.openDevTools();
 
   // 当窗口关闭时调用的方法
   win.on('closed', () => {
