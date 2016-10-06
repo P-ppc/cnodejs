@@ -18,6 +18,7 @@
 
 ###快速开始
  ```
+    git clone git@github.com:P-ppc/cnodejs.git
     npm install
     npm start
 ```
