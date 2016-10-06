@@ -25,7 +25,7 @@
 
 ###如何安装
 1. 下载源码进行手动编译安装包后安装
-2. 下载编译好的安装包进行安装(目前只提供Mac系统安装包, [连接](https://github.com/P-ppc/cnodejs/blob/tree/1.0.0/dist/1.0.0/cnodejs-darwin-x64.zip))
+2. 下载编译好的安装包进行安装(目前只提供Mac系统安装包, [连接](https://github.com/P-ppc/cnodejs/blob/tree/v1.0.0/dist/1.0.0/cnodejs-darwin-x64.zip))
 
 ###主要功能
 1. 利用accesstoken进行登录
