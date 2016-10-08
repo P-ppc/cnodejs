@@ -5,7 +5,9 @@
     "main": "main.js",
     "scripts": {
         "start": "electron main.js",
-        "build": "electron-packager ./ cnodejs --platform=darwin --arch=x64  --overwrite --out ./dist/$npm_package_version --version=0.37.8 --ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|dist)'"
+        "build:mac": "electron-packager ./ cnodejs --platform=darwin --arch=x64  --overwrite --out ./dist/$npm_package_version --version=0.37.8--ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|dist)'",
+        "build:win32": "electron-packager ./ cnodejs --platform=win32 --arch=ia32  --overwrite --out ./dist/$npm_package_version --version=0.37.8 --ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|dist)'",
+        "build:win64": "electron-packager ./ cnodejs --platform=win32 --arch=x64  --overwrite --out ./dist/$npm_package_version --version=0.37.8 --ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|dist)'"
     },
     "devDependencies": {
         "electron-packager": "^7.0.3",   

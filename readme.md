@@ -19,13 +19,20 @@
 ###快速开始
  ```
     git clone git@github.com:P-ppc/cnodejs.git
+    cd cnodejs
     npm install
     npm start
 ```
 
 ###如何安装
-1. 下载源码进行手动编译安装包后安装
-2. 下载编译好的安装包进行安装(目前只提供Mac系统安装包, [连接](https://github.com/P-ppc/cnodejs/blob/tree/v1.0.0/dist/1.0.0/cnodejs-darwin-x64.zip))
+1. git clone git@github.com:P-ppc/cnodejs.git
+2. cd cnodejs
+3. npm install
+4. 根据自己pc的系统运行编译命令, 对应如下:
+    - mac: npm run build:mac
+    - win64: npm run build:win64
+    - win32: npm run build:win32
+5. 安装dist目录下编译后的安装包即可
 
 ###主要功能
 1. 利用accesstoken进行登录
