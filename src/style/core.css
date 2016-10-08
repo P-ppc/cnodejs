@@ -340,6 +340,11 @@ p.no-content {
 .btn-submit:hover {
   background-color: #3d9ccc;
 }
+.btn-submit.disable {
+  background-color: #3d9ccc;
+  color: #c7b9b9;
+  cursor: not-allowed;
+}
 
 .btn-collection {
   padding: 3px 6px;
@@ -347,6 +352,11 @@ p.no-content {
 }
 .btn-collection:hover {
   background-color: #6ba44e;
+}
+.btn-collection.disable {
+  background-color: #6ba44e;
+  color: #c7b9b9;
+  cursor: not-allowed;
 }
 
 .btn-collection-cancel {
@@ -357,6 +367,11 @@ p.no-content {
 .btn-collection-cancel:hover {
   background-color: #838383;
   color: #fff;
+}
+.btn-collection-cancel.disable {
+  background-color: #838383;
+  color: #c7b9b9;
+  cursor: not-allowed;
 }
 
 .btn-loading {

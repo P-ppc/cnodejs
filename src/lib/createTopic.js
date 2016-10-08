@@ -30,6 +30,7 @@ var CREATETOPIC = (function() {
 
     var initSubmitBtn = function() {
         $("#submit").click(function() {
+            $el = $(this);
             var title = $("#title").val();
             var tab = $("#tab option:selected").val();
             var content = editor.codemirror.getValue();
@@ -62,6 +63,8 @@ var CREATETOPIC = (function() {
                 });
                 return false;
             }
+            // disable按钮
+            $el.attr("disabled", "true").addClass("disable");
             $.ajax({
                 url: urlString,
                 type: 'POST',
@@ -76,7 +79,12 @@ var CREATETOPIC = (function() {
                     if (respData && respData.success === true) {
                         // 暂时跳转到首页
                         window.location = 'index.html';
+                        // able按钮
+                        $el.removeAttr("disabled").removeClass("disable");
                     }
+                }, error: function() {
+                    // able按钮
+                    $el.removeAttr("disabled").removeClass("disable");
                 }
             });
         })

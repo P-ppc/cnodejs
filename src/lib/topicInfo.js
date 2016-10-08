@@ -57,6 +57,8 @@ var TOPICINFO = (function () {
             var $el = $(this);
             var collectFlag = $el.attr("data-collectFlag") == '0';
             var urlString = "https://cnodejs.org/api/v1/topic_collect/" + (collectFlag ? "collect" : "de_collect");
+            // disable按钮
+            $el.attr("disabled", "true").addClass("disable");
             $.ajax({
                 url: urlString,
                 type: 'POST',
@@ -77,8 +79,12 @@ var TOPICINFO = (function () {
                             $el.val('收藏');
                             $el.removeClass('btn-collection-cancel').addClass('btn-collection');
                         }
+                        // able按钮
+                        $el.removeAttr("disabled").removeClass("disable");
                     }
-                } 
+                }, error: function() {
+                    $el.removeAttr("disabled").removeClass("disable");
+                }
             });
         });
     };
@@ -127,6 +133,7 @@ var TOPICINFO = (function () {
         var accessToken = STORAGE.getJSON('USERINFO').accessToken;
         var topicId = UTILS.getQueryString('topicId');
         $("#replyBtn").click(function () {
+            $el = $(this);
             var replyContent = editor.codemirror.getValue();
             if (!replyContent) {
                 TOAST.show({
@@ -143,6 +150,8 @@ var TOPICINFO = (function () {
                 postData.reply_id = editorReplyId;
             }
             urlString = "https://cnodejs.org/api/v1/topic/" + topicId + "/replies";
+            // disable按钮
+            $el.attr("disabled", "true").addClass("disable");
             $.ajax({
                 url: urlString,
                 type: 'POST',
@@ -150,11 +159,16 @@ var TOPICINFO = (function () {
                 data: $.param(postData),
                 success: function(respData) {
                     if (respData && respData.success === true) {
+                        // able按钮
+                        $el.removeAttr("disabled").removeClass("disable");
                         // 刷新页面
                         initPage(topicId, accessToken);
                         // 自己为空
                         editor.codemirror.setValue('');
                     }
+                }, error: function() {
+                    // able按钮
+                    $el.removeAttr("disabled").removeClass("disable");
                 }
             });
         });

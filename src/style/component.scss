@@ -14,6 +14,12 @@
     &:hover {
         background-color: #3d9ccc;
     }
+
+    &.disable {
+        background-color: #3d9ccc;
+        color: #c7b9b9;
+        cursor: not-allowed;
+    }
 }
 
 .btn-collection {
@@ -22,6 +28,11 @@
 
     &:hover {
         background-color: #6ba44e;
+    }
+    &.disable {
+        background-color: #6ba44e;
+        color: #c7b9b9;
+        cursor: not-allowed;
     }
 }
 
@@ -33,6 +44,11 @@
     &:hover {
         background-color: #838383;
         color: #fff;
+    }
+    &.disable {
+        background-color: #838383;
+        color: #c7b9b9;
+        cursor: not-allowed;
     }
 }
 
