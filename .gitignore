@@ -5,3 +5,5 @@ src/style/*.css
 bower_components
 TODOS.md
 node_modules
+dist/*
+!dist/.gitkeep
