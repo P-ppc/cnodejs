@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/normalize-css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="sidebar" 
+        ng-controller="sidebarCtrl"
+        ng-class="{expand: isExpanded}">
+        <div class="logo">
+            <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+        </div>
+        <ul class="menu">
+            <li class="menu-item"
+                ng-repeat="item in menuItems"
+                title="{{item.title}}"
+                ng-class="{selected: selectedItem === item.code}"
+                ng-click="select(item.code)">
+                <div class="icon">
+                    <i class="menu-icon fa fa-{{item.class}}"></i>
+                </div>
+                <span class="title">{{item.title}}</span>
+            </li>
+        </ul>
+        <div class="bottom menu-item"
+            ng-click="toggleExpand()">
+            <div class="icon">
+                <i class="menu-icon fa fa-navicon"></i>
+            </div>
+            <span class="title">点击收缩</span>
+        </div>
+    </div>
+    <div class="main"></div>
+<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/P-ppc/cnodejs",
+  "authors": [
+    "P-ppc <ppc-user@foxmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "angular": "1.5",
+    "angular-route": "1.5",
+    "normalize-css": "normalize.css#^5.0.0",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
