@@ -19,8 +19,8 @@
             <li class="menu-item"
                 ng-repeat="item in menuItems"
                 title="{{item.title}}"
-                ng-class="{selected: selectedItem === item.code}"
-                ng-click="select(item.code)">
+                ng-class="{selected: selectedItem === item}"
+                ng-click="select(item)">
                 <div class="icon">
                     <i class="menu-icon fa fa-{{item.class}}"></i>
                 </div>
@@ -35,7 +35,28 @@
             <span class="title">点击收缩</span>
         </div>
     </div>
-    <div class="main"></div>
+    <div class="main">
+        <ul class="tab"
+            ng-controller="tabCtrl">
+            <li class="tab-item"
+                ng-repeat="item in tabItems"
+                title="{{item.title}}"
+                ng-class="{selected: selectedItem === item}"
+                ng-click="select(item)">
+                <span class="title">{{item.title}}</span>
+                <div class="icon"
+                    ng-click="closeTab(item)">
+                    <i class="fa fa-close"></i>
+                </div>
+            </li>
+            <li class="tab-item new"
+                ng-click="addTab()">
+                <div class="icon">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
 <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>

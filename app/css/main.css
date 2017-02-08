@@ -66,11 +66,11 @@ body {
 
 .sidebar .menu-item .title {
     display: none;
+    margin-left: -13px;
 }
 
 .sidebar.expand .menu-item .title {
     display: inline-block;
-    margin-left: -13px;
 }
 
 .menu-item.selected {
@@ -99,5 +99,62 @@ body {
 
 .main {
     flex-grow: 1;
-    background: #ccc;
+}
+
+/* tab */
+.tab {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 35px;
+    background: #313949;
+    /* 消除inline-block间距 */
+    font-size: 0; -webkit-text-size-adjust:none;
+}
+
+.tab-item {
+    display: inline-block;
+    height: 35px;
+    background: #575E6B;
+    border-radius: 2px 2px 0 0;
+    cursor: pointer;
+    margin-right: 3px;
+    font-size: 18px;
+}
+
+.tab-item.selected {
+    background: #FFF;
+}
+
+.tab-item * {
+    vertical-align: middle;
+}
+
+.tab-item .title {
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    margin-left: 10px;
+    max-width: 160px;
+    /* 超出部分省略号 */
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+.tab-item .icon {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: -10px;
+}
+
+.tab-item.new .icon {
+    margin-left: 0;
+}
+
+.tab-item .icon * {
+    vertical-align: middle;
 }
