@@ -1,0 +1,29 @@
+<div 
+    ng-controller="indexCtrl">
+    <div class="placeholder"></div>
+    <ul class="topic-list">
+        <li class="topic-item"
+            ng-repeat="item in topicItems">
+            <div class="avator">
+                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+            </div>
+            <div class="topic">
+                <h4 class="title">{{item.title}}</h4>
+                <ul class="status">
+                    <li class="status-item">
+                        <i class="icon fa fa-commenting"></i>
+                        <span><em class="num">{{item.answerCount}}</em>Answers</span>
+                    </li>
+                    <li class="status-item">
+                        <i class="icon fa fa-eye"></i>
+                        <span><em class="num">{{item.viewCount}}</em>Views</span>
+                    </li>
+                </ul>
+                <div class="tags">
+                    <div class="tag-item" ng-repeat="tag in item.tags">{{tag}}</div>
+                    <div class="time">{{item.createAt}}</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

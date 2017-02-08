@@ -35,9 +35,9 @@
             <span class="title">点击收缩</span>
         </div>
     </div>
-    <div class="main">
-        <ul class="tab"
-            ng-controller="tabCtrl">
+    <div class="main"
+        ng-controller="mainCtrl">
+        <ul class="tab">
             <li class="tab-item"
                 ng-repeat="item in tabItems"
                 title="{{item.title}}"
@@ -56,6 +56,13 @@
                 </div>
             </li>
         </ul>
+        <div class="main-content">
+            <div class="content"
+                ng-repeat="item in tabItems"
+                ng-show="selectedItem === item"
+                ng-include="item.src">
+            </div>
+        </div>
     </div>
 <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>

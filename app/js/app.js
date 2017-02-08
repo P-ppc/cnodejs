@@ -58,11 +58,12 @@ window.APP.controller("sidebarCtrl", function ($rootScope, $scope) {
     });
 });
 
-window.APP.controller("tabCtrl", function ($rootScope, $scope) {
+window.APP.controller("mainCtrl", function ($rootScope, $scope) {
     $scope.tabItems = [
         {
             title: "首页",
-            menu: "HOME"
+            menu: "HOME",
+            src: "views/templates/index.html"
         }
     ];
     $scope.selectedItem = $scope.tabItems[0];
@@ -73,7 +74,8 @@ window.APP.controller("tabCtrl", function ($rootScope, $scope) {
     $scope.addTab = function () {
         var newItem = {
             title: "首页",
-            menu: "HOME"
+            menu: "HOME",
+            src: "views/templates/index.html"
         };
         $scope.tabItems.push(newItem);
         // 选中tab
@@ -98,4 +100,16 @@ window.APP.controller("tabCtrl", function ($rootScope, $scope) {
         $scope.selectedItem.title = menu.title;
         $scope.selectedItem.menu = menu.code;
     });
+});
+
+window.APP.controller("indexCtrl", function ($scope) {
+    $scope.topicItems = [
+        {
+            title: "THIS IS THE OF THE TOPIC!",
+            answerCount: 0,
+            viewCount: 123,
+            tags: ["分享", "置顶", "精华"],
+            createAt: "Posted 3h ago"
+        }
+    ];
 });

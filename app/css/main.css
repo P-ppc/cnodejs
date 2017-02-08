@@ -9,6 +9,12 @@ body {
     display: flex;
 }
 
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .sidebar {
     background: #1A1A1C;
     width: 60px;
@@ -99,6 +105,8 @@ body {
 
 .main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* tab */
@@ -157,4 +165,80 @@ body {
 
 .tab-item .icon * {
     vertical-align: middle;
+}
+
+.main-content {
+    flex-grow: 1;
+    background: #dde6ed;
+}
+
+/* 主页 */
+.placeholder {
+    height: 40px;
+}
+
+.topic-item {
+    display: flex;
+    padding-top: 20px;
+    padding-left: 20px;
+    background: #fff;
+    margin-bottom: 2px;
+    border-right: 1px solid #dde6ed;
+}
+
+.avator img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+
+.topic {
+    flex-grow: 1;
+    padding-left: 25px;
+}
+
+.topic .title {
+    margin: 5px 0 10px 0;
+}
+
+.topic .status-item {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #a9b8c6;
+}
+
+.status-item * {
+    vertical-align: middle;
+}
+
+.status-item .num {
+    margin-left: 8px;
+    margin-right: 5px;
+    font-style: normal;
+}
+
+.topic .status, .topic .tags {
+    margin-bottom: 10px;
+}
+
+.tags {
+    color: #b1becc;
+}
+
+.tag-item {
+    display: inline-block;
+    font-size: 12px;
+    background: #fff4de;
+    padding: 5px 8px;
+    border-radius: 2px;
+    border: 1px solid #ffebbe;
+    color: #cab685;
+    margin-right: 5px;
+}
+
+.tags .time {
+    font-size: 12px;
+    float: right;
+    margin-right: 10px;
 }
