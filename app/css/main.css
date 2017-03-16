@@ -212,6 +212,14 @@ ul, li {
     vertical-align: middle;
 }
 
+.status-item.answer-not-zero {
+    color: #ff6a65;
+}
+
+.status-item.view-not-zero {
+    color: #1eb2eb;
+}
+
 .status-item .num {
     margin-left: 8px;
     margin-right: 5px;

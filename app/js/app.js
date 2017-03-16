@@ -110,6 +110,20 @@ window.APP.controller("indexCtrl", function ($scope) {
             viewCount: 123,
             tags: ["分享", "置顶", "精华"],
             createAt: "Posted 3h ago"
+        },
+        {
+            title: "THIS IS THE OF THE TOPIC!",
+            answerCount: 2,
+            viewCount: 123,
+            tags: ["分享", "置顶", "精华"],
+            createAt: "Posted 3h ago"
+        },
+        {
+            title: "THIS IS THE OF THE TOPIC!",
+            answerCount: 0,
+            viewCount: 123,
+            tags: ["分享", "置顶", "精华"],
+            createAt: "Posted 3h ago"
         }
     ];
 });

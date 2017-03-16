@@ -10,11 +10,13 @@
             <div class="topic">
                 <h4 class="title">{{item.title}}</h4>
                 <ul class="status">
-                    <li class="status-item">
+                    <li class="status-item"
+                        ng-class="{'answer-not-zero': item.answerCount > 0}">
                         <i class="icon fa fa-commenting"></i>
                         <span><em class="num">{{item.answerCount}}</em>Answers</span>
                     </li>
-                    <li class="status-item">
+                    <li class="status-item"
+                        ng-class="{'view-not-zero': item.viewCount > 0}">
                         <i class="icon fa fa-eye"></i>
                         <span><em class="num">{{item.viewCount}}</em>Views</span>
                     </li>

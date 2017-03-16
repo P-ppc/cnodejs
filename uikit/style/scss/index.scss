@@ -1,0 +1,137 @@
+// this file is PRIVATE style for uikit, and use uikit- begin
+
+// 颜色变量
+// 主色
+$light-blue: #58B7FF;
+$blue: #20A0FF;
+$dark-blue: #1D8CE0;
+// 辅助色
+$success: #13CE66;
+$warning: #F7BA2A;
+$danger: #FF4949;
+// 中性色
+$black: #1F2D3D;
+$light-black: #324057;
+$extra-light-black: #475669;
+
+$silver: #8492A6;
+$light-silver: #99A9BF;
+$extra-light-silver: #C0CCDA;
+
+$gray: #D3DCE6;
+$light-gray: #E5E9F2;
+$extra-light-gray: #EFF2F7;
+
+$dark-white: #F9FAFC;
+$white: #FFFFFF;
+
+.uikit-panel {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.uikit-row {
+    box-sizing: border-box;
+    padding: 1rem;
+    background: #f4f5f5;
+    border-radius: .1rem;
+    margin-top: .5rem;
+}
+
+.uikit-full-title {
+    text-align: center;
+    margin: .8em 0;
+    font-size: 2.5rem;
+}
+
+.uikit-title {
+    font-size: 1.8rem;
+    margin: .8em 0;
+}
+
+.uikit-list {
+    list-style: disc;
+    margin-left: 2rem;
+
+    > li {
+        margin: 1rem 0;
+    }
+}
+
+.uikit-bg {
+    height: 3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: .1rem;
+
+    line-height: 3rem;
+    text-align: center;
+}
+
+.uikit-bg-light-blue {
+    background: $light-blue;
+}
+
+.uikit-bg-blue {
+    background: $blue;
+}
+
+.uikit-bg-dark-blue {
+    background: $dark-blue;
+}
+
+.uikit-bg-success {
+    background: $success;
+}
+
+.uikit-bg-warning {
+    background: $warning;
+}
+
+.uikit-bg-danger {
+    background: $danger;
+}
+
+.uikit-bg-black {
+    background: $black;
+}
+
+.uikit-bg-light-black {
+    background: $light-black;
+}
+
+.uikit-bg-extra-light-black {
+    background: $extra-light-black;
+}
+
+.uikit-bg-silver {
+    background: $silver;
+}
+
+.uikit-bg-light-silver {
+    background: $light-silver;
+}
+
+.uikit-bg-extra-light-silver {
+    background: $extra-light-silver;
+}
+
+.uikit-bg-gray {
+    background: $gray;
+}
+
+.uikit-bg-light-gray {
+    background: $light-gray;
+}
+
+.uikit-bg-extra-light-gray {
+    background: $extra-light-gray;
+}
+
+.uikit-bg-dark-white {
+    background: $dark-white;
+}
+
+.uikit-bg-white {
+    background: $white;
+}
