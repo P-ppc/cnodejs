@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="APP">
 <head>
     <meta charset="UTF-8">
     <title>CNODEJS</title>
+    <link rel="stylesheet" type="text/css" href="style/css/base.css">
+    <link rel="stylesheet" type="text/css" href="style/css/main.css">
+    <!-- temp style -->
+    <style type="text/css">
+        html {
+            height: 100%;
+            background: #fff;
+        }
+        body {
+            width: 700px;
+            height: 100%;
+            background: #ddd;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <!-- 整体布局 -->
@@ -12,5 +27,13 @@
         <div ng-view class="content">
         </div>
     </div>
+
+<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/topicController.js"></script>
+<script type="text/javascript" src="js/config/route.js"></script>
 </body>
 </html>

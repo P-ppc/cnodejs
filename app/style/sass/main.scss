@@ -1,0 +1,34 @@
+body {
+    display: flex;
+
+    > .sidebar {
+        width: 60px;
+        background: #ededed;
+    }
+
+    > .main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        > .top-navbar {
+            height: 40px;
+            background: #ededed;
+        }
+
+        > .content {
+            flex-grow: 1;
+        }
+    }
+}
+
+.panel {
+    width: 96%;
+    margin: 10px auto;
+    height: 100px;
+    background: #fff;
+
+    > .header {
+        display: none;
+    }
+}

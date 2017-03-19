@@ -1,9 +1,12 @@
 .DS_Store
 *.sh
 src/style/*.css
+*.css
 !src/style/core.css
 bower_components
 TODOS.md
 node_modules
 dist/*
 !dist/.gitkeep
+*.map
+.sass-cache
