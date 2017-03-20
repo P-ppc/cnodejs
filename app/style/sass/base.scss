@@ -45,6 +45,23 @@ body {
     color: #1f2d3d;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 // 文字大小
 .h1 {
     font-size: 2 * $rem;

@@ -12,12 +12,14 @@ body {
         flex-direction: column;
 
         > .top-navbar {
+            flex-shrink: 0;
             height: 40px;
             background: #ededed;
         }
 
         > .content {
             flex-grow: 1;
+            overflow-y: auto;
         }
     }
 }
@@ -25,10 +27,81 @@ body {
 .panel {
     width: 96%;
     margin: 10px auto;
-    height: 100px;
-    background: #fff;
+}
 
-    > .header {
-        display: none;
+.list {
+    .item {
+        background: #fff;
+        margin-bottom: 5px;
+        width: 100%;
+        min-height: 120px;
+        box-shadow: 2px 2px 1px #ccc;
+
+        display: flex;
+
+        > .item-left-part {
+            width: 90px;
+            box-sizing: border-box;
+            padding-left: 15px;
+            padding-top: 10px;
+
+            > img {
+                height: 68px;
+                width: 68px;
+                border-radius: 50%;
+            }
+        }
+
+        > .item-right-part {
+            position: relative;
+            box-sizing: border-box;
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-right: 15px;
+        }
+    }
+}
+
+.item-right-part {
+    > .title {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+        
+    > .status {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #01aaea;
+        font-weight: 300;
+
+        .status-item {
+            margin-right: 20px;
+
+        }
+
+        em {
+            font-style: normal;
+        }
+    }
+    
+    > .tags {
+        .tag-item {
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            background: #fff4de;
+            padding: 2px 4px;
+            border: 1px solid #ffe9b2;
+            border-radius: 2px;
+        }
+    }
+    
+    > .date {
+        position: absolute;
+        right: 15px;
+        bottom: 10px;
+        font-size: 14px;
+        color: #bec8d3;
     }
 }
