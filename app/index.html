@@ -14,7 +14,7 @@
         }
         body {
             width: 700px;
-            height: 100%;
+            height: 80%;
             background: #dde6ed;
             margin: 0 auto;
         }
@@ -22,9 +22,46 @@
 </head>
 <body>
     <!-- 整体布局 -->
-    <div class="sidebar"></div>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+        </div>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <i class="fa fa-home"></i>
+            </li>
+            <li class="menu-item">
+                <i class="fa fa-plus"></i>
+            </li>
+            <li class="menu-item">
+                <i class="fa fa-star-o"></i>
+            </li>
+        </ul>
+        <div class="setting">
+            <i class="fa fa-gear"></i>
+        </div>
+    </div>
     <div class="main">
-        <div class="top-navbar"></div>
+        <div class="top-navbar">
+            <div class="tabs">
+                <span class="tab-item selected">全部</span>
+                <span class="tab-item">精华</span>
+                <span class="tab-item">分享</span>
+                <span class="tab-item">问答</span>
+                <span class="tab-item">招聘</span>
+            </div>
+            <div class="options">
+                <span class="option-item">
+                    <i class="fa fa-angle-left"></i>
+                </span>
+                <span class="option-item">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+                <span class="option-item" style="font-size: 17px;">
+                    <i class="fa fa-circle-o-notch"></i>
+                </span>
+            </div>
+        </div>
         <div ng-view class="content">
         </div>
     </div>
@@ -33,8 +70,11 @@
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
 
+<script type="text/javascript" src="js/utils.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/controllers/topicController.js"></script>
 <script type="text/javascript" src="js/config/route.js"></script>
+<script type="text/javascript" src="js/config/constant.js"></script>
+<script type="text/javascript" src="js/services/topicService.js"></script>
+<script type="text/javascript" src="js/controllers/topicController.js"></script>
 </body>
 </html>
