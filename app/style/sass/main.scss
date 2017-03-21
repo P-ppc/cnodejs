@@ -136,7 +136,7 @@ body {
         background: #fff;
         margin-bottom: 5px;
         width: 100%;
-        min-height: 120px;
+        min-height: 100px;
         box-shadow: 1px 1px 1px #ccc;
         
         display: flex;
@@ -147,6 +147,7 @@ body {
 
         > .item-left-part {
             width: 90px;
+            flex-shrink: 0;
             box-sizing: border-box;
             padding-left: 15px;
             padding-top: 10px;
@@ -160,6 +161,7 @@ body {
         }
 
         > .item-right-part {
+            flex-grow: 1;
             position: relative;
             box-sizing: border-box;
             padding-left: 15px;

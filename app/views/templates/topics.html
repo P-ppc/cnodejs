@@ -1,21 +1,21 @@
 <!-- 主题列表: 结构 -->
 <div class="panel">
     <div class="list">
-        <div class="item" ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]">
+        <div class="item" ng-repeat="topic in topicList">
             <div class="item-left-part">
-                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+                <img ng-src="{{topic.author.avatar_url}}">
             </div>
             <div class="item-right-part">
-                <p class="title">Forum homepage and user page designs i recently worked on, take a look at attached real-pixels and share your comments!</p>
+                <p class="title" ng-bind="topic.title"></p>
                 <div class="status">
                     <span class="status-item">
                         <i class="fa fa-envelope-o"></i>
-                        <em>5</em>
+                        <em ng-bind="topic.reply_count"></em>
                         <span>Replies</span>
                     </span>
                     <span class="status-item">
                         <i class="fa fa-eye"></i>
-                        <em>5</em>
+                        <em ng-bind="topic.visit_count"></em>
                         <span>Views</span>
                     </span>
                 </div>
