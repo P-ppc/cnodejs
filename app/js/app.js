@@ -1,3 +1,3 @@
-window.APP = angular.module("APP", ["ngRoute"]);
+window.APP = angular.module("APP", ["ngRoute", "infinite-scroll"]);
 
-moment.lang('zh-cn');
+moment.locale('zh-cn');

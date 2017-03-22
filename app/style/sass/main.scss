@@ -69,6 +69,7 @@ body {
             background: #fff;
             box-shadow: 0 3px 3px #bfc8ec;
             position: relative;
+            z-index: 1000;
 
             .tabs {
                 position: absolute;
@@ -168,6 +169,7 @@ body {
         > .item-right-part {
             flex-grow: 1;
             position: relative;
+            z-index: 999;
             box-sizing: border-box;
             padding-left: 15px;
             padding-top: 10px;

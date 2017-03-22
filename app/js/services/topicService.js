@@ -1,9 +1,9 @@
 window.APP.factory('TopicListService', ['$http', '$q', 'TopicConfig', function($http, $q, TopicConfig) {
-    var currentPage = 1;
+    var currentPage = 0;
 
     // 前往指定页
     var goPage = function (pageNum, tab) {
-        pageNum = pageNum || 1;
+        pageNum = pageNum || 0;
         tab = tab || "all";
 
         var defer = $q.defer();
