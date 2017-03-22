@@ -19,6 +19,7 @@
     "angular": "1.5",
     "angular-route": "1.5",
     "normalize-css": "normalize.css#^5.0.0",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "moment": "^2.18.1"
   }
 }

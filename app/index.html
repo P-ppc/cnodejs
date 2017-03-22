@@ -21,7 +21,6 @@
     </style>
 </head>
 <body>
-    <!-- 整体布局 -->
     <div class="sidebar">
         <div class="logo">
             <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
@@ -41,31 +40,9 @@
             <i class="fa fa-gear"></i>
         </div>
     </div>
-    <div class="main">
-        <div class="top-navbar">
-            <div class="tabs">
-                <span class="tab-item selected">全部</span>
-                <span class="tab-item">精华</span>
-                <span class="tab-item">分享</span>
-                <span class="tab-item">问答</span>
-                <span class="tab-item">招聘</span>
-            </div>
-            <div class="options">
-                <span class="option-item">
-                    <i class="fa fa-angle-left"></i>
-                </span>
-                <span class="option-item">
-                    <i class="fa fa-angle-right"></i>
-                </span>
-                <span class="option-item" style="font-size: 17px;">
-                    <i class="fa fa-circle-o-notch"></i>
-                </span>
-            </div>
-        </div>
-        <div ng-view class="content">
-        </div>
-    </div>
+    <div ng-view class="container"></div>
 
+<script type="text/javascript" src="lib/bower_components/moment/min/moment-with-locales.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
@@ -74,6 +51,8 @@
 <script type="text/javascript" src="js/app.js"></script>
 <script type="text/javascript" src="js/config/route.js"></script>
 <script type="text/javascript" src="js/config/constant.js"></script>
+<script type="text/javascript" src="js/config/filters.js"></script>
+
 <script type="text/javascript" src="js/services/topicService.js"></script>
 <script type="text/javascript" src="js/controllers/topicController.js"></script>
 </body>

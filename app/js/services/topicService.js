@@ -38,4 +38,4 @@ window.APP.factory('TopicListService', ['$http', '$q', 'TopicConfig', function($
             return currentPage;
         }
     };
-}])
+}]);

@@ -1,31 +1,53 @@
-<!-- 主题列表: 结构 -->
-<div class="panel">
-    <div class="list">
-        <div class="item" ng-repeat="topic in topicList">
-            <div class="item-left-part">
-                <img ng-src="{{topic.author.avatar_url}}">
-            </div>
-            <div class="item-right-part">
-                <p class="title" ng-bind="topic.title"></p>
-                <div class="status">
-                    <span class="status-item">
-                        <i class="fa fa-envelope-o"></i>
-                        <em ng-bind="topic.reply_count"></em>
-                        <span>Replies</span>
-                    </span>
-                    <span class="status-item">
-                        <i class="fa fa-eye"></i>
-                        <em ng-bind="topic.visit_count"></em>
-                        <span>Views</span>
-                    </span>
+<div class="main">
+    <div class="top-navbar">
+        <div class="tabs">
+            <span class="tab-item" ng-class="{selected: selectedTab == 'all'}" ng-click="selectTab('all')">全部</span>
+            <span class="tab-item" ng-class="{selected: selectedTab == 'good'}" ng-click="selectTab('good')">精华</span>
+            <span class="tab-item" ng-class="{selected: selectedTab == 'share'}" ng-click="selectTab('share')">分享</span>
+            <span class="tab-item" ng-class="{selected: selectedTab == 'ask'}" ng-click="selectTab('ask')">问答</span>
+            <span class="tab-item" ng-class="{selected: selectedTab == 'job'}" ng-click="selectTab('job')">招聘</span>
+        </div>
+        <div class="options">
+            <span class="option-item">
+                <i class="fa fa-angle-left"></i>
+            </span>
+            <span class="option-item">
+                <i class="fa fa-angle-right"></i>
+            </span>
+            <span class="option-item" style="font-size: 17px;">
+                <i class="fa fa-circle-o-notch"></i>
+            </span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="panel">
+            <div class="list">
+                <div class="item" ng-repeat="topic in topicList">
+                    <div class="item-left-part">
+                        <img ng-src="{{topic.author.avatar_url}}">
+                    </div>
+                    <div class="item-right-part">
+                        <p class="title" ng-bind="topic.title"></p>
+                        <div class="status">
+                            <span class="status-item">
+                                <i class="fa fa-envelope-o"></i>
+                                <em ng-bind="topic.reply_count"></em>
+                                <span>Replies</span>
+                            </span>
+                            <span class="status-item">
+                                <i class="fa fa-eye"></i>
+                                <em ng-bind="topic.visit_count"></em>
+                                <span>Views</span>
+                            </span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag-item special" ng-if="topic.top">置顶</span>
+                            <span class="tag-item special" ng-if="topic.good">精华</span>
+                            <span class="tag-item" ng-if="topic.tab != undefined && topic.tab != ''" ng-bind="topic.tab | topicTabFormatter"></span>
+                        </div>
+                        <span class="date" ng-bind="topic.last_reply_at | fromNow"></span>
+                    </div>
                 </div>
-                <div class="tags">
-                    <span class="tag-item">招聘</span>
-                    <span class="tag-item">问答</span>
-                </div>
-                <span class="date">
-                    23h ago
-                </span>
             </div>
         </div>
     </div>
