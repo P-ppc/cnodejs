@@ -34,3 +34,7 @@ window.APP.controller('topicsCtrl', ['$scope', '$http', 'TopicListService', func
     $scope.topicList = new TopicList();
     $scope.topicList.changeTab("all");
 }]);
+
+window.APP.controller("topicInfoCtrl", ["$scope", function ($scope) {
+    
+}]);
