@@ -89,6 +89,12 @@
         margin-bottom: 10px;
         border-bottom: 1px dashed #ccc;
 
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
         .reply-item-content {
             margin-bottom: 10px;
         }
