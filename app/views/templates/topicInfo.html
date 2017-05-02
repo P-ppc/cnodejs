@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="topic-content" ng-bind-html="topicInfo.content" m-auto-prettify>
+                <div class="topic-content" ng-bind-html="topicInfo.content | pretty">
                 </div>
             </div>
             <div class="part">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="reply-list">
                     <div class="reply-item" ng-repeat="reply in topicInfo.replies">
-                        <p class="reply-item-content" ng-bind-html="reply.content" m-auto-prettify></p>
+                        <p class="reply-item-content" ng-bind-html="reply.content | pretty"></p>
                         <div class="reply-item-info">
                             <div>
                                 <span>由</span>

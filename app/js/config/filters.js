@@ -17,3 +17,18 @@ window.APP.filter("topicTabFormatter", function () {
         }
     };
 });
+
+window.APP.filter("pretty", ["$log", function ($log) {
+    return function (input) {
+        if (typeof prettyPrintOne !== "function" || typeof $ !== "function") {
+            return input;
+            $log.warning("code-pretty or jQuery is not install!");
+        }
+        var $input = $(input);
+        var $pres = $input.find("pre.prettyprint");
+        $pres.each(function () {
+            $(this).replaceWith(prettyPrintOne(this.outerHTML));
+        });
+        return $input.prop("outerHTML");
+    };
+}]);
