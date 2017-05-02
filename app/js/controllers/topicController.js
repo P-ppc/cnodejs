@@ -35,7 +35,7 @@ window.APP.controller('topicsCtrl', ['$scope', '$http', 'TopicListService', func
     $scope.topicList.changeTab("all");
 }]);
 
-window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", function ($scope, TopicInfoService) {
+window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", "$location", function ($scope, TopicInfoService, $location) {
     var mditor =  Mditor.fromTextarea(document.getElementById('editor'));
     mditor.split = false;	//关闭
     //是否打开预览			
@@ -46,16 +46,11 @@ window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", function (
     mditor.on('ready',function(){
     });
 
-    // var topicId = "5905fbe8782dbc4b183ecf42";
-    // 这个topicId 将会导致格式错乱
-    // var topicId = "58d0fb3517f61387400b7e15";
-    var topicId = "585ddd6a8193ec6c5df1dee3";
-    var accesstoken = "2fd28325-f4ee-4b4e-ae40-fd5be3e269bf";
-    
+    var topicId = $location.search().topicId;
+
     function getTopicInfo () {
         var params = {
-            id: topicId,
-            accesstoken: accesstoken
+            id: topicId
         };
 
         TopicInfoService.getInfo(params).then(function (data) {

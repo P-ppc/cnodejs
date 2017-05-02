@@ -31,7 +31,7 @@
                         <img ng-src="{{topic.author.avatar_url}}">
                     </div>
                     <div class="item-right-part">
-                        <p class="title" ng-bind="topic.title"></p>
+                        <p class="title"><a href="#/topic?topicId={{topic.id}}" ng-bind="topic.title"></a></p>
                         <div class="status">
                             <span class="status-item">
                                 <i class="fa fa-envelope-o"></i>

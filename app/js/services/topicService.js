@@ -46,7 +46,7 @@ window.APP.factory("TopicInfoService", ["$http", "$q", function ($http, $q) {
     var service = {};
 
     service.getInfo = function (params) {
-        var url = infoUrl + params.id + "?accesstoken=" + params.accesstoken,
+        var url = infoUrl + params.id,
             defer = $q.defer();
 
         $http.get(url).success(function (resp) {
