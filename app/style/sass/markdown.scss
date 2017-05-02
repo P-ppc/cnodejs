@@ -1,0 +1,122 @@
+.markdown-text {
+    h1, h2, h3, h4, h5, h6 {
+        margin: 10px 0;
+        font-family: inherit;
+        font-weight: 700;
+        line-height: 20px;
+        color: inherit;
+        text-rendering: optimizelegibility;
+    }
+
+    h1, h2, h3 {
+        line-height: 40px;
+    }
+
+    img {
+        width: auto\9;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+        border: 0;
+        -ms-interpolation-mode: bicubic;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: #08c;
+
+        &:hover {
+            text-decoration: underline;
+            color: #08c;
+        }
+    }
+
+    ul, li {
+        list-style: disc;
+        font-size: 14px;
+        line-height: 2em;
+    }
+
+    ol, ul {
+        padding: 0;
+        margin: 0 0 10px 25px;
+    }
+
+    p {
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        line-height: 2em;
+        margin: 1em 0;
+        overflow: auto;
+    }
+
+    small, address, blockquote {
+        line-height: 20px;
+        display: block;
+    }
+
+    address {
+        margin-bottom: 20px;
+    }
+
+    blockquote {
+        padding: 0 0 0 15px;
+        margin: 0 0 20px;
+        border-left: 5px solid #eee;
+    }
+
+    pre {
+        display: block;
+        line-height: 22px;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+        font-size: 13px;
+        color: #333;
+        border-radius: 4px;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre;
+        background: #fee9cc;
+        border: 1px dashed #ccc;
+
+        &.prettyprint {
+            margin-bottom: 20px;
+            border: 1px solid #888;
+            padding: 0 15px;
+            background: #f7f7f7;
+        }
+
+        code {
+            padding: 0;
+            border: 0;
+            color: inherit;
+            white-space: pre-wrap;
+            background-color: transparent;
+        }
+    }
+
+    code {
+        font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+        font-size: 12px;
+        border-radius: 3px;
+        color: #d14;
+        white-space: nowrap;
+        background: #f7f7f9;
+        padding: 0;
+        border: none;
+    }
+
+    dl, legend {
+        margin-bottom: 20px;
+    }
+
+    fieldset, legend {
+        padding: 0;
+        border: 0;
+    }
+}

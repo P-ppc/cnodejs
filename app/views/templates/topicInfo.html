@@ -10,7 +10,7 @@
                     <div class="topic-info">
                         <p class="topic-info-title" ng-bind="topicInfo.title"></p>
                         <div class="topic-info-state">
-                            <span>由 <a href="#">ppc</a> 发布于 <span ng-bind="topicInfo.create_at | fromNow"></span></span>
+                            <span>由 <a href="#" ng-bind="topicInfo.author.loginname"></a> 发布于 <span ng-bind="topicInfo.create_at | fromNow"></span></span>
                             <span style="display: none;">上一次编辑于 <span>Some date</span></span>
                             <span>共 <span ng-bind="topicInfo.visit_count"></span> 次浏览</span>
                         </div>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="topic-content" ng-bind-html="topicInfo.content">
+                <div class="topic-content" ng-bind-html="topicInfo.content" m-auto-prettify>
                 </div>
             </div>
             <div class="part">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="reply-list">
                     <div class="reply-item" ng-repeat="reply in topicInfo.replies">
-                        <p class="reply-item-content" ng-bind-html="reply.content"></p>
+                        <p class="reply-item-content" ng-bind-html="reply.content" m-auto-prettify></p>
                         <div class="reply-item-info">
                             <div>
                                 <span>由</span>

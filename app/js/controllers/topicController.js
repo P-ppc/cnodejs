@@ -46,9 +46,10 @@ window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", function (
     mditor.on('ready',function(){
     });
 
-    var topicId = "5905fbe8782dbc4b183ecf42";
+    // var topicId = "5905fbe8782dbc4b183ecf42";
     // 这个topicId 将会导致格式错乱
     // var topicId = "58d0fb3517f61387400b7e15";
+    var topicId = "585ddd6a8193ec6c5df1dee3";
     var accesstoken = "2fd28325-f4ee-4b4e-ae40-fd5be3e269bf";
     
     function getTopicInfo () {
