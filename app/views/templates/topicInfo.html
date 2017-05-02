@@ -5,22 +5,22 @@
             <div class="part">
                 <div class="topic-header">
                     <div class="user-avator">
-                        <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+                        <img ng-src="{{topicInfo.author.avatar_url}}">
                     </div>
                     <div class="topic-info">
-                        <p class="topic-info-title">
-                            又重复造轮子，还乐此不疲。。。毫无意义，再说了，我个人觉得，mvvm 才是nodejs 适合的实践模式，而不是mvc！
-                        </p>
+                        <p class="topic-info-title" ng-bind="topicInfo.title"></p>
                         <div class="topic-info-state">
-                            <span>由 <a href="#">ppc</a> 发布于 3天前</span>
-                            <span>上一次编辑于 2天前</span>
-                            <span>共 3000 次浏览</span>
+                            <span>由 <a href="#">ppc</a> 发布于 <span ng-bind="topicInfo.create_at | fromNow"></span></span>
+                            <span style="display: none;">上一次编辑于 <span>Some date</span></span>
+                            <span>共 <span ng-bind="topicInfo.visit_count"></span> 次浏览</span>
                         </div>
                         <div class="topic-info-active">
-                            <div class="topic-info-tabs">
-                                <span>分享</span>
+                            <div class="tags">
+                                <span class="tag-item special" ng-if="topicInfo.top">置顶</span>
+                                <span class="tag-item special" ng-if="topicInfo.good">精华</span>
+                                <span class="tag-item" ng-if="topicInfo.tab != undefined && topicInfo.tab != ''" ng-bind="topicInfo.tab | topicTabFormatter"></span>
                             </div>
-                            <div class="topic-info-opts">
+                            <div class="topic-info-opts" style="display:none;">
                                 <span>
                                     <i class="fa fa-star"></i>
                                     收藏
@@ -33,59 +33,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="topic-content">
-                    <p>
-                        Chrome浏览器已经蹦到57版本了，是名副其实的版本帝，作为兄弟的Node.js也一样，
-                        <br>
-                        1.0之前等了6年，而从1.0到8.0，只用了2年时间，这世界到底怎么了？我们就数一下
-                        从v0.1到0.12用了6年
-                        <br>
-                        2015-01-14发布了v1.0.0版本（io.js）
-                        2.x（io.js）
-                        <br>
-                        3.x（io.js）
-                         <br>
-                        2015年09月Node.js基金会已发布Node.js V4.0版 与io.js合并后的第一个版本
-                         <br>
-                        2015年10月Node.jsv4.2.0将是首个lts长期支持版本
-                        2016年底发布到4.2.4 && 5.4.0
-                         <br>
-                        2016年3月20日v4.4.0 LTS（长期支持版本）和v5.9.0 Stable（稳定版本）
-                         <br>
-                        2016 年底 v6.0 支持95%以上的es6特性 ， v7.0通过flag支持async函数，99%的es6特性
-                         <br>
-                        2017年2月发布v7.6版本，可以不通过flag使用async函数
-                         <br>
-                    </p>
+                <div class="topic-content" ng-bind-html="topicInfo.content">
                 </div>
             </div>
             <div class="part">
                 <div class="reply-header">
-                    <h4>2 回复</h4>
+                    <h4><span ng-bind="topicInfo.reply_count"></span> 回复</h4>
                 </div>
                 <div class="reply-list">
-                    <div class="reply-item">
-                        <p class="reply-item-content">
-                            这是讲的什么啊？
-                            <br>
-                            这是讲的什么啊？
-                            这是讲的什么啊？
-                            这是讲的什么啊？
-                        </p>
+                    <div class="reply-item" ng-repeat="reply in topicInfo.replies">
+                        <p class="reply-item-content" ng-bind-html="reply.content"></p>
                         <div class="reply-item-info">
-                            <div><span>由</span> <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120"> <span>ppc 回复于 3天前</span></div>
-                        </div>
-                    </div>
-                    <div class="reply-item">
-                        <p class="reply-item-content">
-                            这是讲的什么啊？
-                            <br>
-                            这是讲的什么啊？
-                            这是讲的什么啊？
-                            这是讲的什么啊？
-                        </p>
-                        <div class="reply-item-info">
-                            <div><span>由</span> <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120"> <span>ppc 回复于 3天前</span></div>
+                            <div>
+                                <span>由</span>
+                                <img ng-src="{{reply.author.avatar_url}}">
+                                <span>
+                                    <span ng-bind="reply.author.loginname"></span>
+                                    回复于 <span ng-bind="reply.create_at | fromNow"></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

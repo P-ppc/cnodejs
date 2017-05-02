@@ -202,34 +202,36 @@ body {
         }
     }
     
-    > .tags {
+    .topic-list-active {
         margin-bottom: 10px;
-        .tag-item {
-            font-size: 12px;
-            font-weight: 500;
-            color: #c8b383;
-            display: inline-block;
-            background: #fff4de;
-            padding: 2px 4px;
-            border: 1px solid #ffe9b2;
-            border-radius: 2px;
-            cursor: pointer;
-            margin-right: 3px;
-
-            &.special {
-                background: #80bd01;
-                color: #fff;
-                border-color: #afd06b;
-            }
+        .date {
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+            font-size: 14px;
+            color: #bec8d3;
+            font-weight: 300;
         }
     }
-    
-    > .date {
-        position: absolute;
-        right: 15px;
-        bottom: 10px;
-        font-size: 14px;
-        color: #bec8d3;
-        font-weight: 300;
+}
+
+.tags {
+    .tag-item {
+        font-size: 12px;
+        font-weight: 500;
+        color: #c8b383;
+        display: inline-block;
+        background: #fff4de;
+        padding: 2px 4px;
+        border: 1px solid #ffe9b2;
+        border-radius: 2px;
+        cursor: pointer;
+        margin-right: 3px;
+
+        &.special {
+            background: #80bd01;
+            color: #fff;
+            border-color: #afd06b;
+        }
     }
 }

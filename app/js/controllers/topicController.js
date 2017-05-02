@@ -35,7 +35,7 @@ window.APP.controller('topicsCtrl', ['$scope', '$http', 'TopicListService', func
     $scope.topicList.changeTab("all");
 }]);
 
-window.APP.controller("topicInfoCtrl", ["$scope", function ($scope) {
+window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", function ($scope, TopicInfoService) {
     var mditor =  Mditor.fromTextarea(document.getElementById('editor'));
     mditor.split = false;	//关闭
     //是否打开预览			
@@ -45,4 +45,24 @@ window.APP.controller("topicInfoCtrl", ["$scope", function ($scope) {
     //获取或设置编辑器的值
     mditor.on('ready',function(){
     });
+
+    var topicId = "5905fbe8782dbc4b183ecf42";
+    // 这个topicId 将会导致格式错乱
+    // var topicId = "58d0fb3517f61387400b7e15";
+    var accesstoken = "2fd28325-f4ee-4b4e-ae40-fd5be3e269bf";
+    
+    function getTopicInfo () {
+        var params = {
+            id: topicId,
+            accesstoken: accesstoken
+        };
+
+        TopicInfoService.getInfo(params).then(function (data) {
+            $scope.topicInfo = data;
+        }).catch(function (error) {
+
+        });
+    }
+
+    getTopicInfo();
 }]);

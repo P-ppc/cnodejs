@@ -44,12 +44,15 @@
                                 <span>Views</span>
                             </span>
                         </div>
-                        <div class="tags">
-                            <span class="tag-item special" ng-if="topic.top">置顶</span>
-                            <span class="tag-item special" ng-if="topic.good">精华</span>
-                            <span class="tag-item" ng-if="topic.tab != undefined && topic.tab != ''" ng-bind="topic.tab | topicTabFormatter"></span>
+                        <div class="topic-list-active">
+                            <div class="tags">
+                                <span class="tag-item special" ng-if="topic.top">置顶</span>
+                                <span class="tag-item special" ng-if="topic.good">精华</span>
+                                <span class="tag-item" ng-if="topic.tab != undefined && topic.tab != ''" ng-bind="topic.tab | topicTabFormatter"></span>
+                            </div>
+                            <span class="date" ng-bind="topic.last_reply_at | fromNow"></span>
                         </div>
-                        <span class="date" ng-bind="topic.last_reply_at | fromNow"></span>
+                        
                     </div>
                 </div>
             </div>

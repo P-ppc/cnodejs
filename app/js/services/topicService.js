@@ -1,4 +1,4 @@
-window.APP.factory('TopicListService', ['$http', '$q', 'TopicConfig', function($http, $q, TopicConfig) {
+window.APP.factory('TopicListService', ['$http', '$q', 'TopicConfig', function ($http, $q, TopicConfig) {
     var currentPage = 0;
 
     // 前往指定页
@@ -38,4 +38,29 @@ window.APP.factory('TopicListService', ['$http', '$q', 'TopicConfig', function($
             return currentPage;
         }
     };
+}]);
+
+window.APP.factory("TopicInfoService", ["$http", "$q", function ($http, $q) {
+    var infoUrl = "https://cnodejs.org/api/v1/topic/";
+
+    var service = {};
+
+    service.getInfo = function (params) {
+        var url = infoUrl + params.id + "?accesstoken=" + params.accesstoken,
+            defer = $q.defer();
+
+        $http.get(url).success(function (resp) {
+            if (resp.success) {
+                defer.resolve(resp.data);
+            } else {
+                defer.reject(resp.error_msg);
+            }
+        }).error(function (msg, code) {
+            defer.reject(code);
+        });
+        
+        return defer.promise;
+    };
+
+    return service;
 }]);
