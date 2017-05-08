@@ -12,6 +12,33 @@
         line-height: 40px;
     }
 
+    table {
+        padding: 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font: inherit;
+        max-width: 100%;
+        background-color: transparent;
+
+        tr {
+            border-top: 1px solid #ccc;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+
+            th, td {
+                border: 1px solid #ccc;
+                text-align: left;
+                margin: 0;
+                padding: 6px 13px;
+            }
+
+            &:nth-child(2n) {
+                background-color: #f8f8f8;
+            }
+        }
+    }
+
     img {
         width: auto\9;
         height: auto;
