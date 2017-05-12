@@ -81,12 +81,13 @@ body {
                 margin-left: 15px;
                 font-size: 14px;
                 color: #909090;
+                cursor: pointer;
+                user-select: none;
 
                 .tab-item {
                     box-sizing: border-box;
                     padding-right: 10px;
                     border-right: 1px solid #eaeaea;
-                    cursor: pointer;
 
                     &:not(:first-child) {
                         margin-left: 8px;
