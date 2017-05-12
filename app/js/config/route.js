@@ -6,6 +6,9 @@ window.APP.config(["$routeProvider", function ($routeProvider) {
     }).when("/topic", {
         templateUrl: "views/templates/topicInfo.html",
         controller: "topicInfoCtrl"
+    }).when("/user", {
+        templateUrl: "views/templates/userInfo.html",
+        controller: "userInfoCtrl"
     }).otherwise({
         redirectTo: "/"
     });

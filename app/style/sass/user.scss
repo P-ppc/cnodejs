@@ -1,0 +1,85 @@
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .user-info-avatar {
+        box-sizing: border-box;
+        padding: 10px 0;
+        
+        img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 1px solid #ecf1f3;
+        }
+    }
+
+    .title {
+        color: #364149;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .sub-title {
+        color: #aab9c7;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+}
+
+.user-tab {
+    .user-tab-header {
+        display: flex;
+        height: 70px;
+        border-top: 1px solid #e9e9e9;
+        border-bottom: 1px solid #e9e9e9;
+
+        padding: 10px 0;
+        box-sizing: border-box;
+
+        cursor: pointer;
+        user-select: none;
+
+        li {
+            flex: auto;
+            width: 1%;
+            height: 100%;
+            border-right: 1px solid #e9e9e9;
+            text-align: center;
+            padding: 0 8px;
+
+            .value {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 20px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+
+                max-width: 100%;
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .desc {
+                font-size: 14px;
+                color: #aab9c7;
+            }
+
+            &:nth-last-child(1) {
+                border-right: none;
+            }
+
+            &.selected .value,
+            &:hover .value {
+                color: #317fff;
+            }
+        }
+    }
+
+    .user-tab-content {
+        background: #f6f6f6;
+        height: 100px;
+    }
+}
