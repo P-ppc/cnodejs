@@ -91,7 +91,6 @@
             position: absolute;
             top: 0;
             left: 0;
-            // padding-bottom: 3px;
 
             &.active {
                 position: relative;
@@ -141,6 +140,25 @@
 
                     padding: 0 5px;
                     background: #f6f6f6;
+                }
+            }
+
+            &.flex {
+                display: flex;
+
+                .left-part {
+                    flex-basis: 40px;
+
+                    img {
+                        height: 38px;
+                        width: 38px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .right-part {
+                    flex-grow: 1;
+                    padding-left: 10px;
                 }
             }
         }
