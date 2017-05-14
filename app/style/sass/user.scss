@@ -162,5 +162,60 @@
                 }
             }
         }
+
+        .message-item {
+            background: #fff;
+            padding: 10px;
+            margin-bottom: 3px;
+            box-shadow: 1px 1px 1px #ccc;  
+
+            .user-info {
+                display: flex;
+                margin-bottom: 0;
+
+                .left-part {
+                    flex-basis: 40px;
+
+                    img {
+                        height: 38px;
+                        width: 38px;
+                        border-radius: 50%;
+                    }
+                }
+                
+                .right-part {
+                    flex-grow: 1;
+                    padding-left: 10px;
+                    text-align: left;
+
+                    .user-name {
+                        margin-bottom: 5px;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    .topic-title {
+                        font-size: 14px;
+                        color: #aab9c7;
+                        
+                        width: 90%;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+                }
+            }
+
+            .desc {
+                margin: 10px 0;
+                font-size: 14px;
+            }
+
+            .info {
+                font-size: 14px;
+                color: #aab9c7;
+            }
+        }
     }
 }
