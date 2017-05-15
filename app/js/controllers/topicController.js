@@ -62,3 +62,15 @@ window.APP.controller("topicInfoCtrl", ["$scope", "TopicInfoService", "$location
 
     getTopicInfo();
 }]);
+
+window.APP.controller("topicEditCtrl", ["$scope", function ($scope) {
+    var mditor =  Mditor.fromTextarea(document.getElementById('editor'));
+    mditor.split = false;	//关闭
+    //是否打开预览			
+    mditor.preivew = false;	//关闭
+    //是否全屏			
+    mditor.fullscreen = false;	//关闭	
+    //获取或设置编辑器的值
+    mditor.on('ready',function(){
+    });
+}]);

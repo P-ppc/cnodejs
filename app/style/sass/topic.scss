@@ -122,3 +122,20 @@
     margin-top: 10px;
     text-align: right;
 }
+
+.form-group {
+    margin-bottom: 15px;
+    .form-group-label {
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #acb6b7;
+
+        .require {
+            color: red;
+        }
+    }
+
+    .form-group-input {
+        
+    }
+}

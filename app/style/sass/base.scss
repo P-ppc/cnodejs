@@ -273,7 +273,7 @@ body {
 }
 
 // 输入框
-.input {
+input {
     outline: none;
     -webkit-appearance: none;
     background-color: $white;
@@ -298,4 +298,13 @@ body {
     &:focus {
         border-color: #20a0ff;
     }
+}
+
+select {
+    border: 1px solid #bfcbd9;
+    border-radius: .2 & $rem;
+    height: 3.6 * $rem;
+    line-height: 1;
+    padding: .3 * $rem 1 * $rem;
+    font-size: inherit;
 }
