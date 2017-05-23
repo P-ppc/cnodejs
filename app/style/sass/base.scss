@@ -273,7 +273,8 @@ body {
 }
 
 // 输入框
-input {
+input[type=text],
+input[type=password] {
     outline: none;
     -webkit-appearance: none;
     background-color: $white;
