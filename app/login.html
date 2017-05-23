@@ -126,7 +126,7 @@
                 </label>
                 <input type="password" placeholder="Your AccessToken" id="accessToken" autocomplete="off">
             </div>
-            <button class="btn btn-primary">登 录</button>
+            <button class="btn btn-primary" id="loginBtn">登 录</button>
             <div class="login-form-help">
                 <label for="remeber">
                     <input type="checkbox" id="remeber"> 保持登录
@@ -142,4 +142,10 @@
         </div>
     </div>
 </body>
+<script>
+    const ipc = require("electron").ipcRenderer;
+    loginBtn.addEventListener("click", () => {
+        ipc.send("login-success");
+    });
+</script>
 </html>

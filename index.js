@@ -1,6 +1,7 @@
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const ipc = electron.ipcMain;
 
 let win;
 
@@ -17,6 +18,10 @@ function createWindow () {
     win.on("closed", () => {
         win = null;
     }); 
+
+    ipc.on("login-success", () => {
+        console.log("login success");
+    });
 }
 
 app.on("ready", createWindow);
