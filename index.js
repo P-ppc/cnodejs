@@ -21,6 +21,8 @@ function createWindow () {
 
     ipc.on("login-success", () => {
         console.log("login success");
+        win.setSize(600, 780, true);
+        win.loadURL(`file://${__dirname}/app/index.html`);
     });
 }
 
