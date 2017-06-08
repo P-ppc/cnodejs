@@ -1,0 +1,3 @@
+window.APP.controller("mainCtrl", [() => {
+
+}]);

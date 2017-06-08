@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="APP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="lib/bower_components/font-awesome/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="style/css/base.css">
+    <link rel="stylesheet" type="text/css" href="style/css/login.css">
+    <link rel="stylesheet" type="text/css" href="style/css/main.css">
+    <link rel="stylesheet" type="text/css" href="style/css/topic.css">
+    <link rel="stylesheet" type="text/css" href="style/css/markdown.css">
+    <link rel="stylesheet" type="text/css" href="style/css/user.css">
+
+    <link rel="stylesheet" type="text/css" href="lib/mditor/css/mditor.min.css">
+    <link rel="stylesheet" type="text/css" href="style/css/editor.css">
+    <link rel="stylesheet" type="text/css" href="lib/code-prettify/prettify.css">
+
+    <title>CNODE</title>
+</head>
+<body>
+    <ui-view style="height: 100%; width: 100%;">
+        Loading...
+    </ui-view>
+</body>
+<script type="text/javascript" src="lib/bower_components/lodash/dist/lodash.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/moment/min/moment-with-locales.min.js"></script>
+<script>
+    window.$ = window.jQuery = require("./lib/bower_components/jquery/dist/jquery.min.js");
+</script>
+
+<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+
+<script type="text/javascript" src="js/init.js"></script>
+
+<script type="text/javascript" src="modules/common/requestService.js"></script>
+
+<script type="text/javascript" src="modules/auth/authService.js"></script>
+<script type="text/javascript" src="modules/auth/authController.js"></script>
+
+<script type="text/javascript" src="modules/main/mainController.js"></script>
+
+<script type="text/javascript" src="modules/topicList/topicListService.js"></script>
+<script type="text/javascript" src="modules/topicList/topicListController.js"></script>
+</html>

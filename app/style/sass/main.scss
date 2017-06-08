@@ -1,7 +1,14 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
+    background: #dde6ed;
+    margin: 0 auto;
     display: flex;
 
-    > .sidebar {
+    .sidebar {
         width: 50px;
         flex-shrink: 0;
         background: #7a8fdf;

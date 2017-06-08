@@ -1,0 +1,27 @@
+<div class="login-container" ng-controller="AuthCtrl">
+    <div class="login-logo">
+        <img src="img/cnodejs_light.svg">
+        <p>Welcome CNDOE Desktop</p>
+    </div>
+    <div class="login-form">
+        <div class="login-form-input">
+            <label for="accessToken">
+                <i class="fa fa-user-o"></i>
+            </label>
+            <input type="password" placeholder="Your AccessToken" id="accessToken" autocomplete="off" ng-model="accessToken">
+        </div>
+        <button class="btn btn-primary" id="loginBtn" ng-click="auth()">登 录</button>
+        <div class="login-form-help">
+            <label for="remeber">
+                <input type="checkbox" id="remeber"> 保持登录
+            </label>
+            <a href="#"><i class="fa fa-question-circle-o"></i> 如何获取AccessToken?</a>
+        </div>
+        
+    </div>
+    <div class="login-desc">
+        Desktop of CNODE<br>
+        By P-ppc<br>
+        <i class="fa fa-github"></i> Github
+    </div>
+</div>
