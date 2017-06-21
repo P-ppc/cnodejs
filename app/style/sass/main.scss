@@ -4,7 +4,6 @@ html, body {
 }
 
 body {
-    background: #dde6ed;
     margin: 0 auto;
     display: flex;
 
@@ -62,6 +61,7 @@ body {
     .container {
         flex-grow: 1;
         display: flex;
+        background: #dde6ed;
     }
 
     .main {

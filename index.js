@@ -26,6 +26,10 @@ function createWindow () {
         // win.loadURL(`file://${__dirname}/app/index.html`);
         // win.loadURL(`file://${__dirname}/app/login.html`);
     });
+
+    ipc.on("logout", () => {
+        win.setSize(400, 725, true);
+    })
 }
 
 app.on("ready", createWindow);
