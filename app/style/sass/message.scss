@@ -1,0 +1,71 @@
+.message {
+    background: #fff;
+    min-width: 300px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border-radius: 1px;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    opacity: 1;
+    transform: translate(-50%, 60px);
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+.message.ng-enter {
+    transition: all .4s;
+    transform: translate(-50%, 0);
+    opacity: 0;
+}
+
+.message.ng-enter-active {
+    transform: translate(-50%, 60px);
+    opacity: 1;
+}
+
+.message.ng-leave {
+    transition: all .4s;
+    transform: translate(-50%, 60px);
+    opacity: 1;
+}
+
+.message.ng-leave-active {
+    transition: all .4s;
+    transform: translate(-50%, 0);
+    opacity: 0;
+}
+
+.message-img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.message-group {
+    margin-left: 38px;
+    position: relative;
+    height: 20px;
+}
+
+.message-group p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 34px 0 0;
+    white-space: nowrap;
+    color: #8391a5;
+    text-align: justify;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.message-close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+    color: #bfcbd9;
+    font-size: 20px;
+}

@@ -1,0 +1,9 @@
+<div class="message" style="z-index: 10000;">
+    <img ng-src="{{mImgSrc}}" class="message-img">
+    <div class="message-group">
+        <p ng-bind="mMessageContent"></p>
+        <div class="message-close fa fa-close" 
+            ng-if="showClose()"
+            ng-click="close()"></div>
+    </div>
+</div>
