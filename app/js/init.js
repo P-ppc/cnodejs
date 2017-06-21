@@ -43,6 +43,9 @@ window.APP.config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $url
     }).state("main.topicInfo", {
         params: { topicId: null },
         templateUrl: 'modules/topicInfo/topicInfo.html'
+    }).state("main.topicEdit", {
+        params: { topicId: null },
+        templateUrl: 'modules/topicEdit/topicEdit.html'
     })
 }]);
 
