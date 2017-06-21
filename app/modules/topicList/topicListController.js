@@ -10,7 +10,7 @@ window.APP.controller("topicListCtrl", [
         this.page = 0;
     }
 
-        TopicList.prototype.changeTab = function (tab) {
+    TopicList.prototype.changeTab = function (tab) {
         if (this.tab == tab) return;
         this.tab = tab;
         this.page = 0;

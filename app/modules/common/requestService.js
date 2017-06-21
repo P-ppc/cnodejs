@@ -5,11 +5,11 @@ window.APP.factory("RequestService", ["$q", "$http", ($q, $http) => {
         var defer = $q.defer();
         $http.post(url, $.param(data), {
             timeout: timeout || 5000
-        }).success(data => {
-            if (data.success) {
-                defer.resolve(data);
+        }).success(resp => {
+            if (resp.success) {
+                defer.resolve(resp);
             } else {
-                defer.reject(data);
+                defer.reject(resp);
             }
         }).error((msg, code) => {
             defer.reject(code);
@@ -24,11 +24,11 @@ window.APP.factory("RequestService", ["$q", "$http", ($q, $http) => {
         }
         $http.get(url, {
             timeout: timeout || 5000
-        }).success(data => {
-            if (data.success) {
-                defer.resolve(data);
+        }).success(resp => {
+            if (resp.success) {
+                defer.resolve(resp);
             } else {
-                defer.reject(data);
+                defer.reject(resp);
             }
         }).error((msg, code) => {
             defer.reject(code);

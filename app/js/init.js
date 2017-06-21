@@ -40,7 +40,10 @@ window.APP.config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $url
         templateUrl: "modules/main/main.html"
     }).state("main.topicList", {
         templateUrl: "modules/topicList/topicList.html"
-    });
+    }).state("main.topicInfo", {
+        params: { topicId: null },
+        templateUrl: 'modules/topicInfo/topicInfo.html'
+    })
 }]);
 
 
@@ -67,7 +70,7 @@ window.APP.filter("topicTabFormatter", function () {
 window.APP.filter("pretty", ["$log", function ($log) {
     return function (input) {
         if (typeof prettyPrintOne !== "function") {
-            $log.warning("code-pretty is not install!");
+            $log.warn("code-pretty is not install!");
             return input;
         }
         var container = document.createElement("div");

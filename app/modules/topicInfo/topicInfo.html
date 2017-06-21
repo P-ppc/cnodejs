@@ -1,0 +1,70 @@
+<div class="main" ng-controller="topicInfoCtrl">
+    <div class="top-navbar"></div>
+    <div class="content">
+        <div class="panel">
+            <div class="part">
+                <div class="topic-header">
+                    <div class="user-avator">
+                        <img ng-src="{{topicInfo.author.avatar_url}}">
+                    </div>
+                    <div class="topic-info">
+                        <p class="topic-info-title" ng-bind="topicInfo.title"></p>
+                        <div class="topic-info-state">
+                            <span>由 <a href="#" ng-bind="topicInfo.author.loginname"></a> 发布于 <span ng-bind="topicInfo.create_at | fromNow"></span></span>
+                            <span style="display: none;">上一次编辑于 <span>Some date</span></span>
+                            <span>共 <span ng-bind="topicInfo.visit_count"></span> 次浏览</span>
+                        </div>
+                        <div class="topic-info-active">
+                            <div class="tags">
+                                <span class="tag-item special" ng-if="topicInfo.top">置顶</span>
+                                <span class="tag-item special" ng-if="topicInfo.good">精华</span>
+                                <span class="tag-item" ng-if="topicInfo.tab != undefined && topicInfo.tab != ''" ng-bind="topicInfo.tab | topicTabFormatter"></span>
+                            </div>
+                            <div class="topic-info-opts" style="display:none;">
+                                <span>
+                                    <i class="fa fa-star"></i>
+                                    收藏
+                                </span>
+                                <span>
+                                    <i class="fa fa-pencil"></i>
+                                    编辑
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="topic-content" ng-bind-html="topicInfo.content | pretty">
+                </div>
+            </div>
+            <div class="part">
+                <div class="reply-header">
+                    <h4><span ng-bind="topicInfo.reply_count"></span> 回复</h4>
+                </div>
+                <div class="reply-list">
+                    <div class="reply-item" ng-repeat="reply in topicInfo.replies">
+                        <p class="reply-item-content" ng-bind-html="reply.content | pretty"></p>
+                        <div class="reply-item-info">
+                            <div>
+                                <span>由</span>
+                                <img ng-src="{{reply.author.avatar_url}}">
+                                <span>
+                                    <span ng-bind="reply.author.loginname"></span>
+                                    回复于 <span ng-bind="reply.create_at | fromNow"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part">
+                <div class="reply-header">
+                    <h4>你的回复</h4>
+                </div>
+                <textarea id="editor"></textarea>
+                <div class="reply-bottom">
+                    <button class="btn btn-primary">提交回复</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
