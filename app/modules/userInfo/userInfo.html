@@ -8,7 +8,7 @@
                 </div>
                 <div class="user-info-desc">
                     <p class="title" ng-bind="userInfo.loginname"></p>
-                    <p class="sub-title">Member since <span ng-bind="create_at"></span></p>
+                    <p class="sub-title">Member since <span ng-bind="userInfo.create_at | date"></span></p>
                     <p class="sub-title">
                         <i class="fa fa-github"></i>
                         @<span ng-bind="userInfo.loginname"></span>
@@ -17,45 +17,37 @@
             </div>
             <div class="user-tab">
                 <ul class="user-tab-header">
-                    <li class="selected">
-                        <p class="value">5</p>
+                    <li ng-class="{selected: selectedTab == 'CREATE' }" ng-click="selectTab('CREATE')">
+                        <p class="value" ng-bind="userInfo.recent_topics.length"></p>
                         <p class="desc">最近创建</p>
                     </li>
-                    <li>
-                        <p class="value">50000000000</p>
+                    <li ng-class="{selected: selectedTab == 'REPLY' }" ng-click="selectTab('REPLY')">
+                        <p class="value" ng-bind="userInfo.recent_replies.length"></p>
                         <p class="desc">最近回复</p>
                     </li>
-                    <li>
-                        <p class="value">5</p>
+                    <li ng-class="{selected: selectedTab == 'UNREAD' }" ng-click="selectTab('UNREAD')" 
+                        ng-if="userInfo.isSelf">
+                        <p class="value" ng-bind="userInfo.unReadMessages.length"></p>
                         <p class="desc">未读信息</p>
                     </li>
-                    <li>
-                        <p class="value">0</p>
+                    <li ng-class="{selected: selectedTab == 'HASREAD' }" ng-click="selectTab('HASREAD')"
+                        ng-if="userInfo.isSelf">
+                        <p class="value" ng-bind="userInfo.hasReadMessages.length"></p>
                         <p class="desc">已读信息</p>
                     </li>
                     <li>
-                        <p class="value">300</p>
+                        <p class="value" ng-bind="userInfo.score"></p>
                         <p class="desc">积分</p>
                     </li>
                 </ul>
                 <div class="user-tab-content-wrapper">
-                    <div class="user-tab-content active" style="display:none;">
-                        <div class="topic-item">
-                            <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点 hello world! for you!</p>
+                    <div class="user-tab-content active" ng-show="selectedTab == 'CREATE'">
+                        <div class="topic-item" ng-repeat="item in userInfo.recent_topics">
+                            <p class="title">
+                                <a ui-sref="main.topicInfo({topicId: item.id})" ng-bind="item.title"></a>
+                            </p>
                             <div class="info">
-                                最后回复于 <span>4 小时前</span>
-                            </div>
-                        </div>
-                        <div class="topic-item">
-                            <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点</p>
-                            <div class="info">
-                                最后回复于 <span>4 小时前</span>
-                            </div>
-                        </div>
-                        <div class="topic-item">
-                            <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点</p>
-                            <div class="info">
-                                最后回复于 <span>4 小时前</span>
+                                最后回复于 <span ng-bind="item.last_reply_at | fromNow"></span>
                             </div>
                         </div>
                         <div class="topic-item last">
@@ -63,37 +55,19 @@
                             <div class="desc">没有更多了</div>
                         </div>
                     </div>
-                    <div class="user-tab-content active" style="display:none;">
-                        <div class="topic-item flex">
+                    <div class="user-tab-content active" ng-show="selectedTab == 'REPLY'">
+                        <div class="topic-item flex" ng-repeat="item in userInfo.recent_replies">
                             <div class="left-part">
-                                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=180" alt="">
+                                <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                    <img ng-src="{{item.author.avatar_url}}">
+                                </a>
                             </div>
                             <div class="right-part">
-                                <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点 hello world! for you!</p>
+                                <p class="title">
+                                    <a ui-sref="main.topicInfo({topicId: item.id})" ng-bind="item.title"></a>
+                                </p>
                                 <div class="info">
-                                    最后回复于 <span>4 小时前</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="topic-item flex">
-                            <div class="left-part">
-                                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=180" alt="">
-                            </div>
-                            <div class="right-part">
-                                <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点 hello world! for you!</p>
-                                <div class="info">
-                                    最后回复于 <span>4 小时前</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="topic-item flex">
-                            <div class="left-part">
-                                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=180" alt="">
-                            </div>
-                            <div class="right-part">
-                                <p class="title">新人做了一个cnodejs的桌面客户端，欢迎大家指点 hello world! for you!</p>
-                                <div class="info">
-                                    最后回复于 <span>4 小时前</span>
+                                    最后回复于 <span ng-bind="item.last_reply_at | fromNow"></span>
                                 </div>
                             </div>
                         </div>
@@ -102,56 +76,49 @@
                             <div class="desc">没有更多了</div>
                         </div>
                     </div>
-                    <div class="user-tab-content active">
-                        <div class="message-item">
+                    <div class="user-tab-content active" ng-show="selectedTab == 'UNREAD'">
+                        <div class="message-item" ng-repeat="item in userInfo.unReadMessages">
                             <div class="user-info">
                                 <div class="left-part">
-                                    <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120" alt="">
+                                    <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                        <img ng-src="{{item.author.avatar_url}}">
+                                    </a>
                                 </div>
                                 <div class="right-part">
-                                    <p class="user-name">P-ppc</p>
-                                    <p class="topic-title">想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题</p>
+                                    <p class="user-name" ng-bind="item.author.loginname"></p>
+                                    <p class="topic-title">
+                                        <a ui-sref="main.topicInfo({topicId: item.topic.id})" ng-bind="item.topic.title"></a>
+                                    </p>
                                 </div>
                             </div>
-                            <p class="desc">
-                                想问一下现在es6是不是有兼容问题?
-                            </p>
+                            <p class="desc" ng-bind="item.reply.content"></p>
                             <div class="info">
-                                回复于<span>4 小时前</span>
+                                回复于<span ng-bind="item.reply.create_at | fromNow"></span>
                             </div>
                         </div>
-                        <div class="message-item">
-                            <div class="user-info">
-                                <div class="left-part">
-                                    <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120" alt="">
-                                </div>
-                                <div class="right-part">
-                                    <p class="user-name">P-ppc</p>
-                                    <p class="topic-title">想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题</p>
-                                </div>
-                            </div>
-                            <p class="desc">
-                                想问一下现在es6是不是有兼容问题?
-                            </p>
-                            <div class="info">
-                                回复于<span>4 小时前</span>
-                            </div>
+                        <div class="topic-item last">
+                            <hr class="split">
+                            <div class="desc">没有更多了</div>
                         </div>
-                        <div class="message-item">
+                    </div>
+                    <div class="user-tab-content active" ng-show="selectedTab == 'HASREAD'">
+                        <div class="message-item" ng-repeat="item in userInfo.hasReadMessages">
                             <div class="user-info">
                                 <div class="left-part">
-                                    <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120" alt="">
+                                    <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                        <img ng-src="{{item.author.avatar_url}}">
+                                    </a>
                                 </div>
                                 <div class="right-part">
-                                    <p class="user-name">P-ppc</p>
-                                    <p class="topic-title">想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题想问一下现在es6是不是有兼容问题</p>
+                                    <p class="user-name" ng-bind="item.author.loginname"></p>
+                                    <p class="topic-title">
+                                        <a ui-sref="main.topicInfo({topicId: item.topic.id})" ng-bind="item.topic.title"></a>
+                                    </p>
                                 </div>
                             </div>
-                            <p class="desc">
-                                想问一下现在es6是不是有兼容问题?
-                            </p>
+                            <p class="desc" ng-bind="item.reply.content"></p>
                             <div class="info">
-                                回复于<span>4 小时前</span>
+                                回复于<span ng-bind="item.reply.create_at | fromNow"></span>
                             </div>
                         </div>
                         <div class="topic-item last">

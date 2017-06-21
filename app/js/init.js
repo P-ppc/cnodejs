@@ -47,7 +47,7 @@ window.APP.config(["$stateProvider", "$urlRouterProvider", ($stateProvider, $url
         params: { topicId: null },
         templateUrl: 'modules/topicEdit/topicEdit.html'
     }).state("main.userInfo", {
-        params: { loginname: null, isSelf: false },
+        params: { loginname: null },
         templateUrl: 'modules/userInfo/userInfo.html'
     })
 }]);

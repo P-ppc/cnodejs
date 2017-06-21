@@ -1,7 +1,7 @@
 <div ng-controller="mainCtrl" style="height: 100%; width:100%; display: flex;">
     <div class="sidebar">
         <div class="logo">
-            <a ui-sref="main.userInfo({ loginname: 'P-ppc', isSelf: true})">
+            <a ui-sref="main.userInfo({ loginname: 'P-ppc'})">
                 <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
             </a>
         </div>
@@ -16,9 +16,9 @@
                 <a ui-sref="main.userInfo.collection"><i class="fa fa-star-o"></i></a>
             </li>
         </ul>
-        <div class="setting">
+        <!--<div class="setting">
             <i class="fa fa-gear"></i>
-        </div>
+        </div>-->
     </div>
     <ui-view class="container">
         there will load some content!
