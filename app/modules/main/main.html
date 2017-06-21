@@ -1,8 +1,8 @@
 <div ng-controller="mainCtrl" style="height: 100%; width:100%; display: flex;">
     <div class="sidebar">
         <div class="logo">
-            <a ui-sref="main.userInfo({ loginname: 'P-ppc'})">
-                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+            <a ui-sref="main.userInfo({ loginname: user.loginname })">
+                <img ng-src="{{user.avatar_url}}">
             </a>
         </div>
         <ul class="menu-list">
