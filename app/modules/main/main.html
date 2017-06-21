@@ -1,7 +1,9 @@
 <div ng-controller="mainCtrl" style="height: 100%; width:100%; display: flex;">
     <div class="sidebar">
         <div class="logo">
-            <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+            <a ui-sref="main.userInfo({ loginname: 'P-ppc', isSelf: true})">
+                <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
+            </a>
         </div>
         <ul class="menu-list">
             <li class="menu-item">
