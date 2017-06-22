@@ -233,6 +233,12 @@ a {
         background: #11b95c;
         border-color: #11b95c;
     }
+
+     &.btn-loading {
+        background: #42d885;
+        border-color: #42d885;
+        pointer-events: none;
+    }
 }
 
 .btn-warning {
@@ -319,4 +325,8 @@ select {
     line-height: 1;
     padding: .3 * $rem 1 * $rem;
     font-size: inherit;
+}
+
+.no-shadow {
+    box-shadow: none;
 }

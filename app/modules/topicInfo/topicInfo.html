@@ -20,15 +20,20 @@
                                 <span class="tag-item special" ng-if="topicInfo.good">精华</span>
                                 <span class="tag-item" ng-if="topicInfo.tab != undefined && topicInfo.tab != ''" ng-bind="topicInfo.tab | topicTabFormatter"></span>
                             </div>
-                            <div class="topic-info-opts" style="display:none;">
-                                <span>
-                                    <i class="fa fa-star"></i>
-                                    收藏
-                                </span>
-                                <span>
+                            <div class="topic-info-opts">
+                                <button class="btn btn-mini no-shadow"
+                                    ng-class="{true: 'btn-success', false: 'btn-primary'}[topicInfo.is_collect]"
+                                    m-button-loading
+                                    m-loading="busy"
+                                    m-loading-class="btn-loading"
+                                    ng-click="toggleCollect()">
+                                    <i class="fa" ng-class="{true: 'fa-star', false: 'fa-star-o'}[topicInfo.is_collect]"></i>
+                                    <span ng-bind="{true: '已收藏', false: '收藏'}[topicInfo.is_collect]"></span>
+                                </button>
+                                <!--<span>
                                     <i class="fa fa-pencil"></i>
                                     编辑
-                                </span>
+                                </span>-->
                             </div>
                         </div>
                     </div>
