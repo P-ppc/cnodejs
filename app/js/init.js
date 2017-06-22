@@ -1,6 +1,6 @@
 moment.locale('zh-cn');
 window.ipc = require("electron").ipcRenderer;
-window.APP = angular.module("APP", ["ui.router", "ngSanitize", "infinite-scroll"]);
+window.APP = angular.module("APP", ["ui.router", "ngSanitize", "infinite-scroll", "ngAnimate"]);
 window.APP.run(["$http", "$state", "$rootScope", ($http, $state, $rootScope) => {
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8"
 

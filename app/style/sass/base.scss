@@ -118,11 +118,12 @@ a {
     &[disabled],
     &:hover.disabled,
     &:hover[disabled] {
-        color: #bfcbd9;
-        cursor: not-allowed;
-        background-image: none;
-        background-color: #eef1f6;
-        border-color: #d1dbe5;
+        color: #bfcbd9 !important;
+        cursor: not-allowed !important;
+        background-image: none !important;
+        background-color: #eef1f6 !important;
+        border-color: #d1dbe5 !important;
+        box-shadow: none !important;
     }
 
     .icon + span {
@@ -184,6 +185,12 @@ a {
         background: #1d90e6;
         border-color: #1d90e6;
         color: $white;
+    }
+
+    &.btn-loading {
+        background: #4db3ff;
+        border-color: #4db3ff;
+        pointer-events: none;
     }
 }
 

@@ -10,11 +10,18 @@
             </label>
             <input type="password" placeholder="Your AccessToken" id="accessToken" autocomplete="off" ng-model="accessToken">
         </div>
-        <button class="btn btn-primary" id="loginBtn" ng-click="auth()">登 录</button>
+        <button class="btn btn-primary" id="loginBtn" 
+            ng-click="auth()" 
+            ng-disabled="!accessToken"
+            m-button-loading
+            m-loading="busy"
+            m-normal-text="登 录"
+            m-loading-text="登录中..."
+            m-loading-class="btn-loading"></button>
         <div class="login-form-help">
-            <label for="remeber">
+            <!--<label for="remeber">
                 <input type="checkbox" id="remeber"> 保持登录
-            </label>
+            </label>-->
             <a href="#"><i class="fa fa-question-circle-o"></i> 如何获取AccessToken?</a>
         </div>
         
