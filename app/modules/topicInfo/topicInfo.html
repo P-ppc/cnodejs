@@ -65,9 +65,16 @@
                 <div class="reply-header">
                     <h4>你的回复</h4>
                 </div>
-                <textarea id="editor"></textarea>
+                <div class="reply-editor" m-editor ng-model="replyParams.content">
+                </div>
                 <div class="reply-bottom">
-                    <button class="btn btn-primary">提交回复</button>
+                    <button class="btn btn-primary" ng-click="reply()"
+                        ng-disabled="!replyParams.content"
+                        m-button-loading
+                        m-loading="replyBusy"
+                        m-normal-text="提交回复"
+                        m-loading-text="回复中..."
+                        m-loading-class="btn-loading"></button>
                 </div>
             </div>
         </div>

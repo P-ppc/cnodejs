@@ -5,9 +5,7 @@ window.APP.controller("topicInfoCtrl", [
     "TopicInfoService",
     ($scope, $stateParams, MessageService, TopicInfoService) => {
     
-    let topicId = $stateParams.topicId,
-        mditor = Mditor.fromTextarea(document.getElementById('editor'));
-    mditor.split = false;
+    let topicId = $stateParams.topicId;
 
     function getTopicInfo () {
         TopicInfoService.getInfo({ id: topicId }).then(resp => {
@@ -37,6 +35,30 @@ window.APP.controller("topicInfoCtrl", [
             MessageService.error(msg);
         }).finally(() => {
             $scope.busy = false;
+        });
+    };
+
+   
+
+    $scope.replyParams = {
+        topic_id: topicId,
+        content: '',
+        reply_id: undefined
+    };
+
+    $scope.reply = () => {
+        $scope.replyBusy = true;
+        TopicInfoService.reply($scope.replyParams.topic_id, $scope.replyParams.content, $scope.replyParams.reply_id)
+        .then(resp => {
+            $scope.replyParams.content = "";
+            $scope.replyParams.reply_id = undefined;
+            // FIXME: 这里重新获取主题详情，采用更好的方法
+            getTopicInfo();
+            MessageService.success("回复成功");
+        }).catch(error => {
+            MessageService.error("回复失败，请稍后重试");
+        }).finally(() => {
+            $scope.replyBusy = false;
         });
     };
 }]);

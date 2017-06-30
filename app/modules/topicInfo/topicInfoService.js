@@ -29,5 +29,14 @@ window.APP.factory('TopicInfoService', [
         });
     };
 
+    service.reply = (topic_id, content, reply_id) => {
+        let url = infoUrl + topic_id + '/replies';
+        return RequestService.post(url, {
+            accesstoken: $rootScope.user.accessToken,
+            content: content,
+            reply_id: reply_id
+        });
+    };
+
     return service;
 }]);
