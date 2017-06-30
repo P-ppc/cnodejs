@@ -18,8 +18,11 @@ window.APP.directive("mEditor", [
                 if (!ngModel) {
                     return ;
                 }
-                
-                mditor.value = ngModel.$viewValue || "";
+
+                ngModel.$render = () => {
+                    mditor.value = ngModel.$viewValue || "";
+                };
+                ngModel.$render();           
 
                 let $textarea = $element.find(".textarea");
                 $textarea.on("blur keydown keyup change", () => {
