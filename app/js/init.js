@@ -69,7 +69,10 @@ window.APP.filter("topicTabFormatter", function () {
             return "问答";
         } else if (input == "job") {
             return "招聘";
+        } else if (input == "dev") {
+            return "测试";
         }
+        return input;
     };
 });
 
