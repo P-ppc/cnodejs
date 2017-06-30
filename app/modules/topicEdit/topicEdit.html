@@ -5,34 +5,42 @@
             <form class="part">
                 <div class="form-group">
                     <div class="form-group-label">
+                        <label>话题标题 <span class="require">*</span></label>
+                    </div>
+                    <div class="form-group-input">
+                        <input type="text" placeholder="标题字数 10 字以上" ng-model="params.title" style="width:100%;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group-label">
                         <label>选择版块 <span class="require">*</span></label>
                     </div>
                     <div class="form-group-input">
-                        <select style="width:80px;">
-                            <option value="">问答</option>
-                            <option value="">分享</option>
-                            <option value="">招聘</option>
+                        <select style="width: 280px;" ng-model="params.tab">
+                            <option value="ask">问答</option>
+                            <option value="share">分享</option>
+                            <option value="job">招聘</option>
+                            <option value="dev">客户端测试</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-group-label">
-                        <label>话题标题 <span class="require">*</span></label>
+                        <label for="">话题内容 <span class="require">*</span></label>
                     </div>
-                    <div class="form-group-input">
-                        <input type="text" placeholder="标题字数 10 字以上">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-group-label">
-                        <label for="">话题内容</label>
-                    </div>
-                    <div class="form-group-input">
-                        <textarea id="editor"></textarea>
+                    <div class="form-group-input" m-editor ng-model="params.content">
                     </div>
                 </div>
                 <div class="reply-bottom">
-                    <button class="btn btn-primary">发布话题</button>
+                    <button class="btn btn-primary"
+                        ng-click="submit()"
+                        ng-disabled="disableSubmit()"
+                        m-button-loading
+                        m-loading="busy"
+                        m-normal-text="发布话题"
+                        m-loading-text="发布中..."
+                        m-loading-class="btn-loading">
+                    </button>
                 </div>
             </form>
         </div>

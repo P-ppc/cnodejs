@@ -11,7 +11,8 @@ window.APP.factory('TopicInfoService', [
     service.getInfo = params => {
         let url = infoUrl + params.id;
         return RequestService.get(url, {
-            accesstoken: $rootScope.user.accessToken
+            accesstoken: $rootScope.user.accessToken,
+            mdrender: params.mdrender || true
         });
     };
 
