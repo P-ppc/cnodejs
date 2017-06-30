@@ -1,4 +1,6 @@
 moment.locale('zh-cn');
+Mditor.$options.props.split = false;
+
 window.ipc = require("electron").ipcRenderer;
 window.APP = angular.module("APP", ["ui.router", "ngSanitize", "infinite-scroll", "ngAnimate"]);
 window.APP.run(["$http", "$state", "$rootScope", ($http, $state, $rootScope) => {

@@ -6,14 +6,11 @@ window.APP.directive("mEditor", [
         restrict: 'EA',
         require: '?ngModel',
         link: ($scope, $element, $attrs, ngModel) => {
-            if (!Mditor) {
-                $log.error("Mditor is not install!");
-                return ;
-            }
             $element.append(`<textarea></textarea>`);
             let mditor = Mditor.fromTextarea($element.find("textarea")[0]);
             mditor.on("ready", () => {
-                mditor.split = false;
+                mditor.toolbar.removeItem("help");
+                mditor.toolbar.removeItem("toggleSplit");
 
                 if (!ngModel) {
                     return ;
@@ -24,6 +21,7 @@ window.APP.directive("mEditor", [
                 };
                 ngModel.$render();           
 
+                // 直接监控元素，更加流畅                
                 let $textarea = $element.find(".textarea");
                 $textarea.on("blur keydown keyup change", () => {
                     $scope.$apply(() => {
