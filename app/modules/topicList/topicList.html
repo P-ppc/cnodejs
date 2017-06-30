@@ -29,7 +29,7 @@
                 infinite-scroll-container="'#topicListContent'">
                 <div class="item" ng-repeat="topic in topicList.items">
                     <div class="item-left-part">
-                        <img ng-src="{{topic.author.avatar_url}}">
+                        <img ng-src="{{topic.author.avatar_url | imgFix}}">
                     </div>
                     <div class="item-right-part">
                         <p class="title"><a ui-sref="main.topicInfo({topicId: topic.id})" ng-bind="topic.title"></a></p>

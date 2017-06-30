@@ -5,7 +5,7 @@
             <div class="part">
                 <div class="topic-header">
                     <div class="user-avator">
-                        <img ng-src="{{topicInfo.author.avatar_url}}">
+                        <img ng-src="{{topicInfo.author.avatar_url | imgFix}}">
                     </div>
                     <div class="topic-info">
                         <p class="topic-info-title" ng-bind="topicInfo.title"></p>
@@ -51,7 +51,7 @@
                         <div class="reply-item-info">
                             <div>
                                 <span>由</span>
-                                <img ng-src="{{reply.author.avatar_url}}">
+                                <img ng-src="{{reply.author.avatar_url | imgFix}}">
                                 <span>
                                     <span ng-bind="reply.author.loginname"></span>
                                     回复于 <span ng-bind="reply.create_at | fromNow"></span>

@@ -4,7 +4,7 @@
         <div class="panel" style="background:#fff;">
             <div class="user-info">
                 <div class="user-info-avatar">
-                    <img ng-src="{{userInfo.avatar_url}}">
+                    <img ng-src="{{userInfo.avatar_url | imgFix}}">
                 </div>
                 <div class="user-info-desc">
                     <p class="title" ng-bind="userInfo.loginname"></p>
@@ -59,7 +59,7 @@
                         <div class="topic-item flex" ng-repeat="item in userInfo.recent_replies">
                             <div class="left-part">
                                 <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                    <img ng-src="{{item.author.avatar_url}}">
+                                    <img ng-src="{{item.author.avatar_url | imgFix}}">
                                 </a>
                             </div>
                             <div class="right-part">
@@ -81,7 +81,7 @@
                             <div class="user-info">
                                 <div class="left-part">
                                     <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                        <img ng-src="{{item.author.avatar_url}}">
+                                        <img ng-src="{{item.author.avatar_url | imgFix}}">
                                     </a>
                                 </div>
                                 <div class="right-part">
@@ -106,7 +106,7 @@
                             <div class="user-info">
                                 <div class="left-part">
                                     <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                        <img ng-src="{{item.author.avatar_url}}">
+                                        <img ng-src="{{item.author.avatar_url | imgFix}}">
                                     </a>
                                 </div>
                                 <div class="right-part">

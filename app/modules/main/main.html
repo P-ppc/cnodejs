@@ -2,7 +2,7 @@
     <div class="sidebar">
         <div class="logo">
             <a ui-sref="main.userInfo({ loginname: user.loginname })">
-                <img ng-src="{{user.avatar_url}}">
+                <img ng-src="{{user.avatar_url | imgFix}}">
             </a>
         </div>
         <ul class="menu-list">
