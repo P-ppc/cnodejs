@@ -90,3 +90,13 @@ window.APP.filter("pretty", ["$log", function ($log) {
         return container.innerHTML;
     };
 }]);
+
+window.APP.filter('imgFix', () => {
+    return input => {
+        input = input || "";
+        if (input.startsWith("//")) {
+            return "https:" + input;
+        }
+        return input;
+    }; 
+});
