@@ -86,6 +86,14 @@ window.APP.filter("pretty", ["$log", function ($log) {
         }
         var container = document.createElement("div");
         container.innerHTML = input;
+        /* 修复图片路径 */
+        let $imgs = $(container).find("img");
+        $imgs.each(function () {
+            let src = $(this).attr("src") || "";
+            if (src.startsWith("//")) {
+                $(this).attr("src", "http:" + src);
+            }
+        });
         prettyPrint(null, container);
         return container.innerHTML;
     };
@@ -95,7 +103,7 @@ window.APP.filter('imgFix', () => {
     return input => {
         input = input || "";
         if (input.startsWith("//")) {
-            return "https:" + input;
+            return "http:" + input;
         }
         return input;
     }; 
