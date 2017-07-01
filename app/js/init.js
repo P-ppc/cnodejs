@@ -8,8 +8,14 @@ window.APP.run(["$http", "$state", "$rootScope", ($http, $state, $rootScope) => 
     /* markdown内部的链接在浏览器中打开 */
     $(document).on("click", ".markdown-text a", function () {
         event.preventDefault();
-        let href = $(this).attr('href');
-        window.shell.openExternal(href);
+        let href = $(this).attr('href') || "";
+        if (href.startsWith("/user/")) {
+            let loginname = href.replace(/\/user\/(.*)$/, "$1");
+            console.log(loginname);
+            $state.go("main.userInfo", {loginname: loginname});
+        } else {
+            window.shell.openExternal(href);
+        }
     });
 
     $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8"
