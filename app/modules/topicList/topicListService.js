@@ -1,4 +1,7 @@
-window.APP.factory("TopicListService", ["RequestService", (RequestService) => {
+window.APP.factory("TopicListService", [
+    "$rootScope",
+    "RequestService",
+    ($rootScope, RequestService) => {
     var service = {};
 
     service.currentPage = 0;
@@ -19,6 +22,10 @@ window.APP.factory("TopicListService", ["RequestService", (RequestService) => {
 
     service.nextPage = tab => {
         return service.goPage(service.currentPage + 1, tab);
+    };
+
+    service.getCollect = () => {
+        return RequestService.get("https://cnodejs.org/api/v1/topic_collect/" + $rootScope.user.loginname);
     };
 
     return service;
