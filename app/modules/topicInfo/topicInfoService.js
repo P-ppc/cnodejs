@@ -6,7 +6,8 @@ window.APP.factory('TopicInfoService', [
     let service = {},
         infoUrl = 'https://cnodejs.org/api/v1/topic/',
         collectUrl = 'https://cnodejs.org/api/v1/topic_collect/collect',
-        unCollectUrl = 'https://cnodejs.org/api/v1/topic_collect/de_collect';
+        unCollectUrl = 'https://cnodejs.org/api/v1/topic_collect/de_collect',
+        replyUpUrl = 'https://cnodejs.org/api/v1/reply/';
 
     service.getInfo = params => {
         let url = infoUrl + params.id;
@@ -36,6 +37,13 @@ window.APP.factory('TopicInfoService', [
             accesstoken: $rootScope.user.accessToken,
             content: content,
             reply_id: reply_id
+        });
+    };
+
+    service.toggleReplyUp = (reply_id) => {
+        let url = replyUpUrl + reply_id + '/ups';
+        return RequestService.post(url, {
+            accesstoken: $rootScope.user.accessToken
         });
     };
 

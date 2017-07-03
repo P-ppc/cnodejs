@@ -101,18 +101,32 @@
             margin-bottom: 10px;
         }
 
-        .reply-item-info {
+        .reply-item-bottom {
             font-size: 14px;
             color: #acb6b7;
+            position: relative;
             
-            div * {
-                vertical-align: middle;
+            .reply-item-bottom-info {
+                * {
+                    vertical-align: middle;
+                }
+                
+                img {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                }
             }
 
-            img {
-                height: 30px;
-                width: 30px;
-                border-radius: 50%;
+            .reply-item-bottom-actions {
+                position: absolute;
+                right: 10px;
+                bottom: 0;
+                top: 0;
+
+                * {
+                    vertical-align: middle;
+                }
             }
         }
     }

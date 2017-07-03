@@ -61,4 +61,26 @@ window.APP.controller("topicInfoCtrl", [
             $scope.replyBusy = false;
         });
     };
+
+    $scope.toggleReplyUp = (reply) => {
+        let message;
+        TopicInfoService.toggleReplyUp(reply.id).then(resp => {
+            if (reply.is_uped) {
+                message = "取消点赞成功";
+                _.remove(reply.ups, (n) => n == $scope.user.accessToken);
+            } else {
+                message = "点赞成功";
+                reply.ups.push($scope.user.accessToken);
+            }
+            reply.is_uped = !reply.is_uped;
+            MessageService.success(message);
+        }).catch(error => {
+            if (reply.is_uped) {
+                message = "取消点赞失败";
+            } else {
+                message = "点赞失败";
+            }
+            MessageService.error(message);
+        }); 
+    };
 }]);

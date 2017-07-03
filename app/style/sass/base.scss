@@ -121,7 +121,7 @@ a {
         color: #bfcbd9 !important;
         cursor: not-allowed !important;
         background-image: none !important;
-        background-color: #eef1f6 !important;
+        background-color: #eef1f6;
         border-color: #d1dbe5 !important;
         box-shadow: none !important;
     }
@@ -216,6 +216,13 @@ a {
 
     &:active {
         color: #1d90e6;
+    }
+
+    &.normal,
+    &:hover.normal {
+        @extend .btn.disabled;
+        cursor: pointer !important;
+        background-color: transparent !important;
     }
 }
 

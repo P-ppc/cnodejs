@@ -48,14 +48,23 @@
                 <div class="reply-list">
                     <div class="reply-item" ng-repeat="reply in topicInfo.replies">
                         <p class="reply-item-content" ng-bind-html="reply.content | pretty"></p>
-                        <div class="reply-item-info">
-                            <div>
+                        <div class="reply-item-bottom">
+                            <div class="reply-item-bottom-info">
                                 <span>由</span>
                                 <img ng-src="{{reply.author.avatar_url | imgFix}}">
                                 <span>
                                     <span ng-bind="reply.author.loginname"></span>
                                     回复于 <span ng-bind="reply.create_at | fromNow"></span>
                                 </span>
+                            </div>
+                            <div class="reply-item-bottom-actions">
+                                <button class="btn btn-text reply-item-bottom-actions-item"
+                                    ng-class="{normal: !reply.is_uped}"
+                                    ng-click="toggleReplyUp(reply)">
+                                    <i class="fa"
+                                        ng-class="{true: 'fa-thumbs-up', false: 'fa-thumbs-o-up'}[reply.is_uped]"></i>
+                                    <span ng-bind="reply.ups.length"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
