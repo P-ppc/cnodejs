@@ -337,3 +337,53 @@ select {
 .no-shadow {
     box-shadow: none;
 }
+
+[m-hover-popup] {
+    position: relative;
+
+    &:hover::after,
+    &:hover::before {
+        position: absolute;
+        top: 90%;
+    }
+
+    &:hover::after {
+        content: attr(m-hover-popup);
+        padding: 4px 8px;
+        background: rgba(0, 0, 0, .7);
+        border-radius: 2px;
+        line-height: 12px;
+        font-size: 12px;
+        color: #fff;
+    }
+
+    &:hover::before {
+        content: "";
+        transform: translateY(-4px);
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid rgba(0, 0, 0, .7);
+    }
+
+    &.left:hover {
+        &::after {
+            left: 0;
+        }
+
+        &::before {
+            left: 5px;
+        }
+    }
+
+    &.right:hover {
+        &::after {
+            right: 0;
+        }
+
+        &::before {
+            right: 5px;
+        }
+    }
+}
