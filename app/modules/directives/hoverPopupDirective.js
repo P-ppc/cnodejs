@@ -4,7 +4,7 @@ window.APP.directive("mHoverPopup", [
     function isAtLeft ($ele) {
         let bodyWidth = $("body").width();
         let offset = $ele.offset();
-        return (offset <= bodyWidth / 2);
+        return (offset.left <= bodyWidth / 2);
     };
     /* 对于位于Body左侧的指令 添加left类, 右侧的指令 添加right类 */
     return {
