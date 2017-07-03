@@ -341,14 +341,21 @@ select {
 [m-hover-popup] {
     position: relative;
 
-    &:hover::after,
-    &:hover::before {
-        position: absolute;
-        top: 90%;
+    & .after,
+    & .before {
+        display: none;
     }
 
-    &:hover::after {
-        content: attr(m-hover-popup);
+    &:hover .after,
+    &:hover .before {
+        display: block;
+        position: absolute;
+        top: 100%;
+    }
+
+    &:hover .after {
+        // content: attr(m-hover-popup);
+        transform: translateY(4px);
         padding: 4px 8px;
         background: rgba(0, 0, 0, .7);
         border-radius: 2px;
@@ -357,9 +364,8 @@ select {
         color: #fff;
     }
 
-    &:hover::before {
-        content: "";
-        transform: translateY(-4px);
+    &:hover .before {
+        // content: "";
         width: 0;
         height: 0;
         border-left: 4px solid transparent;
@@ -368,21 +374,21 @@ select {
     }
 
     &.left:hover {
-        &::after {
+        & .after {
             left: 0;
         }
 
-        &::before {
+        & .before {
             left: 5px;
         }
     }
 
     &.right:hover {
-        &::after {
+        & .after {
             right: 0;
         }
 
-        &::before {
+        & .before {
             right: 5px;
         }
     }

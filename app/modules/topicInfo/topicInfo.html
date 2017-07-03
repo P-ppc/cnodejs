@@ -61,7 +61,8 @@
                                 <button class="btn btn-text reply-item-bottom-actions-item"
                                     ng-class="{normal: !reply.is_uped}"
                                     ng-click="toggleReplyUp(reply)"
-                                    m-hover-popup="{{reply.is_uped? '取消点赞' : '点赞'}}">
+                                    m-hover-popup="{{reply.is_uped? '取消点赞' : '点赞'}}"
+                                    m-hover-popup-padding-bottom="10px">
                                     <i class="fa"
                                         ng-class="{true: 'fa-thumbs-up', false: 'fa-thumbs-o-up'}[reply.is_uped]"></i>
                                     <span ng-bind="reply.ups.length"></span>
