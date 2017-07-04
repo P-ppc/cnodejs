@@ -344,6 +344,7 @@ select {
     & .after,
     & .before {
         display: none;
+        z-index: 100000;
     }
 
     &:hover .after,

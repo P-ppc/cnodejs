@@ -140,6 +140,38 @@
                 text-align: right;
                 position: relative;
 
+                &::after,
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+
+                    width: 0;
+                    height: 0;
+                }
+
+                &::after {
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid #ccc;
+                    top: 1px;
+                    right: 20px;
+                    z-index: 1000;
+                }
+
+                &.focused::after {
+                    border-bottom-color: #6ac5e6;
+                }
+
+                &::before {
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-bottom: 8px solid #fff;
+                    top: 3px;
+                    right: 22px;
+                    z-index: 1001;
+                }
+
                 textarea {
                     display: block;
                     width: 100%;
@@ -152,6 +184,12 @@
                     border-radius: 2px;
                     outline: none;
                     resize: none;
+                    font-size: 12px;
+
+                    &:hover,
+                    &:focus {
+                        border-color: #6ac5e6;
+                    }
                 }
 
                 .use-markdown {
