@@ -30,10 +30,6 @@
                                     <i class="fa" ng-class="{true: 'fa-star', false: 'fa-star-o'}[topicInfo.is_collect]"></i>
                                     <span ng-bind="{true: '已收藏', false: '收藏'}[topicInfo.is_collect]"></span>
                                 </button>
-                                <!--<span>
-                                    <i class="fa fa-pencil"></i>
-                                    编辑
-                                </span>-->
                             </div>
                         </div>
                     </div>
@@ -56,17 +52,28 @@
                                     <span ng-bind="reply.author.loginname"></span>
                                     回复于 <span ng-bind="reply.create_at | fromNow"></span>
                                 </span>
+                                <div class="reply-item-bottom-actions">
+                                    <button class="btn btn-text reply-item-bottom-actions-item"
+                                        ng-class="{normal: !reply.is_uped}"
+                                        ng-click="toggleReplyUp(reply)"
+                                        m-hover-popup="{{reply.is_uped? '取消点赞' : '点赞'}}"
+                                        m-hover-popup-padding-bottom="10px">
+                                        <i class="fa"
+                                            ng-class="{true: 'fa-thumbs-up', false: 'fa-thumbs-o-up'}[reply.is_uped]"></i>
+                                        <span ng-bind="reply.ups.length"></span>
+                                    </button>
+                                    <button class="btn btn-text btn-small reply-item-bottom-actions-item"
+                                        ng-click="toggleReplyForm(reply)">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <span>回复</span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="reply-item-bottom-actions">
-                                <button class="btn btn-text reply-item-bottom-actions-item"
-                                    ng-class="{normal: !reply.is_uped}"
-                                    ng-click="toggleReplyUp(reply)"
-                                    m-hover-popup="{{reply.is_uped? '取消点赞' : '点赞'}}"
-                                    m-hover-popup-padding-bottom="10px">
-                                    <i class="fa"
-                                        ng-class="{true: 'fa-thumbs-up', false: 'fa-thumbs-o-up'}[reply.is_uped]"></i>
-                                    <span ng-bind="reply.ups.length"></span>
-                                </button>
+                            <div class="reply-item-bottom-form">
+                                <textarea></textarea>
+                                <button class="btn btn-text btn-mini normal">取消</button>
+                                <button class="btn btn-primary btn-mini">提交回复</button>
+                                <button class="btn btn-text btn-mini normal use-markdown">使用MarkDown编辑器</button>
                             </div>
                         </div>
                     </div>

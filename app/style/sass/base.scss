@@ -354,7 +354,6 @@ select {
     }
 
     &:hover .after {
-        // content: attr(m-hover-popup);
         transform: translateY(4px);
         padding: 4px 8px;
         background: rgba(0, 0, 0, .7);
@@ -365,7 +364,6 @@ select {
     }
 
     &:hover .before {
-        // content: "";
         width: 0;
         height: 0;
         border-left: 4px solid transparent;
