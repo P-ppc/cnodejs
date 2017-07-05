@@ -112,4 +112,18 @@ window.APP.controller("topicInfoCtrl", [
             $scope.replyBusy = false;
         });
     };
+
+    /* 使用markdown编辑器 */
+    $scope.useMarkdown = () => {
+        $scope.replyParams.content = '@' + $scope.replyTarget.authorname + ' ';
+        $scope.replyParams.reply_id = $scope.replyTarget.reply_id;
+        $scope.replyTarget = {};
+        $scope.isUseMarkdown = true;
+    };
+
+    $scope.$watch("replyParams.content", (newValue, oldValue) => {
+        if (newValue === '') {
+             $scope.replyParams.reply_id = undefined;
+        }
+    });
 }]);

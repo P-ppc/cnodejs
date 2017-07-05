@@ -80,7 +80,7 @@
                                     m-normal-text="提交回复"
                                     m-loading-text="回复中..."
                                     m-loading-class="btn-loading"></button>
-                                <button class="btn btn-text btn-mini normal use-markdown">使用MarkDown编辑器</button>
+                                <button class="btn btn-text btn-mini normal use-markdown" ng-click="useMarkdown()">使用MarkDown编辑器</button>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="reply-header">
                     <h4>你的回复</h4>
                 </div>
-                <div class="reply-editor" m-editor ng-model="replyParams.content">
+                <div class="reply-editor" m-editor ng-model="replyParams.content" m-autofocus="isUseMarkdown" m-focus-target="textarea.textarea">
                 </div>
                 <div class="reply-bottom">
                     <button class="btn btn-primary" ng-click="reply()"
