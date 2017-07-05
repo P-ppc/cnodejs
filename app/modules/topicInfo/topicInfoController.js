@@ -67,10 +67,10 @@ window.APP.controller("topicInfoCtrl", [
         TopicInfoService.toggleReplyUp(reply.id).then(resp => {
             if (reply.is_uped) {
                 message = "取消点赞成功";
-                _.remove(reply.ups, (n) => n == $scope.user.accessToken);
+                _.remove(reply.ups, (n) => n == $scope.user.id);
             } else {
                 message = "点赞成功";
-                reply.ups.push($scope.user.accessToken);
+                reply.ups.push($scope.user.id);
             }
             reply.is_uped = !reply.is_uped;
             MessageService.success(message);
