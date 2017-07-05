@@ -63,16 +63,23 @@
                                         <span ng-bind="reply.ups.length"></span>
                                     </button>
                                     <button class="btn btn-text btn-small reply-item-bottom-actions-item"
-                                        ng-click="toggleReplyForm(reply)">
+                                        ng-click="toggleReplyForm(reply)"
+                                        ng-class="{normal: replyTarget.reply_id != reply.id}">
                                         <i class="fa fa-envelope-o"></i>
                                         <span>回复</span>
                                     </button>
                                 </div>
                             </div>
-                            <div class="reply-item-bottom-form">
-                                <textarea m-reply-trangle></textarea>
-                                <button class="btn btn-text btn-mini normal">取消</button>
-                                <button class="btn btn-primary btn-mini">提交回复</button>
+                            <div class="reply-item-bottom-form" ng-if="replyTarget.reply_id == reply.id">
+                                <textarea m-reply-trangle ng-model="replyTarget.content" m-autofocus="replyTarget.reply_id == reply.id"></textarea>
+                                <button class="btn btn-text btn-mini normal" ng-click="toggleReplyForm(reply)">取消</button>
+                                <button class="btn btn-primary btn-mini" ng-disabled="!replyTarget.content"
+                                    ng-click="targetReply()"
+                                    m-button-loading
+                                    m-loading="replyBusy"
+                                    m-normal-text="提交回复"
+                                    m-loading-text="回复中..."
+                                    m-loading-class="btn-loading"></button>
                                 <button class="btn btn-text btn-mini normal use-markdown">使用MarkDown编辑器</button>
                             </div>
                         </div>

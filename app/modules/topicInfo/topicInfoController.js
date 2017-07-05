@@ -83,4 +83,33 @@ window.APP.controller("topicInfoCtrl", [
             MessageService.error(message);
         }); 
     };
+
+    $scope.replyTarget = {};
+    /* 切换回复评论表单显示 */
+    $scope.toggleReplyForm = (reply) => {
+        if ($scope.replyTarget.reply_id == reply.id) {
+            $scope.replyTarget = {};
+        } else {
+            $scope.replyTarget.topic_id = topicId;
+            $scope.replyTarget.reply_id = reply.id;
+            $scope.replyTarget.authorname = reply.author.loginname;
+            $scope.replyTarget.content = '@' + reply.author.loginname + ' ';
+        }
+    };
+
+    /* 回复评论  */
+    $scope.targetReply = () => {
+        $scope.replyBusy = true;
+        TopicInfoService.reply($scope.replyTarget.topic_id, $scope.replyTarget.content, $scope.replyTarget.reply_id)
+        .then(resp => {
+            $scope.replyTarget = {};
+            // FIXME: 这里重新获取主题详情，采用更好的方法
+            getTopicInfo();
+            MessageService.success("回复成功");
+        }).catch(error => {
+            MessageService.error("回复失败，请稍后重试");
+        }).finally(() => {
+            $scope.replyBusy = false;
+        });
+    };
 }]);
