@@ -11,7 +11,6 @@ window.APP.run(["$http", "$state", "$rootScope", ($http, $state, $rootScope) => 
         let href = $(this).attr('href') || "";
         if (href.startsWith("/user/")) {
             let loginname = href.replace(/\/user\/(.*)$/, "$1");
-            console.log(loginname);
             $state.go("main.userInfo", {loginname: loginname});
         } else {
             window.shell.openExternal(href);
