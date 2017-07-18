@@ -5,7 +5,9 @@
             <div class="part">
                 <div class="topic-header">
                     <div class="user-avator">
-                        <img ng-src="{{topicInfo.author.avatar_url | imgFix}}">
+                        <a ui-sref="main.userInfo({ loginname: topicInfo.author.loginname })">
+                            <img ng-src="{{topicInfo.author.avatar_url | imgFix}}">
+                        </a>
                     </div>
                     <div class="topic-info">
                         <p class="topic-info-title" ng-bind="topicInfo.title"></p>
@@ -47,7 +49,9 @@
                         <div class="reply-item-bottom">
                             <div class="reply-item-bottom-info">
                                 <span>由</span>
-                                <img ng-src="{{reply.author.avatar_url | imgFix}}">
+                                <a ui-sref="main.userInfo({ loginname: reply.author.loginname })">
+                                    <img ng-src="{{reply.author.avatar_url | imgFix}}">
+                                </a>
                                 <span>
                                     <span ng-bind="reply.author.loginname"></span>
                                     回复于 <span ng-bind="reply.create_at | fromNow"></span>
