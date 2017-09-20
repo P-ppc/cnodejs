@@ -4,11 +4,15 @@
         <div class="panel">
             <div class="part">
                 <div class="topic-header">
-                    <div class="user-avator">
-                        <a ui-sref="main.userInfo({ loginname: topicInfo.author.loginname })">
-                            <img ng-src="{{topicInfo.author.avatar_url | imgFix}}">
-                        </a>
-                    </div>
+                    <m-user-card m-user-name="topicInfo.author.loginname">
+                        <content>
+                                <div class="user-avator">
+                                    <a ui-sref="main.userInfo({ loginname: topicInfo.author.loginname })">
+                                        <img ng-src="{{topicInfo.author.avatar_url | imgFix}}">
+                                    </a>
+                                </div>
+                        </content>
+                    </m-user-card>
                     <div class="topic-info">
                         <p class="topic-info-title" ng-bind="topicInfo.title"></p>
                         <div class="topic-info-state">
@@ -49,11 +53,15 @@
                         <div class="reply-item-bottom">
                             <div class="reply-item-bottom-info">
                                 <span>由</span>
-                                <a ui-sref="main.userInfo({ loginname: reply.author.loginname })">
-                                    <img ng-src="{{reply.author.avatar_url | imgFix}}">
-                                </a>
+                                <m-user-card m-user-name="reply.author.loginname">
+                                    <content>
+                                        <a ui-sref="main.userInfo({ loginname: reply.author.loginname })">
+                                            <img ng-src="{{reply.author.avatar_url | imgFix}}">
+                                            <span ng-bind="reply.author.loginname"></span>
+                                        </a>
+                                    </content>
+                                </m-user-card>
                                 <span>
-                                    <span ng-bind="reply.author.loginname"></span>
                                     回复于 <span ng-bind="reply.create_at | fromNow"></span>
                                 </span>
                                 <div class="reply-item-bottom-actions">

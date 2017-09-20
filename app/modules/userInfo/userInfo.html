@@ -58,9 +58,13 @@
                     <div class="user-tab-content active" ng-show="selectedTab == 'REPLY'">
                         <div class="topic-item flex" ng-repeat="item in userInfo.recent_replies">
                             <div class="left-part">
-                                <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                    <img ng-src="{{item.author.avatar_url | imgFix}}">
-                                </a>
+                                <m-user-card m-user-name="item.author.loginname">
+                                    <content>
+                                        <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                            <img ng-src="{{item.author.avatar_url | imgFix}}">
+                                        </a>
+                                    </content>
+                                </m-user-card>
                             </div>
                             <div class="right-part">
                                 <p class="title">
@@ -80,9 +84,13 @@
                         <div class="message-item" ng-repeat="item in userInfo.unReadMessages">
                             <div class="user-info">
                                 <div class="left-part">
-                                    <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                        <img ng-src="{{item.author.avatar_url | imgFix}}">
-                                    </a>
+                                    <m-user-card m-user-name="item.author.loginname">
+                                        <content>
+                                            <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                                <img ng-src="{{item.author.avatar_url | imgFix}}">
+                                            </a>
+                                        </content>
+                                    </m-user-card>
                                 </div>
                                 <div class="right-part">
                                     <p class="user-name" ng-bind="item.author.loginname"></p>
@@ -105,9 +113,13 @@
                         <div class="message-item" ng-repeat="item in userInfo.hasReadMessages">
                             <div class="user-info">
                                 <div class="left-part">
-                                    <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
-                                        <img ng-src="{{item.author.avatar_url | imgFix}}">
-                                    </a>
+                                    <m-user-card m-user-name="item.author.loginname">
+                                        <content>
+                                            <a ui-sref="main.userInfo({ loginname: item.author.loginname })">
+                                                <img ng-src="{{item.author.avatar_url | imgFix}}">
+                                            </a>
+                                        </content>
+                                    </m-user-card>
                                 </div>
                                 <div class="right-part">
                                     <p class="user-name" ng-bind="item.author.loginname"></p>

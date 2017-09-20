@@ -38,8 +38,6 @@ window.APP.controller("topicInfoCtrl", [
         });
     };
 
-   
-
     $scope.replyParams = {
         topic_id: topicId,
         content: '',

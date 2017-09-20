@@ -9,17 +9,6 @@
             <span class="tab-item" ng-class="{selected: topicList.tab == 'dev'}" ng-click="topicList.changeTab('dev')">测试</span>
             <span class="tab-item" ng-class="{selected: topicList.tab == 'collect'}" ng-click="topicList.changeTab('collect')">收藏夹</span>
         </div>
-        <!--<div class="options">
-            <span class="option-item">
-                <i class="fa fa-angle-left"></i>
-            </span>
-            <span class="option-item">
-                <i class="fa fa-angle-right"></i>
-            </span>
-            <span class="option-item" style="font-size: 17px;">
-                <i class="fa fa-circle-o-notch"></i>
-            </span>
-        </div>-->
     </div>
     <div class="content" id="topicListContent">
         <div class="panel">
@@ -30,9 +19,13 @@
                 infinite-scroll-container="'#topicListContent'">
                 <div class="item" ng-repeat="topic in topicList.items">
                     <div class="item-left-part">
-                        <a ui-sref="main.userInfo({ loginname: topic.author.loginname })">
-                            <img ng-src="{{topic.author.avatar_url | imgFix}}">
-                        </a>
+                        <m-user-card m-user-name="topic.author.loginname">
+                            <content>
+                                    <a ui-sref="main.userInfo({ loginname: topic.author.loginname })">
+                                        <img ng-src="{{topic.author.avatar_url | imgFix}}">
+                                    </a>
+                            </content>
+                        </m-user-card>
                     </div>
                     <div class="item-right-part">
                         <p class="title"><a ui-sref="main.topicInfo({topicId: topic.id})" ng-bind="topic.title"></a></p>
