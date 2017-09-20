@@ -6,7 +6,7 @@ window.shell = require("electron").shell;
 window.APP = angular.module("APP", ["ui.router", "ngSanitize", "infinite-scroll", "ngAnimate"]);
 window.APP.run(["$http", "$state", "$rootScope", ($http, $state, $rootScope) => {
     /* markdown内部的链接在浏览器中打开 */
-    $(document).on("click", ".markdown-text a", function () {
+    $(document).on("click", ".markdown-text a, a[target=_blank]", function () {
         event.preventDefault();
         let href = $(this).attr('href') || "";
         if (href.startsWith("/user/")) {
