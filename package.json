@@ -2,9 +2,10 @@
   "name": "cnodejs",
   "version": "1.0.0",
   "description": "基于electron的cnodejs社区桌面客户端",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron index.js",
+    "build:mac": "electron-packager ./ cnodejs --platform=darwin --arch=x64 --icon=icon.icns --overwrite --out ./dist/$npm_package_version --version=0.37.8 --ignore='(.github|.git|.DS_Store|TODOS.md|imgPreview|node_modules)'"
   },
   "devDependencies": {
     "electron-packager": "^7.0.3",
