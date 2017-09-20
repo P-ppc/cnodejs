@@ -2,79 +2,78 @@
 <html lang="en" ng-app="APP">
 <head>
     <meta charset="UTF-8">
-    <title>CNODEJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" type="text/css" href="lib/bower_components/font-awesome/css/font-awesome.min.css">
     
+    <link rel="stylesheet" type="text/css" href="style/css/message.css">
+
     <link rel="stylesheet" type="text/css" href="style/css/base.css">
+    <link rel="stylesheet" type="text/css" href="style/css/login.css">
     <link rel="stylesheet" type="text/css" href="style/css/main.css">
     <link rel="stylesheet" type="text/css" href="style/css/topic.css">
     <link rel="stylesheet" type="text/css" href="style/css/markdown.css">
     <link rel="stylesheet" type="text/css" href="style/css/user.css">
+    <link rel="stylesheet" type="text/css" href="style/css/userCard.css">
 
     <link rel="stylesheet" type="text/css" href="lib/mditor/css/mditor.min.css">
     <link rel="stylesheet" type="text/css" href="style/css/editor.css">
     <link rel="stylesheet" type="text/css" href="lib/code-prettify/prettify.css">
-    <!-- temp style -->
-    <style type="text/css">
-        html {
-            height: 100%;
-            background: #fff;
-        }
-        body {
-            width: 600px;
-            height: 100%;
-            background: #dde6ed;
-            margin: 0 auto;
-        }
-    </style>
+
+    <title>CNODE</title>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo">
-            <img src="https://avatars.githubusercontent.com/u/13051135?v=3&s=120">
-        </div>
-        <ul class="menu-list">
-            <li class="menu-item">
-                <i class="fa fa-home"></i>
-            </li>
-            <li class="menu-item">
-                <i class="fa fa-plus"></i>
-            </li>
-            <li class="menu-item">
-                <i class="fa fa-star-o"></i>
-            </li>
-        </ul>
-        <div class="setting">
-            <i class="fa fa-gear"></i>
-        </div>
-    </div>
-    <div ng-view class="container"></div>
-    
+    <ui-view style="height: 100%; width: 100%;">
+        Loading...
+    </ui-view>
+</body>
+<script type="text/javascript" src="../menu.js"></script>
 <script type="text/javascript" src="lib/bower_components/lodash/dist/lodash.min.js"></script>
-
 <script type="text/javascript" src="lib/bower_components/moment/min/moment-with-locales.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
-<script type="text/javascript" src="lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-
-<script type="text/javascript" src="lib/mditor/js/mditor.min.js"></script>
+<script>
+    window.$ = window.jQuery = require("./lib/bower_components/jquery/dist/jquery.min.js");
+</script>
+<!-- have fix some bug of mditor in it's src -->
+<script type="text/javascript" src="lib/mditor/js/mditor.js"></script>
 <script type="text/javascript" src="lib/code-prettify/prettify.js"></script>
 
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/config/route.js"></script>
-<script type="text/javascript" src="js/config/constant.js"></script>
-<script type="text/javascript" src="js/config/filters.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-animate/angular-animate.min.js"></script>
 
-<script type="text/javascript" src="js/services/topicService.js"></script>
-<script type="text/javascript" src="js/controllers/topicController.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 
-<script type="text/javascript" src="js/controllers/userController.js"></script>
-</body>
-<script>
-    // localStorage.setItem("test", "test");
-    window.location = "#/user";
-</script>
+<script type="text/javascript" src="modules/common/requestService.js"></script>
+
+<script type="text/javascript" src="modules/common/editor/editorDirective.js"></script>
+
+<script type="text/javascript" src="modules/common/message/messageDirective.js"></script>
+<script type="text/javascript" src="modules/common/message/messageService.js"></script>
+
+<script type="text/javascript" src="modules/directives/loadingButtonDirective.js"></script>
+<script type="text/javascript" src="modules/directives/hoverPopupDirective.js"></script>
+<script type="text/javascript" src="modules/directives/replyTrangleDirective.js"></script>
+<script type="text/javascript" src="modules/directives/autofocusDirective.js"></script>
+
+<script type="text/javascript" src="modules/userCard/userCardDirective.js"></script>
+
+<script type="text/javascript" src="modules/auth/authService.js"></script>
+<script type="text/javascript" src="modules/auth/authController.js"></script>
+
+<script type="text/javascript" src="modules/main/mainController.js"></script>
+
+<script type="text/javascript" src="modules/topicList/topicListService.js"></script>
+<script type="text/javascript" src="modules/topicList/topicListController.js"></script>
+
+<script type="text/javascript" src="modules/topicInfo/topicInfoService.js"></script>
+<script type="text/javascript" src="modules/topicInfo/topicInfoController.js"></script>
+
+<script type="text/javascript" src="modules/topicEdit/topicEditService.js"></script>
+<script type="text/javascript" src="modules/topicEdit/topicEditController.js"></script>
+
+<script type="text/javascript" src="modules/userInfo/userInfoService.js"></script>
+<script type="text/javascript" src="modules/userInfo/userInfoController.js"></script>
 </html>

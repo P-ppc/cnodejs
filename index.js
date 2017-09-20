@@ -13,8 +13,7 @@ function createWindow () {
         resizable: false
     });
 
-    // win.loadURL(`file://${__dirname}/app/login.html`);
-    win.loadURL(`file://${__dirname}/app/init.html`);
+    win.loadURL(`file://${__dirname}/app/index.html`);
 
     win.on("closed", () => {
         win = null;
@@ -22,8 +21,6 @@ function createWindow () {
 
     ipc.on("login-success", () => {
         win.setSize(600, 780, true);
-        // win.loadURL(`file://${__dirname}/app/index.html`);
-        // win.loadURL(`file://${__dirname}/app/login.html`);
     });
 
     ipc.on("logout", () => {
