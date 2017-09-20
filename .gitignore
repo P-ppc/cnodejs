@@ -6,6 +6,7 @@ src/style/*.css
 bower_components
 TODOS.md
 node_modules
+package-lock.json
 dist/*
 !dist/.gitkeep
 *.map
