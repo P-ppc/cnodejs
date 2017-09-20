@@ -1,0 +1,34 @@
+<div class="user-card-container">
+    <div ng-transclude="content"></div>
+    <div class="user-card">
+        <div class="user-card-header">
+            <div class="img-container">
+                <img ng-src="{{ userInfo.avatar_url | imgFix }}">
+            </div>
+            <div class="user-card-header-desc">
+                <p class="title" ng-bind="userInfo.loginname"></p>
+                <p class="sub-title">
+                    <i class="fa fa-github"></i>
+                    @<span ng-bind="userInfo.loginname"></span>
+                </p>
+            </div>
+        </div>
+        <ul class="user-card-content">
+            <li>
+                <p class="value" ng-bind="userInfo.recent_topics.length"></p>
+                <p class="desc">最近创建</p>
+            </li>
+            <li>
+                <p class="value" ng-bind="userInfo.recent_replies.length">5</p>
+                <p class="desc">最近回复</p>
+            </li>
+            <li>
+                <p class="value" ng-bind="userInfo.score"></p>
+                <p class="desc">积分</p>
+            </li>
+        </ul>
+        <div class="user-card-footer">
+            <button class="btn btn-text btn-small" ui-sref="main.userInfo({ loginname: userInfo.loginname })">查看更多信息</button>
+        </div>
+    </div>
+</div>
