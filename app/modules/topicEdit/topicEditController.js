@@ -37,7 +37,7 @@ window.APP.controller("topicEditCtrl", [
 
     $scope.disableSubmit = () => {
         let params = $scope.params;
-        return !($scope.enable && !!params.content && !!params.title && !!params.tab);
+        return !($scope.enable && !!params.content && !!params.title && !!params.tab && params.title.length > 10 && params.title.length < 100);
     };
 
     $scope.submit = () => {
