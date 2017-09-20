@@ -1,5 +1,6 @@
 .user-card-container {
     position: relative;
+    display: inline-block;
     border-radius: 4px;
     .user-card {
         display: none;
@@ -29,9 +30,9 @@
         width: 60px;
 
         > img {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
+            height: 100% !important;
+            width: 100% !important;
+            border-radius: 50% !important;
         }
     }
 
@@ -39,6 +40,7 @@
         margin-left: 80px;
         padding-top: 10px;
         margin-bottom: 8px;
+        text-align: left;
 
         .title {
             color: #364149;
